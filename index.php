@@ -10,12 +10,13 @@
 	<body>
 		<div id="wrapper">
 			<div id="logo">
+				<img src="pictures/logo.jpg" alt="Very cool Logo">
 			</div>
 			<ul id="navigation">
-				<li><a>Comic</a> </li>
-				<li><a>Über mich</a>	</li>
-				<li><a>Merchandise</a>	</li>
-				<li><a>Kontakt</a>	</li>
+				<li><a href="index.php">Comic</a> </li>
+				<li><a href="index.php">&Uuml;ber mich</a>	</li>
+				<li><a href="index.php">Merchandise</a>	</li>
+				<li><a href="index.php">Kontakt</a>	</li>
 			</ul>
 			
 			<div id="content">
@@ -26,7 +27,7 @@
 					<li><a href="index.php?nächster_Strip"> <img src="pictures/singleArrowRight.png" alt="Go to next strip"></a>	</li>
 					<li><a href="index.php?neuester_Strip"> <img src="pictures/doubleArrowRight.png" alt="Go to latest strip"></a>	</li>
 				</ul>
-				<img id="Comicbild"	>
+				<img id="comicPicture" src="pictures/tapir.jpg" alt="Tapir!">
 				<ul class="comic_navigation">
 					<li><a href="index.php?ältester_Strip"> <img src="pictures/doubleArrowLeft.png" alt="Go to oldest strip"> </a>	</li>
 					<li><a href="index.php?voriger_Strip"> <img src="pictures/singleArrowLeft.png" alt="Go to previous strip"></a>	</li>
