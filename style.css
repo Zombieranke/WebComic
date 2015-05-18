@@ -1,0 +1,89 @@
+
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+html
+{
+	width: 100%;
+}
+
+#wrapper
+{
+	display: block;
+    height: 1200x;
+    width: 99%;
+    margin-right: 20%;
+    margin-left: 20%;
+}
+
+#navigation li
+{
+    display: inline;
+    margin-left: 2%;
+    margin-right: 2%;
+    list-style-type: none;
+    text-align: center;
+}
+
+#navigation
+{
+    width: 99%;
+    height: 50px;
+    margin: auto;
+    font-family: "Comic Sans MS";
+}
+
+#navigation a:link, #navigation a:visited
+{
+	font-size: 30px;
+	color: #000000;
+}
+
+
+#navigation a:hover, #navigation a:active
+{
+	font-size: 35px;
+	color: #FF0000;
+}
+
+.comic_navigation
+{
+	display: block;
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-top: 13px;
+    height: 70px;
+    width: 99%;
+    list-style-type: none;
+}
+
+.comic_navigation img
+{
+	height: 64px;
+	width: 64px;
+}
+
+.comic_navigation li
+{
+	display: inline;
+	margin-left: 2%;
+    margin-right: 2%;
+    width: 99%;
+}
+
+#content
+{
+	height: 800px;
+    width: 99%;
+    margin-left: 10%;
+    margin-right: 10%;
+    display: block;
+}
+
+#comicPicture
+{
+	height: 600px;
+	width: 800px;
+}
