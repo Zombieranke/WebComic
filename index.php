@@ -9,7 +9,7 @@
 	
 	<body>
 		<div id="wrapper">
-			<div id="logo">
+			<div class="logo">
 				<img src="pictures/logo.jpg" alt="Very cool Logo">
 			</div>
 			<ul id="navigation">
