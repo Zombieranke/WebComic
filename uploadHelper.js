@@ -1,17 +1,23 @@
-function addUpload()
+function addUpload(oldnode)
 {
+	oldnode.setAttribute("onChange","");
+	
 	var node = document.createElement("fieldset");
 	node.setAttribute("class", "addedField");
 	
 	var input = document.createElement("input");
 	input.setAttribute("type","file");
 	input.setAttribute("name","upload[]");
-	input.setAttribute("onChange","addUpload()");
+	input.setAttribute("onChange","addUpload(this)");
 	node.appendChild(input);
 	
-	var input = document.createElement("input");
+	input = document.createElement("input");
 	input.setAttribute("type","text");
 	input.setAttribute("name","releaseDate[]");
+	node.appendChild(input);
+	
+	input = document.createElement("textarea");
+	input.setAttribute("name","annotation[]");
 	node.appendChild(input);
 	
 	/*var input = document.createElement("input");
@@ -22,9 +28,9 @@ function addUpload()
 	
 	var form = document.getElementById("uploadForm");
 	
-	var btn = document.getElementById("resetButton");
+	var sel = document.getElementById("comicSelection");
 	
-	form.insertBefore(node,btn);
+	form.insertBefore(node,sel);
 
 }
 
