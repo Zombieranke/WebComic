@@ -42,8 +42,20 @@
 					}
 					elseif(move_uploaded_file($_FILES["upload"]['tmp_name'][$i], $newFilePath))
 					{
+						if(!is_numeric($_POST['webcomic']))
+						{
+							unlink($newFilePath);
+							echo '<p class="uploadStatus">File '.$extension.' could not be linked with webcomic</p>';
+						}
+						$annotation =filter_var($_POST['annotation'][$i], FILTER_SANITIZE_STRING);
+						$releaseDate = $_POST['releaseDate'][$i];
+						if(empty($releaseDate) )
+						{
+							$releaseDate = date('Y-m-d G:i:s');
+						}
+						
 						$stmt = $connection->prepare("INSERT INTO strips (name,datei,bemerkung,veröffentlichungsdatum,fk_webcomic_id) VALUES (?,?,?,?,?)");
-						$stmt->bind_param("ssssi", $realName, $newFilePath,$_POST['annotation'][$i],$_POST['releaseDate'][$i],$_POST['webcomic']);
+						$stmt->bind_param("ssssi", $realName, $newFilePath,$annotation,$releaseDate,$_POST['webcomic']);
 						$stmt->execute();
 						
 						$stmt->free_result();
@@ -56,6 +68,7 @@
 					
 				}
 			}
+			$connection->close();
 			
 		}
 	}
@@ -87,6 +100,8 @@
 		$stmt->free_result();
 		$stmt->close();
 		
+		$connection->close();
+		
 		return $webcomics;
 	}
 	
@@ -95,12 +110,15 @@
 <form id="uploadForm" action="uploadModule.php" method="POST" enctype="multipart/form-data" onReset="purgeForm()">
 	<fieldset>
 		<input type="file" name="upload[]" onChange="addUpload(this)"/>
-		<label>Ver&ouml;ffentlichungsdatum:
-			<input type="datetime-local" name="releaseDate[]" placeholder="YYYY-MM-DD HH:DD:SS"/>
+		<label>
+			Ver&ouml;ffentlichungsdatum:
 		</label>
-		<label>Kommentar:
-			<textarea name="annotation[]"></textarea>
+		<input type="datetime-local" name="releaseDate[]" placeholder="YYYY-MM-DD HH:DD:SS"/>
+		<label>
+			Kommentar:
 		</label>
+		<textarea name="annotation[]"></textarea>
+		
 	</fieldset>
 	<select name="webcomic" id="comicSelection">
 		<?php 

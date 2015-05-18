@@ -21,21 +21,9 @@
 			</ul>
 			
 			<div id="content">
-				<ul class="comic_navigation">
-					<li><a href="index.php?ältester_Strip"> <img src="pictures/doubleArrowLeft.png" alt="Go to oldest strip"> </a>	</li>
-					<li><a href="index.php?voriger_Strip"> <img src="pictures/singleArrowLeft.png" alt="Go to previous strip"></a>	</li>
-					<li><a href="index.php?zufälliger_Strip"> <img src="pictures/doubleArrowLeft.png" alt="Go to random strip"></a>	</li>
-					<li><a href="index.php?nächster_Strip"> <img src="pictures/singleArrowRight.png" alt="Go to next strip"></a>	</li>
-					<li><a href="index.php?neuester_Strip"> <img src="pictures/doubleArrowRight.png" alt="Go to latest strip"></a>	</li>
-				</ul>
-				<img id="comicPicture" src="pictures/tapir.jpg" alt="Tapir!">
-				<ul class="comic_navigation">
-					<li><a href="index.php?ältester_Strip"> <img src="pictures/doubleArrowLeft.png" alt="Go to oldest strip"> </a>	</li>
-					<li><a href="index.php?voriger_Strip"> <img src="pictures/singleArrowLeft.png" alt="Go to previous strip"></a>	</li>
-					<li><a href="index.php?zufälliger_Strip"> <img src="pictures/doubleArrowLeft.png" alt="Go to random strip"></a>	</li>
-					<li><a href="index.php?nächster_Strip"> <img src="pictures/singleArrowRight.png" alt="Go to next strip"></a>	</li>
-					<li><a href="index.php?neuester_Strip"> <img src="pictures/doubleArrowRight.png" alt="Go to latest strip"></a>	</li>
-				</ul>
+				<?php 		
+					include('comicNavigation.php');
+				?>
 			</div>
 		</div>
 	</body>

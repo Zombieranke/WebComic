@@ -11,9 +11,20 @@ function addUpload(oldnode)
 	input.setAttribute("onChange","addUpload(this)");
 	node.appendChild(input);
 	
+	input = document.createElement("label");
+	var text = document.createTextNode("Veröffentlichungsdatum:");
+	input.appendChild(text);
+	node.appendChild(input);
+	
 	input = document.createElement("input");
 	input.setAttribute("type","text");
 	input.setAttribute("name","releaseDate[]");
+	input.setAttribute("placeholder","YYYY-MM-DD HH:DD:SS");
+	node.appendChild(input);
+	
+	input = document.createElement("label");
+	text = document.createTextNode("Kommentar:");
+	input.appendChild(text);
 	node.appendChild(input);
 	
 	input = document.createElement("textarea");

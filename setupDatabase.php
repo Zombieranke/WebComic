@@ -85,7 +85,7 @@
 			email VARCHAR(256) NOT NULL,
 			avatar VARCHAR(256),
 			permaban BOOLEAN NOT NULL,
-			timestamp DATETIME,
+			timestamp TIMESTAMP,
 			sperrflag BOOLEAN NOT NULL
 		)"
 	);
@@ -109,7 +109,7 @@
 			name VARCHAR(256),
 			bemerkung VARCHAR(512),
 			datei VARCHAR(256) NOT NULL,
-			veröffentlichungsdatum DATETIME,
+			veröffentlichungsdatum TIMESTAMP,
 			fk_webcomic_id INT(11),
 			FOREIGN KEY(fk_webcomic_id) REFERENCES webcomic(webcomic_id)
 		)"
