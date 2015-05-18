@@ -50,7 +50,8 @@
 				
 				
 			?>
-			<div id="activeApplication"></div>
-				
+		</div>
+	</body>
+</html>
 				
 			
