@@ -52,6 +52,7 @@
 						if(empty($releaseDate) )
 						{
 							$releaseDate = date('Y-m-d G:i:s');
+							sleep(1);
 						}
 						
 						$stmt = $connection->prepare("INSERT INTO strips (name,datei,bemerkung,veröffentlichungsdatum,fk_webcomic_id) VALUES (?,?,?,?,?)");
