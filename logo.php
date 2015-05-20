@@ -1,8 +1,5 @@
 <?php		
-		//Beginning only
-		
-
-		$fileupload = $picture;
+	function upload_logo($fileupload){
 		$dir = "./logos/";
 		
 		if($fileupload['type'] == "image/gif" || $fileupload['type'] == "image/png" || $fileupload['type'] == "image/jpeg"){
@@ -48,7 +45,10 @@
 		if($im != NULL){
 			imagedestroy($im);
 		}
+	}
 		
+	function store_logo($fileupload){
+		$dir = "./logos/";
 		
 		define("includeConnDetails", TRUE);
 		require_once("connDetails.php");
@@ -62,4 +62,5 @@
 		
 		$result->free();
 		$mydbobject->close();
+	}
 ?>
