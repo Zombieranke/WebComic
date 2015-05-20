@@ -44,13 +44,10 @@
 					{
 						include "profileApplication.php";
 					}	
-						
-				}
 					
-			
+				}
 			
 		?>
-		<div id="activeApplication"></div>
 	</div>
 </body>
 				
