@@ -15,36 +15,6 @@
 		else{
 			echo "<script>alert('Fehler beim Upload');</script>";
 		}
-		
-		$im = NULL;
-		
-		if($type == "image/png"){
-			$im = imagecreatefrompng($dir.$fileupload['name']);
-		}
-		else if($type == "image/jpeg"){
-			$im = imagecreatefromjpeg($dir.$fileupload['name']);
-		}
-		else if($type == "image/gif"){
-			$im = imagecreatefromgif($dir.$fileupload['name']);
-		}
-		
-		if($im != NULL){
-			$im = imagescale($im, 200 , -1, IMG_BILINEAR_FIXED); //Bildgröße noch ändern
-		}
-		
-		if($type == "image/png"){
-				imagepng($im, $dir.$fileupload['name']);
-			}
-			else if($type == "image/jpeg"){
-				imagejpeg($im, $dir.$fileupload['name']);
-			}
-			else if($type == "image/gif"){
-				imagegif($im, $dir.$fileupload['name']);
-		}
-		
-		if($im != NULL){
-			imagedestroy($im);
-		}
 	}
 		
 	function store_logo($fileupload){
