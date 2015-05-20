@@ -34,7 +34,7 @@
 					}
 					else if(strcasecmp($_GET['selection'], "uploadStrip"))
 					{
-						include "uploadApplication.php";
+						include "uploadModule.php";
 					}
 					else if(strcasecmp($_GET['selection'], "editStrip"))
 					{

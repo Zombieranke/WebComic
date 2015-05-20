@@ -17,7 +17,7 @@
 			die("Database connection failed: ".$connection->connect_error);
 		}
 		
-		$stmt = $connection->prepare("SELECT datei FROM strips WHERE strip_id= ?");
+		$stmt = $connection->prepare("SELECT datei FROM strips WHERE strip_id= ? AND veröffentlichungsdatum < CURRENT_TIMESTAMP");
 		$stmt->bind_param("i", $id);
 		$stmt->execute();
 		$stmt->bind_result($file);
@@ -44,7 +44,7 @@
 			die("Database connection failed: ".$connection->connect_error);
 		}
 		
-		$stmt = $connection->prepare("SELECT strip_id FROM strips WHERE veröffentlichungsdatum > (SELECT veröffentlichungsdatum FROM strips WHERE strip_id = ?) ORDER BY veröffentlichungsdatum DESC LIMIT 1");
+		$stmt = $connection->prepare("SELECT strip_id FROM strips WHERE veröffentlichungsdatum > (SELECT veröffentlichungsdatum FROM strips WHERE strip_id = ?) AND veröffentlichungsdatum < CURRENT_TIMESTAMP ORDER BY veröffentlichungsdatum ASC LIMIT 1");
 		$stmt->bind_param("i", $id);
 		$stmt->execute();
 		$stmt->bind_result($resId);
@@ -71,7 +71,7 @@
 			die("Database connection failed: ".$connection->connect_error);
 		}
 		
-		$stmt = $connection->prepare("SELECT strip_id FROM strips WHERE veröffentlichungsdatum < (SELECT veröffentlichungsdatum FROM strips WHERE strip_id = ?) ORDER BY veröffentlichungsdatum ASC LIMIT 1");
+		$stmt = $connection->prepare("SELECT strip_id FROM strips WHERE veröffentlichungsdatum < (SELECT veröffentlichungsdatum FROM strips WHERE strip_id = ?) AND veröffentlichungsdatum < CURRENT_TIMESTAMP ORDER BY veröffentlichungsdatum DESC LIMIT 1");
 		$stmt->bind_param("i", $id);
 		$stmt->execute();
 		$stmt->bind_result($resId);
@@ -93,7 +93,7 @@
 			die("Database connection failed: ".$connection->connect_error);
 		}
 		
-		$stmt = $connection->prepare("SELECT strip_id FROM strips ORDER BY veröffentlichungsdatum ASC LIMIT 1");
+		$stmt = $connection->prepare("SELECT strip_id FROM strips WHERE veröffentlichungsdatum < CURRENT_TIMESTAMP ORDER BY veröffentlichungsdatum ASC LIMIT 1");
 		$stmt->execute();
 		$stmt->bind_result($resId);
 		$stmt->fetch();
@@ -114,7 +114,7 @@
 			die("Database connection failed: ".$connection->connect_error);
 		}
 		
-		$stmt = $connection->prepare("SELECT strip_id FROM strips ORDER BY veröffentlichungsdatum DESC LIMIT 1");
+		$stmt = $connection->prepare("SELECT strip_id FROM strips WHERE veröffentlichungsdatum < CURRENT_TIMESTAMP ORDER BY veröffentlichungsdatum DESC LIMIT 1");
 		$stmt->execute();
 		$stmt->bind_result($resId);
 		$stmt->fetch();
@@ -135,7 +135,7 @@
 			die("Database connection failed: ".$connection->connect_error);
 		}
 		
-		$stmt = $connection->prepare("SELECT strip_id FROM strips ORDER BY RAND() ASC LIMIT 1");
+		$stmt = $connection->prepare("SELECT strip_id FROM strips WHERE veröffentlichungsdatum < CURRENT_TIMESTAMP ORDER BY RAND() ASC LIMIT 1");
 		$stmt->execute();
 		$stmt->bind_result($resId);
 		$stmt->fetch();
