@@ -93,3 +93,103 @@ html
 	height: 300px;
 	width: 300px;
 }
+
+#loginForm
+{
+	color: #4433ee;
+	fontsize: 20px;
+	margintop: 10%;
+	marginleft: 10%;
+	padding: 1%;
+	width: 400px;
+	fontfamily: Arial, Helvetica, sansserif;
+	fontweight: bold;
+}
+
+#loginForm a:visited,#loginForm a:link
+{
+	textdecoration: none;
+	color: #ee7711;
+}
+
+#loginForm a:hover,#loginForm a:active
+{
+	textdecoration: underline;
+	color: #ee7711;
+}
+
+#loginForm fieldset
+{
+	bordercolor: #3366dd;
+	borderwidth: 3px;
+	borderradius: 40px;
+	backgroundcolor: rgba(0,0,0,0.3);
+	borderstyle: solid;
+}
+
+.loginIcon
+{
+	display: inline;
+	float: left;
+	margintop: 10px;
+	marginright: 0px;
+	marginleft: 55px;
+	height: 50px;
+	width: 50px;
+	background: RGB(130,130,130);
+	border: solid 5px RGB(130,130,130);
+	bordertopleftradius: 5px;
+	borderbottomleftradius: 5px;
+}
+
+.loginIcon img
+{
+	margin: 0px 5px 5px 5px;
+}
+
+#loginForm input[type=text],#loginForm input[type=password]
+{
+	float: left;
+	marginleft: 0px;
+	margintop: 10px;
+	lineheight: 50px;
+	textalign: left;
+	width: 200px;
+	background: RGB(200,200,200);
+	paddingleft: 5%;
+	border: solid 5px RGB(130,130,130);
+	bordertoprightradius: 5px;
+	borderbottomrightradius: 5px;
+	fontsize: 25px;
+}
+
+#loginButton
+{
+	float: left;
+	margin: 10px 0px 10px 55px;
+	width: 280px;
+	height: 40px;
+	border: 5px RGB(255,0,221);
+	borderradius: 5px;
+	background: #3366dd;
+	fontfamily: Arial, Helvetica, sansserif;
+	fontweight: bold;
+	color: #e8c14b;
+	fontsize: 25px;
+}
+
+#loginButton:hover
+{
+	float: left;
+	margin: 10px 0px 10px 55px;
+	width: 280px;
+	height: 40px;
+	border: 5px RGB(255,0,221);
+	borderradius: 5px;
+	background: #5b82dd;
+	fontfamily: Arial, Helvetica, sansserif;
+	fontweight: bold;
+	color: #e8c14b;
+	fontsize: 25px;
+	cursor: pointer;
+}
