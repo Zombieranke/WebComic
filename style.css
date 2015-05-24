@@ -9,11 +9,11 @@ html
 	width: 100%;
 }
 
-#wrapper
+.wrapper
 {
 	display: block;
     height: 1200x;
-    width: 99%;
+    width: 60%;
     margin-right: 20%;
     margin-left: 20%;
 }
@@ -76,7 +76,7 @@ html
 #content
 {
 	height: 800px;
-    width: 99%;
+    width: 80%;
     margin-left: 10%;
     margin-right: 10%;
     display: block;
@@ -98,48 +98,48 @@ html
 {
 	color: #4433ee;
 	fontsize: 20px;
-	margintop: 10%;
-	marginleft: 10%;
+	margin-top: 10%;
+	margin-left: 25%;
 	padding: 1%;
 	width: 400px;
-	fontfamily: Arial, Helvetica, sansserif;
-	fontweight: bold;
+	font-family: Arial, Helvetica, sansserif;
+	font-weight: bold;
 }
 
 #loginForm a:visited,#loginForm a:link
 {
-	textdecoration: none;
+	text-decoration: none;
 	color: #ee7711;
 }
 
 #loginForm a:hover,#loginForm a:active
 {
-	textdecoration: underline;
+	text-decoration: underline;
 	color: #ee7711;
 }
 
 #loginForm fieldset
 {
-	bordercolor: #3366dd;
-	borderwidth: 3px;
-	borderradius: 40px;
-	backgroundcolor: rgba(0,0,0,0.3);
-	borderstyle: solid;
+	border-color: #3366dd;
+	border-width: 3px;
+	border-radius: 40px;
+	background-color: rgba(0,0,0,0.3);
+	border-style: solid;
 }
 
 .loginIcon
 {
 	display: inline;
 	float: left;
-	margintop: 10px;
-	marginright: 0px;
-	marginleft: 55px;
+	margin-top: 10px;
+	margin-right: 0px;
+	margin-left: 55px;
 	height: 50px;
 	width: 50px;
 	background: RGB(130,130,130);
 	border: solid 5px RGB(130,130,130);
-	bordertopleftradius: 5px;
-	borderbottomleftradius: 5px;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
 }
 
 .loginIcon img
@@ -150,17 +150,17 @@ html
 #loginForm input[type=text],#loginForm input[type=password]
 {
 	float: left;
-	marginleft: 0px;
-	margintop: 10px;
-	lineheight: 50px;
-	textalign: left;
+	margin-left: 0px;
+	margin-top: 10px;
+	line-height: 50px;
+	text-align: left;
 	width: 200px;
 	background: RGB(200,200,200);
-	paddingleft: 5%;
+	padding-left: 5%;
 	border: solid 5px RGB(130,130,130);
-	bordertoprightradius: 5px;
-	borderbottomrightradius: 5px;
-	fontsize: 25px;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+	font-size: 25px;
 }
 
 #loginButton
@@ -170,12 +170,12 @@ html
 	width: 280px;
 	height: 40px;
 	border: 5px RGB(255,0,221);
-	borderradius: 5px;
+	border-radius: 5px;
 	background: #3366dd;
-	fontfamily: Arial, Helvetica, sansserif;
-	fontweight: bold;
+	font-family: Arial, Helvetica, sansserif;
+	font-weight: bold;
 	color: #e8c14b;
-	fontsize: 25px;
+	font-size: 25px;
 }
 
 #loginButton:hover
@@ -185,11 +185,62 @@ html
 	width: 280px;
 	height: 40px;
 	border: 5px RGB(255,0,221);
-	borderradius: 5px;
+	border-radius: 5px;
 	background: #5b82dd;
-	fontfamily: Arial, Helvetica, sansserif;
-	fontweight: bold;
+	font-family: Arial, Helvetica, sansserif;
+	font-weight: bold;
 	color: #e8c14b;
-	fontsize: 25px;
+	font-size: 25px;
 	cursor: pointer;
+}
+
+#options
+{
+	width: 100%;
+	margin-top: 5%;
+}
+
+#optionsListDiv
+{
+	display: block;
+	float: left;
+    margin-left: 2%;
+    margin-right: 2%;
+    width: 40%;
+    height: 40%;
+    list-style-type: none;
+}
+
+#optionsListDiv li
+{
+	text-decoration: none;
+	display: block;
+    margin: 2%;
+    width: 96%;
+    list-style-type: none;
+}
+
+#optionsListDiv li a:visited,#optionsListDiv a:link
+{
+	text-decoration: none;
+	font-family: Arial;
+	font-weight: bold;
+	color: #3366dd
+}
+	
+#optionsListDiv li a:hover,#optionsListDiv a:active
+{
+	text-decoration: none;
+	font-family: Arial;
+	font-weight: bold;
+	color: #4bb2ee;
+}
+
+#activeApplication
+{
+	display: block;
+	float: left;
+    margin-left: 2%;
+    margin-right: 2%;
+    width: 40%;
 }

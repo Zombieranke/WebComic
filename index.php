@@ -9,7 +9,7 @@
 	</head>
 	
 	<body>
-		<div id="wrapper">
+		<div class="wrapper">
 			<div class="logo">
 				<img src="pictures/logo.jpg" alt="Very cool Logo">
 			</div>
