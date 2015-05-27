@@ -27,18 +27,25 @@
 		
 		$strips = getStrips();
 		echo "<h1> Edit your Strips </h1>";
-		foreach($strips as $strip)
+		if($strips)
 		{
-			echo "<div class=\"strip\">";
-			echo "<h2>".$strip['name']."</h2>";
-			echo "<img class=\"editThumbs\" src=\"".$strip['file']."\"/>";
-			echo "<p>Ver&ouml;ffentlichungsdatum: ".$strip['date']."</p>";
-			echo "<form action=\"".htmlspecialchars($_SERVER['PHP_SELF'])."\" method=\"POST\">";
-			echo "<button type=\"submit\" name=\"delete\" value=\"".$strip['id']."\">Delete this strip</button>";
-			echo "</form>";
-			echo "</div>";
+			foreach($strips as $strip)
+			{
+				echo "<div class=\"strip\">";
+				echo "<h2>".$strip['name']."</h2>";
+				echo "<img class=\"editThumbs\" src=\"".$strip['file']."\"/>";
+				echo "<p>Ver&ouml;ffentlichungsdatum: ".$strip['date']."</p>";
+				echo "<form action=\"".htmlspecialchars($_SERVER['PHP_SELF']).'?selection='.$_GET['selection']."\" method=\"POST\">";
+				echo "<button type=\"submit\" name=\"delete\" value=\"".$strip['id']."\">Delete this strip</button>";
+				echo "</form>";
+				echo "</div>";
+			}
 		}
-		
+		else
+		{
+			echo "<p>Keinen Comicstrip gefunden</p>";
+		}
+			
 		
 		
 		

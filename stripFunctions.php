@@ -204,7 +204,14 @@
 		$stmt->close();
 		$connection->close();
 		
-		return $result;
+		if(!empty($result))
+		{
+			return $result;
+		}
+		else
+		{
+			return false;
+		}
 	}
 	
 	function deleteStrip($id)
@@ -239,5 +246,37 @@
 		{
 			echo "<p>Could not find strip to delete</p>";
 		}
+	}
+	
+	function getWebcomics()
+	{
+		require('connDetails.php');
+	
+		$connection = new mysqli($database['dbServer'],$database['dbUser'],$database['dbPassword'],$database['dbName']);
+	
+		if($connection->errno != 0)
+		{
+			die("Database connection failed: ".$connection->connect_error);
+		}
+	
+		$stmt = $connection->prepare("SELECT titel, webcomic_id FROM webcomic");
+		$stmt->execute();
+		$stmt->bind_result($title,$id);
+	
+		$i=0;
+	
+		while($stmt->fetch())
+		{
+			$webcomics[$i]['title']=$title;
+			$webcomics[$i]['id']=$id;
+			$i++;
+		}
+	
+		$stmt->free_result();
+		$stmt->close();
+	
+		$connection->close();
+	
+		return $webcomics;
 	}
 ?>

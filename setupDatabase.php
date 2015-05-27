@@ -57,6 +57,7 @@
 		(
 			webcomic_id INT(11) AUTO_INCREMENT PRIMARY KEY,
 			logo VARCHAR(256),
+			css VARCHAR(256)
 			titel VARCHAR(256),
 			fk_admin_id INT(11),
 			FOREIGN KEY(fk_admin_id) REFERENCES admin(admin_id)

@@ -244,3 +244,15 @@ html
     margin-right: 2%;
     width: 40%;
 }
+
+#checkMark
+{
+	width: 20px;
+	height : 20px;
+}
+
+#checkMark img
+{
+	width: 20px;
+	height : 20px;
+}

@@ -1,3 +1,7 @@
+<?php 
+	session_start();
+	require_once ('authHandler.php');
+?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -17,39 +21,27 @@
 			<?php 
 					if(!isset($_SESSION['username']) && isset($_POST['username']) && $_POST['password'])
 					{
-						authenticate_user($_POST['username'],$_POST['password']);
-					}
-					if(isset($_COOKIE['username']) || isset($_SESSION['username']))
-					{
-						include("options.php");
-						if(isset($_COOKIE['username']) && !isset($_SESSION['username']))
+						if(authorizeAdmin($_POST['username'],$_POST['password']))
 						{
-							$_SESSION['username'] = $_COOKIE['username'];
+							$_SESSION['username'] = $_POST['username'];
+							$_SESSION['permLevel'] = ADMIN;
+						}
+					}
+					if(isset($_SESSION['username']) && isset($_SESSION['permLevel']))
+					{
+						if(isAuthorized(ADMIN))
+						{
+							include("options.php");
+						}
+						else
+						{
+							echo "<p class=\"permError\">Unzureichende Befugnisse</p>";
 						}
 					}
 					else
 					{
 						include("login.php");
-					}
-					
-					
-					function authenticate_user($user,$password)
-					{
-						if (database_login($user,$password))
-						{
-							login_user($user);
-						}
-					}
-					
-					function login_user($username)
-					{
-						if(isset($_POST['stillAlive']))
-						{
-							setcookie("username","".$username,time()+13371337);
-						}
-						$_SESSION['username'] = $username;
-					}
-			
+					}	
 				?>
 		</div>
 	</body>
