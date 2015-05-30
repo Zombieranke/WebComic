@@ -59,6 +59,10 @@
 				$comicNavigation .= "</li>";
 				$hasPrevious = true;
 			}
+			else
+			{
+				$comicNavigation .=	"<li class=\"blank\"> <img src=\"pictures/blank.png\" alt=\"placeholder\"> </li>";
+			}
 			
 			if(!empty($previousId))
 			{
@@ -70,6 +74,11 @@
 				$comicNavigation .=		"</a>";
 				$comicNavigation .= "</li>";
 			}
+			else
+			{
+				$comicNavigation .=	"<li class=\"blank\"> <img src=\"pictures/blank.png\" alt=\"placeholder\"> </li>";
+			}
+			
 			if(!empty($randomId))
 			{
 				$comicNavigation .=	"<li class=\"navRandom\">";
@@ -90,6 +99,11 @@
 				$comicNavigation .=		"</a>";
 				$comicNavigation .= "</li>";
 			}
+			else
+			{
+				$comicNavigation .=	"<li class=\"blank\"> <img src=\"pictures/blank.png\" alt=\"placeholder\"> </li>";
+			}
+			
 			if($latestId!=$curId)
 			{
 				$comicNavigation .=	"<li class=\"navLatest\">";
@@ -100,6 +114,10 @@
 				$comicNavigation .=		"</a>";
 				$comicNavigation .= "</li>";
 				$hasNext = true;
+			}
+			else
+			{
+				$comicNavigation .=	"<li class=\"blank\"> <img src=\"pictures/blank.png\" alt=\"placeholder\"> </li>";
 			}
 			$comicNavigation .= "</ul>";
 			

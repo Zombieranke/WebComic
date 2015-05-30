@@ -11,7 +11,9 @@
 	<body>
 		<div class="wrapper">
 			<div class="logo">
-				<img src="pictures/logo.jpg" alt="Very cool Logo">
+				<a href="index.php">
+					<img src="pictures/logo.jpg" alt="Very cool Logo">
+				</a>
 			</div>
 			<ul id="navigation">
 				<li><a href="index.php">Comic</a> </li>
