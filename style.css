@@ -252,17 +252,6 @@ html
     height: 400px;
 }
 
-#checkMark
-{
-	width: 20px;
-	height : 20px;
-}
-
-#checkMark img
-{
-	width: 20px;
-	height : 20px;
-}
 
 #activeApplication fieldset
 {
@@ -270,21 +259,43 @@ html
 	padding-top: 0;
 }
 
+#newPassForm p
+{
+	height: 35px;
+}
+
 .newPass
 {
 	margin-left: 1%;
 	margin-top: 1%;
+	margin-bottom: 1%;
 	line-height: 25px;
 	text-align: left;
-	width: 250px;
+	width: 300px;
 	background: RGB(200,200,200);
-	padding-left: 3%;
+	padding-left: 2.5%;
 	border: solid 2px RGB(130,130,130);
 	border-radius: 5px;
 	font-size: 20px;
 }
 
+#checkMark img
+{
+	display: inline;
+	width: 25px;
+	height: 25px;
+}
+
 #checkMark
 {
-	float: left;
+	display: inline;
+	width: 25px;
+	height: 25px;
+}
+
+#newPassSubmit
+{
+	margin-left: 1%;
+	margin-top: 1%;
+	margin-bottom: 1%;
 }
