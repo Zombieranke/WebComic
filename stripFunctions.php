@@ -301,12 +301,47 @@
 			die("Database connection failed: ".$connection->connect_error);
 		}
 		
-		$stmt = $connection->prepare("CREATE commentstrip { fk_user_id = ".$userId."; fk_strip_id = ".$stripId."; comment =");
+		if(isAuthorized(ADMIN))
+		{
+			$adminflag = true;
+		}
+		else
+		{
+			$adminflag = false;
+		}
+		
+		$stmt = $connection->prepare("INSERT INTO commentstrip (fk_user_id, fk_strip_id, comment, adminflag) VALUES ( \'".$userId."\', \'".$stripId."\', \'".$text."\', \'".$adminflag."\')");
 		$stmt->execute();
+		
+		$stmt->close();
+		$connection->close();
 	}
 	
-
-
+	
+	function getComments($stripId)
+	{
+		require('connDetails.php');
+		
+		$connection = new mysqli($database['dbServer'],$database['dbUser'],$database['dbPassword'],$database['dbName']);
+		
+		if($connection->errno != 0)
+		{
+			die("Database connection failed: ".$connection->connect_error);
+		}
+		
+		$stmt = $connection->prepare("SELECT comment, timestamp, adminflag (fk_user_id, fk_strip_id, comment, adminflag) VALUES ( \'".$userId."\', \'".$stripId."\', \'".$text."\', \'".$adminflag."\')");
+		$stmt->execute();
+		
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	

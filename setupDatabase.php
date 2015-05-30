@@ -33,7 +33,8 @@
 			admin_id INT(11) AUTO_INCREMENT PRIMARY KEY,
 			username VARCHAR(256) UNIQUE NOT NULL,
 			password VARCHAR(256) NOT NULL,
-			email VARCHAR(256)
+			email VARCHAR(256),
+			avatar VARCHAR(256)
 		)"
 	);
 	

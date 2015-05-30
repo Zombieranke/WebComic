@@ -76,7 +76,7 @@
 				$comicNavigation .=		"<a href=\"index.php?id=";
 				$comicNavigation .= 	$randomId;
 				$comicNavigation .= 	"\">";
-				$comicNavigation .=			"<img src=\"pictures/doubleArrowLeft.png\" alt=\"Go to random strip\">";
+				$comicNavigation .=			"<img src=\"pictures/random.png\" alt=\"Go to random strip\">";
 				$comicNavigation .=		"</a>";
 				$comicNavigation .= "</li>";
 			}
@@ -139,23 +139,27 @@
 			
 			if(isAuthorized(ADMIN) || isAuthorized(USER))
 			{
-				echo "<form action=\"".htmlspecialchars($_SERVER['PHP_SELF'])."?id=".$$curId."\" method=\"POST\" id=\"commentForm\">";
-				echo	"<fieldset>";
-				echo		"<input type=\"text\" name=\"comment\" placeholder=\"Write your comment here\"/>";
-				echo	"</fieldset>";
-				echo "</form>";
+				$commentForm  = "<form action=\"".htmlspecialchars($_SERVER['PHP_SELF'])."?id=".$$curId."\" method=\"POST\" id=\"commentForm\">";
+				$commentForm .=		"<fieldset>";
+				$commentForm .=			"<input type=\"text\" name=\"comment\" placeholder=\"Write your comment here\"/>";
+				$commentForm .=		"</fieldset>";
+				$commentForm .=	 "</form>";
+				
+				echo $commentForm;
 			}
+			
+			$commentArray = getComments($curId);
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
 		}
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 	}
 	
 	
