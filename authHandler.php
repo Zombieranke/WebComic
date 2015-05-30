@@ -10,7 +10,14 @@
 
 	function isAuthorized($reqPermLevel)
 	{
-		return $_SESSION['permLevel']>=$reqPermLevel;
+		if(isset($_SESSION['permLevel']))
+		{
+			return $_SESSION['permLevel']>=$reqPermLevel;
+		}
+		else
+		{
+			return $_SESSION['permLevel'] == ANON ? TRUE : FALSE;
+		}
 	}
 
 	function authorizeAdmin($username,$password)

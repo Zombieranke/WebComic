@@ -51,23 +51,26 @@
 							unlink($newFilePath);
 							echo '<p class="uploadStatus">File '.$extension.' could not be linked with webcomic</p>';
 						}
-						$annotation =filter_var($_POST['annotation'][$i], FILTER_SANITIZE_STRING);
-						$releaseDate = $_POST['releaseDate'][$i];
-						if(empty($releaseDate) )
+						else
 						{
-							$releaseDate = date('Y-m-d G:i:s');
-							sleep(1);
+							$annotation =filter_var($_POST['annotation'][$i], FILTER_SANITIZE_STRING);
+							$releaseDate = $_POST['releaseDate'][$i];
+							if(empty($releaseDate) )
+							{
+								$releaseDate = date('Y-m-d G:i:s');
+								sleep(1);
+							}
+							
+							$stmt = $connection->prepare("INSERT INTO strip (name,data,annotation,releasedate,fk_webcomic_id) VALUES (?,?,?,?,?)");
+							$stmt->bind_param("ssssi", $realName, $newFilePath,$annotation,$releaseDate,$_POST['webcomic']);
+							$stmt->execute();
+							
+							$stmt->free_result();
+							$stmt->close();
+							
+							
+							echo '<p class="uploadStatus">Upload of '.$realName.' completed</p>';
 						}
-						
-						$stmt = $connection->prepare("INSERT INTO strip (name,data,annotation,releasedate,fk_webcomic_id) VALUES (?,?,?,?,?)");
-						$stmt->bind_param("ssssi", $realName, $newFilePath,$annotation,$releaseDate,$_POST['webcomic']);
-						$stmt->execute();
-						
-						$stmt->free_result();
-						$stmt->close();
-						
-						
-						echo '<p class="uploadStatus">Upload of '.$realName.' completed</p>';
 					}
 					
 					
