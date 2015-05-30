@@ -24,7 +24,7 @@
 			die("Database connection failed: ".$connection->connect_error);
 		}
 		
-		$stmt = $connection->prepare("SELECT password FROM admin WHERE username=?");
+		$stmt = $connection->prepare("SELECT password FROM user WHERE username=? AND adminflag=true");
 		$stmt->bind_param('s', $username);
 	
 		$stmt->execute();
@@ -72,7 +72,7 @@
 				die("Database connection failed: ".$connection->connect_error);
 			}
 			
-			$stmt = $connection->prepare("UPDATE admin SET password =? WHERE username=?");
+			$stmt = $connection->prepare("UPDATE user SET password =? WHERE username=?");
 			$stmt->bind_param('ss', $newpass, $username);
 			
 			$stmt->execute();
