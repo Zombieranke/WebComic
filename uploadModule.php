@@ -83,11 +83,11 @@
 		<fieldset>
 			<input type="file" name="upload[]" onChange="addUpload(this)"/>
 			<label>
-				Ver&ouml;ffentlichungsdatum:
+				Release Date:
 			</label>
 			<input type="datetime-local" name="releaseDate[]" placeholder="YYYY-MM-DD HH:DD:SS"/>
 			<label>
-				Kommentar:
+				Annotation:
 			</label>
 			<textarea name="annotation[]"></textarea>
 			

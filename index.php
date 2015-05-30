@@ -15,9 +15,9 @@
 			</div>
 			<ul id="navigation">
 				<li><a href="index.php">Comic</a> </li>
-				<li><a href="index.php">&Uuml;ber mich</a>	</li>
+				<li><a href="index.php">About me</a> </li>
 				<li><a href="index.php">Merchandise</a>	</li>
-				<li><a href="index.php">Kontakt</a>	</li>
+				<li><a href="index.php">Contact</a>	</li>
 			</ul>
 			
 			<div id="content">
