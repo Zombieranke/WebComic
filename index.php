@@ -18,8 +18,8 @@
 			<ul id="navigation">
 				<li><a href="index.php">Comic</a> </li>
 				<li><a href="index.php">About me</a> </li>
-				<li><a href="index.php">Merchandise</a>	</li>
 				<li><a href="index.php">Contact</a>	</li>
+				<li><a href="index.php">Login</a> </li>
 			</ul>
 			
 			<div id="content">
