@@ -156,7 +156,11 @@
 			
 			for($i=0; $i<20; $i++)
 			{
-				echo createDiv($commentArray[$i]);
+				if(!empty($commentArray[$i]['username']))
+				{
+					echo createDiv($commentArray[$i]['username'],$commentArray[$i]['avatar'],$commentArray[$i]['timestamp'],$commentArray[$i]['comment'],$commentArray[$i]['adminflag']);
+				}
+				
 			}
 			
 			

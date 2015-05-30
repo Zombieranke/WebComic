@@ -335,7 +335,8 @@
 		$stmt->bind_result($username,$avatar,$comment,$timestamp,$adminflag);
 	
 		$i=0;
-	
+		$commentArray = array();
+		
 		while($stmt->fetch())
 		{
 			$commentArray[$i]['username'] = $username;
@@ -352,7 +353,7 @@
 	
 	
 	
-	function createDiv($commentProperties)
+	function createDiv($username, $avatar, $timestamp, $comment, $adminflag)
 	{
 		$outputString  = "<div class=\"comment\">";
 		$outputString .=	"<p class=\"commentHeader\">";
@@ -362,17 +363,18 @@
 		
 		if($commentProperties['adminflag'])
 		{
-		$outputString .=	"<p class=\"commentContent\" class=\"adminComment\">";
+			$outputString .=	"<p class=\"commentContent\" class=\"adminComment\">";
 		}
 		else
 		{
-		$outputString .=	"<p class=\"commentContent\">";
+			$outputString .=	"<p class=\"commentContent\">";
 		}
 		$outputString .=		$commentProperties['comment'];
 		$outputString .=	"</p>";
 		$outputString .= "</div>";
 		
 		return $outputString;
+		
 	}
 	
 	
