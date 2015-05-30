@@ -301,7 +301,7 @@
 			die("Database connection failed: ".$connection->connect_error);
 		}
 		
-		$stmt = $connection->prepare("CREATE commentstrip { fk_user_id = ".$userId."; fk_strip_id = ".$stripId."; ");
+		$stmt = $connection->prepare("CREATE commentstrip { fk_user_id = ".$userId."; fk_strip_id = ".$stripId.";  ");
 		$stmt->execute();
 	}
 	
