@@ -153,7 +153,7 @@
 	$addAdminStmt = $connection->prepare
 	(
 		"INSERT INTO user (username,password,email,adminflag,suspendflag)
-		 VALUES (\'admin\',\'".password_hash("admin", PASSWORD_BCRYPT)."\',\'admin@admin.admin\',\'true\',\'false\')"
+		 VALUES (\"admin\",\"".password_hash("admin", PASSWORD_BCRYPT)."\",\"admin@admin.admin\",TRUE,FALSE)"
 	);
 	
 	$addAdminStmt->execute();
