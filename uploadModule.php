@@ -59,7 +59,7 @@
 							sleep(1);
 						}
 						
-						$stmt = $connection->prepare("INSERT INTO strips (name,data,annotation,releasedate,fk_webcomic_id) VALUES (?,?,?,?,?)");
+						$stmt = $connection->prepare("INSERT INTO strip (name,data,annotation,releasedate,fk_webcomic_id) VALUES (?,?,?,?,?)");
 						$stmt->bind_param("ssssi", $realName, $newFilePath,$annotation,$releaseDate,$_POST['webcomic']);
 						$stmt->execute();
 						

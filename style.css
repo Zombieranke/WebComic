@@ -211,9 +211,9 @@ html
 	float: left;
     margin-left: 2%;
     margin-right: 2%;
-    width: 40%;
-    height: 40%;
-    list-style-type: none;
+    width: 30%;
+    border: 3px solid RGB(111,155,255);
+	border-radius: 5px;
 }
 
 #optionsListDiv li
@@ -223,6 +223,7 @@ html
     margin: 2%;
     width: 96%;
     list-style-type: none;
+    font-size: 23px;
 }
 
 #optionsListDiv li a:visited,#optionsListDiv a:link
@@ -247,7 +248,8 @@ html
 	float: left;
     margin-left: 2%;
     margin-right: 2%;
-    width: 40%;
+    width: 60%;
+    height: 400px;
 }
 
 #checkMark

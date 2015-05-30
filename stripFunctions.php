@@ -73,7 +73,7 @@
 			die("Database connection failed: ".$connection->connect_error);
 		}
 	
-		$stmt = $connection->prepare("SELECT strip_id FROM strip WHERE releasedate > (SELECT releasedate FROM strips WHERE strip_id = ?) AND releasedate < CURRENT_TIMESTAMP ORDER BY releasedate ASC LIMIT 1");
+		$stmt = $connection->prepare("SELECT strip_id FROM strip WHERE releasedate > (SELECT releasedate FROM strip WHERE strip_id = ?) AND releasedate < CURRENT_TIMESTAMP ORDER BY releasedate ASC LIMIT 1");
 		$stmt->bind_param("i", $id);
 		$stmt->execute();
 		$stmt->bind_result($resId);

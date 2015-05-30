@@ -60,7 +60,7 @@
 			webcomic_id INT(11) AUTO_INCREMENT PRIMARY KEY,
 			logo VARCHAR(256),
 			css VARCHAR(256),
-			titel VARCHAR(256),
+			title VARCHAR(256),
 			fk_user_id INT(11),
 			FOREIGN KEY(fk_user_id) REFERENCES user(user_id)
 		)"
@@ -165,6 +165,21 @@
 	
 	$addAdminStmt->free_result();
 	$addAdminStmt->close();
+	
+	$addWebComicStmt = $connection->prepare
+	(
+		"INSERT INTO webcomic (title) VALUES (\"Webcomic\");"
+	);
+	
+	$addWebComicStmt->execute();
+	
+	if($addWebComicStmt->errno != 0)
+	{
+		die("Adding Webcomic has failed: ".$addWebComicStmt->error);
+	}
+	
+	$addWebComicStmt->free_result();
+	$addWebComicStmt->close();
 	
 	$connection->close();
 ?>
