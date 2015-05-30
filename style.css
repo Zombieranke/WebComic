@@ -18,11 +18,16 @@ html
     margin-left: 20%;
 }
 
+.logo img
+{
+	width: 100%;
+}
+
 #navigation li
 {
     display: inline;
-    margin-left: 2%;
-    margin-right: 2%;
+    margin-left: 4%;
+    margin-right: 4%;
     list-style-type: none;
     text-align: center;
 }
@@ -44,7 +49,7 @@ html
 
 #navigation a:hover, #navigation a:active
 {
-	font-size: 35px;
+	font-size: 32px;
 	color: #FF0000;
 }
 

@@ -149,5 +149,22 @@
 	$commentStripCreateStmt->free_result();
 	$commentStripCreateStmt->close();
 	
+	
+	$addAdminStmt = $connection->prepare
+	(
+		"INSERT INTO user (username,password,email,adminflag,suspendflag)
+		 VALUES (\'admin\',\'".password_hash("admin", PASSWORD_BCRYPT)."\',\'admin@admin.admin\',\'true\',\'false\')"
+	);
+	
+	$addAdminStmt->execute();
+	
+	if($addAdminStmt->errno != 0)
+	{
+		die("Adding admin has failed: ".$addAdminStmt->error);
+	}
+	
+	$addAdminStmt->free_result();
+	$addAdminStmt->close();
+	
 	$connection->close();
 ?>
