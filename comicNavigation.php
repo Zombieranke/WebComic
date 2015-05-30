@@ -95,7 +95,7 @@
 				$comicNavigation .=		"<a href=\"index.php?id=";
 				$comicNavigation .= 	$nextId;
 				$comicNavigation .= 	"\">";
-				$comicNavigation .=			"<img src=\"pictures/singleArrowRight.png\" alt=\"Go to next strip\"";
+				$comicNavigation .=			"<img src=\"pictures/singleArrowRight.png\" alt=\"Go to next strip\">";
 				$comicNavigation .=		"</a>";
 				$comicNavigation .= "</li>";
 			}
@@ -154,6 +154,29 @@
 				echo "<button type=\"submit\" name=\"delete\" value=\"".$curId."\">Delete this strip</button>";
 				echo "</form>";
 			}
+			
+			echo '<script type="text/javascript">
+					body = document.getElementsByTagName("body")[0];
+					body.addEventListener("keyup",function(e){navigate(e)});
+			
+					
+					function navigate(event)
+					{
+
+						switch(event.keyCode)
+						{
+						case 37:';
+							echo empty($previousId) ? '' : 'location.search="id='.$previousId.'";';
+							echo 'break; 
+						case 39:';
+							echo empty($nextId) ? '' : 'location.search="id='.$nextId.'";';
+							echo 'break;
+						default:
+							break;
+						}
+					}
+					
+					</script>';
 			
 			if(isAuthorized(ADMIN) || isAuthorized(USER))
 			{
