@@ -54,7 +54,7 @@
 				$comicNavigation .=		"<a href=\"index.php?id=";
 				$comicNavigation .= 	$firstId;
 				$comicNavigation .= 	"\">";
-				$comicNavigation .=			"<img src=\"pictures/doubleArrowLeft.png\" alt=\"Go to oldest strip\">"; 
+				$comicNavigation .=			"<img src=\"pictures/greenArrows/doubleArrowLeft.png\" alt=\"Go to oldest strip\">"; 
 				$comicNavigation .=		"</a>";
 				$comicNavigation .= "</li>";
 				$hasPrevious = true;
@@ -70,7 +70,7 @@
 				$comicNavigation .=		"<a href=\"index.php?id=";
 				$comicNavigation .= 	$previousId;
 				$comicNavigation .= 	"\">";
-				$comicNavigation .=			"<img src=\"pictures/singleArrowLeft.png\" alt=\"Go to previous strip\">";
+				$comicNavigation .=			"<img src=\"pictures/greenArrows/singleArrowLeft.png\" alt=\"Go to previous strip\">";
 				$comicNavigation .=		"</a>";
 				$comicNavigation .= "</li>";
 			}
@@ -95,7 +95,7 @@
 				$comicNavigation .=		"<a href=\"index.php?id=";
 				$comicNavigation .= 	$nextId;
 				$comicNavigation .= 	"\">";
-				$comicNavigation .=			"<img src=\"pictures/singleArrowRight.png\" alt=\"Go to next strip\">";
+				$comicNavigation .=			"<img src=\"pictures/greenArrows/singleArrowRight.png\" alt=\"Go to next strip\">";
 				$comicNavigation .=		"</a>";
 				$comicNavigation .= "</li>";
 			}
@@ -110,7 +110,7 @@
 				$comicNavigation .=		"<a href=\"index.php?id=";
 				$comicNavigation .= 	$latestId;
 				$comicNavigation .= 	"\">";
-				$comicNavigation .=			"<img src=\"pictures/doubleArrowRight.png\" alt=\"Go to latest strip\">";
+				$comicNavigation .=			"<img src=\"pictures/greenArrows/doubleArrowRight.png\" alt=\"Go to latest strip\">";
 				$comicNavigation .=		"</a>";
 				$comicNavigation .= "</li>";
 				$hasNext = true;
