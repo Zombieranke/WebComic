@@ -46,7 +46,7 @@
 			die("Database connection failed: ".$connection->connect_error);
 		}
 	
-		$stmt = $connection->prepare("SELECT data FROM strips WHERE strip_id= ?");
+		$stmt = $connection->prepare("SELECT data FROM strip WHERE strip_id= ?");
 		$stmt->bind_param("i", $id);
 		$stmt->execute();
 		$stmt->bind_result($file);
@@ -73,7 +73,7 @@
 			die("Database connection failed: ".$connection->connect_error);
 		}
 	
-		$stmt = $connection->prepare("SELECT strip_id FROM strips WHERE releasedate > (SELECT releasedate FROM strips WHERE strip_id = ?) AND releasedate < CURRENT_TIMESTAMP ORDER BY releasedate ASC LIMIT 1");
+		$stmt = $connection->prepare("SELECT strip_id FROM strip WHERE releasedate > (SELECT releasedate FROM strips WHERE strip_id = ?) AND releasedate < CURRENT_TIMESTAMP ORDER BY releasedate ASC LIMIT 1");
 		$stmt->bind_param("i", $id);
 		$stmt->execute();
 		$stmt->bind_result($resId);
@@ -310,7 +310,7 @@
 			$adminflag = false;
 		}
 		
-		$stmt = $connection->prepare("INSERT INTO commentstrip (fk_user_id, fk_strip_id, comment, adminflag) VALUES ( \'".$userId."\', \'".$stripId."\', \'".$text."\', \'".$adminflag."\')");
+		$stmt = $connection->prepare("INSERT INTO commentstrip (fk_user_id, fk_strip_id, comment, adminflag) VALUES ( \"".$userId."\", \"".$stripId."\", \"".$text."\", ".$adminflag.")");
 		$stmt->execute();
 		
 		$stmt->close();
@@ -318,7 +318,7 @@
 	}
 	
 	
-	function getComments($stripId)
+	function getComments($stripId,$offset)
 	{
 		require('connDetails.php');
 		
@@ -329,21 +329,51 @@
 			die("Database connection failed: ".$connection->connect_error);
 		}
 		
-		$stmt = $connection->prepare("SELECT username, avatar, comment, timestamp, adminflag FROM comment LEFT JOIN user ON comment.fk_user_id = user.user_id ORDER BY timestamp ASC");
+		$stmt = $connection->prepare("SELECT username, avatar, comment, timestamp, adminflag FROM comment LEFT JOIN user ON comment.fk_user_id = user.user_id ORDER BY timestamp ASC LIMIT ".$offset.",20 ");
 		$stmt->execute();
 		
-		$array = array();
-		
-		while($row = mysql_fetch_assoc($stmt))
+		$stmt->bind_result($username,$avatar,$comment,$timestamp,$adminflag);
+	
+		$i=0;
+	
+		while($stmt->fetch())
 		{
-  			 $array[] = $row;
+			$commentArray[$i]['username'] = $username;
+			$commentArray[$i]['avatar'] = $avatar;
+			$commentArray[$i]['comment'] = $comment;
+			$commentArray[$i]['timestamp'] = $timestamp;
+			$commentArray[$i]['adminflag'] = $adminflag;
+			$i++;
 		}
 		
+		return $commentArray;
 		
 	}
 	
 	
 	
+	function createDiv($commentProperties)
+	{
+		$outputString  = "<div class=\"comment\">";
+		$outputString .=	"<p class=\"commentHeader\">";
+		$outputString .=		$commentProperties['timestamp']."</br>";
+		$outputString .=		"<b>".$commentProperties['username']." wrote: ";
+		$outputString .=	"</p>";
+		
+		if($commentProperties['adminflag'])
+		{
+		$outputString .=	"<p class=\"commentContent\" class=\"adminComment\">";
+		}
+		else
+		{
+		$outputString .=	"<p class=\"commentContent\">";
+		}
+		$outputString .=		$commentProperties['comment'];
+		$outputString .=	"</p>";
+		$outputString .= "</div>";
+		
+		return $outputString;
+	}
 	
 	
 	

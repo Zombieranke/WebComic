@@ -148,17 +148,19 @@
 				echo $commentForm;
 			}
 			
-			$commentArray = getComments($curId);
+			$offset = 0;
+			
+			$commentArray = getComments($curId,$offset);
+			
+			$i = 0;
+			
+			for($i=0; $i<20; $i++)
+			{
+				echo createDiv($commentArray[$i]);
+			}
 			
 			
-			
-			
-			
-			
-			
-			
-			
-			
+
 		}
 	}
 	
