@@ -135,7 +135,7 @@
 			timestamp TIMESTAMP NOT NULL,
 			PRIMARY KEY(fk_strip_id,fk_user_id),
 			FOREIGN KEY(fk_strip_id) REFERENCES strip(strip_id),
-			FOREIGN KEY(fk_user_id) REFERENCES user(user_id),
+			FOREIGN KEY(fk_user_id) REFERENCES user(user_id)
 		)"
 	);
 	
