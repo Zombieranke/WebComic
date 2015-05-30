@@ -36,14 +36,15 @@
 				}
 					
 				</script>
-				<div id="checkMark"></div>
+				
 				<form id="uploadForm" action="'.htmlspecialchars($_SERVER['PHP_SELF']).'?selection='.$_GET['selection'].'" method="POST" onsubmit="return confirmPass();">
 					<fieldset>
-						<input id="newPass" type="password" name="newPass" placeholder="Neues Passwort" onInput="confirmPass()"/>
-						<input id="newPassConfirm" type="password" name="newPassConfirm" placeholder="Best&auml;tige neues Passwort" onInput="confirmPass()"/>
-						<input type="password" name="oldPass" placeholder="Gib altes Passwort ein"/>
+						<input class="newPass" type="password" name="newPass" placeholder="New password" onInput="confirmPass()"/> </br>
+						<input class="newPass" type="password" name="newPassConfirm" placeholder="Confirm new password" onInput="confirmPass()"/> 
+						<div id="checkMark"></div> </br>
+						<input class="newPass" type="password" name="oldPass" placeholder="Enter your old password here"/> </br>
+						<input id="newPassSubmit" type="submit" name="changeAdminPass" value="Change Password" />
 					</fieldset>
-					<input id="submitButton" type="submit" name="changeAdminPass" value="Change Password" />
 				</form>';
 	}
 ?>
