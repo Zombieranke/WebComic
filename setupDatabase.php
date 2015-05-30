@@ -87,7 +87,7 @@
 			avatar VARCHAR(256),
 			permaban BOOLEAN NOT NULL,
 			timestamp TIMESTAMP,
-			sperrflag BOOLEAN NOT NULL
+			suspendflag BOOLEAN NOT NULL
 		)"
 	);
 	
@@ -102,76 +102,76 @@
 	$userCreateStmt->close();
 	
 	
-	$stripsCreateStmt = $connection->prepare
+	$stripCreateStmt = $connection->prepare
 	(
-		"CREATE TABLE IF NOT EXISTS strips
+		"CREATE TABLE IF NOT EXISTS strip
 		(
 			strip_id INT(11) AUTO_INCREMENT PRIMARY KEY,
 			name VARCHAR(256),
-			bemerkung VARCHAR(512),
-			datei VARCHAR(256) NOT NULL,
-			veröffentlichungsdatum TIMESTAMP,
+			annotation VARCHAR(512),
+			data VARCHAR(256) NOT NULL,
+			releasedate TIMESTAMP,
 			fk_webcomic_id INT(11),
 			FOREIGN KEY(fk_webcomic_id) REFERENCES webcomic(webcomic_id)
 		)"
 	);
 	
-	$stripsCreateStmt->execute();
+	$stripCreateStmt->execute();
 	
-	if($stripsCreateStmt->errno != 0)
+	if($stripCreateStmt->errno != 0)
 	{
-		die("Strips creation failed: ".$stripsCreateStmt->error);
+		die("Strips creation failed: ".$stripCreateStmt->error);
 	}
 	
-	$stripsCreateStmt->free_result();
-	$stripsCreateStmt->close();
+	$stripCreateStmt->free_result();
+	$stripCreateStmt->close();
 	
 	
-	$faveStripsCreateStmt = $connection->prepare
+	$faveStripCreateStmt = $connection->prepare
 	(
-		"CREATE TABLE IF NOT EXISTS faveStrips
+		"CREATE TABLE IF NOT EXISTS faveStrip
 		(
 			fk_user_id INT(11) NOT NULL,
 			fk_strip_Id INT(11) NOT NULL,
 			PRIMARY KEY(fk_strip_id,fk_user_id),
-			FOREIGN KEY(fk_strip_id) REFERENCES strips(strip_id),
+			FOREIGN KEY(fk_strip_id) REFERENCES strip(strip_id),
 			FOREIGN KEY(fk_user_id) REFERENCES user(user_id)
 		)"
 	);
 	
-	$faveStripsCreateStmt->execute();
+	$faveStripCreateStmt->execute();
 	
-	if($faveStripsCreateStmt->errno != 0)
+	if($faveStripCreateStmt->errno != 0)
 	{
-		die("Fave Strips creation failed: ".$faveStripsCreateStmt->error);
+		die("Fave Strips creation failed: ".$faveStripCreateStmt->error);
 	}
 	
-	$faveStripsCreateStmt->free_result();
-	$faveStripsCreateStmt->close();
+	$faveStripCreateStmt->free_result();
+	$faveStripCreateStmt->close();
 	
-	$commentStripsCreateStmt = $connection->prepare
+	$commentStripCreateStmt = $connection->prepare
 	(
-		"CREATE TABLE IF NOT EXISTS commentStrips
+		"CREATE TABLE IF NOT EXISTS commentStrip
 		(
 			fk_user_id INT(11) NOT NULL,
 			fk_strip_Id INT(11) NOT NULL,
-			kommentar VARCHAR(512) NOT NULL,
+			comment VARCHAR(512) NOT NULL,
 			timestamp TIMESTAMP NOT NULL,
 			PRIMARY KEY(fk_strip_id,fk_user_id),
-			FOREIGN KEY(fk_strip_id) REFERENCES strips(strip_id),
+			FOREIGN KEY(fk_strip_id) REFERENCES strip(strip_id),
 			FOREIGN KEY(fk_user_id) REFERENCES user(user_id)
 		)"
 	);
 	
-	$commentStripsCreateStmt->execute();
+	$commentStripCreateStmt->execute();
 	
-	if($commentStripsCreateStmt->errno != 0)
+	if($commentStripCreateStmt->errno != 0)
 	{
-		die("Comment Strips creation failed: ".$commentStripsCreateStmt->error);
+		die("Comment Strips creation failed: ".$commentStripCreateStmt->error);
 	}
 	
-	$commentStripsCreateStmt->free_result();
-	$commentStripsCreateStmt->close();
+	$commentStripCreateStmt->free_result();
+	$commentStripCreateStmt->close();
 	
 	$connection->close();
 ?>

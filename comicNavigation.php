@@ -14,6 +14,14 @@
 		}
 	}
 	
+	if(isset($_POST['comment']))
+	{
+		$latestId = getLatestId();
+		$curId = isset($_GET['id']) ? $_GET['id'] : -1337;
+		
+		commentStrip($_POST['comment'],$curId);
+	}
+	
 	
 	$latestId = getLatestId();
 	if(empty($latestId))
@@ -94,16 +102,21 @@
 				$hasNext = true;
 			}
 			$comicNavigation .= "</ul>";
+			
 			echo $comicNavigation;
-			if($hasNext)
+			
+			if($hasNext) //If there is a strip after this one, the current strip turns into a clickable image which leads to the next strip
 			{
 				echo "<a href=\"index.php?id=".$nextId."\">";
 			}
+			
 			echo "<img id=\"comicPicture\" src=\"".$curPath."\" alt=\"Comicstrip\">";
+			
 			if($hasNext)
 			{
 				echo "</a>";
 			}
+			
 			echo $comicNavigation;
 			
 			if(isAuthorized(ADMIN))
@@ -123,7 +136,30 @@
 				echo "<button type=\"submit\" name=\"delete\" value=\"".$curId."\">Delete this strip</button>";
 				echo "</form>";
 			}
+			
+			if(isAuthorized(ADMIN) || isAuthorized(USER))
+			{
+				echo "<form action=\"".htmlspecialchars($_SERVER['PHP_SELF'])."?id=".$$curId."\" method=\"POST\" id=\"commentForm\">";
+				echo	"<fieldset>";
+				echo		"<input type=\"text\" name=\"comment\" placeholder=\"Write your comment here\"/>";
+				echo	"</fieldset>";
+				echo "</form>";
+			}
 		}
 		
 		
+		
+		
+		
+		
+		
+		
+		
+		
 	}
+	
+	
+	
+	
+	
+	

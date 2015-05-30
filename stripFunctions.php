@@ -19,7 +19,7 @@
 			die("Database connection failed: ".$connection->connect_error);
 		}
 		
-		$stmt = $connection->prepare("SELECT datei FROM strips WHERE strip_id= ? AND veröffentlichungsdatum < CURRENT_TIMESTAMP");
+		$stmt = $connection->prepare("SELECT data FROM strip WHERE strip_id= ? AND releasedate < CURRENT_TIMESTAMP");
 		$stmt->bind_param("i", $id);
 		$stmt->execute();
 		$stmt->bind_result($file);
@@ -46,7 +46,7 @@
 			die("Database connection failed: ".$connection->connect_error);
 		}
 	
-		$stmt = $connection->prepare("SELECT datei FROM strips WHERE strip_id= ?");
+		$stmt = $connection->prepare("SELECT data FROM strips WHERE strip_id= ?");
 		$stmt->bind_param("i", $id);
 		$stmt->execute();
 		$stmt->bind_result($file);
@@ -73,7 +73,7 @@
 			die("Database connection failed: ".$connection->connect_error);
 		}
 	
-		$stmt = $connection->prepare("SELECT strip_id FROM strips WHERE veröffentlichungsdatum > (SELECT veröffentlichungsdatum FROM strips WHERE strip_id = ?) AND veröffentlichungsdatum < CURRENT_TIMESTAMP ORDER BY veröffentlichungsdatum ASC LIMIT 1");
+		$stmt = $connection->prepare("SELECT strip_id FROM strips WHERE releasedate > (SELECT releasedate FROM strips WHERE strip_id = ?) AND releasedate < CURRENT_TIMESTAMP ORDER BY releasedate ASC LIMIT 1");
 		$stmt->bind_param("i", $id);
 		$stmt->execute();
 		$stmt->bind_result($resId);
@@ -100,7 +100,7 @@
 			die("Database connection failed: ".$connection->connect_error);
 		}
 	
-		$stmt = $connection->prepare("SELECT strip_id FROM strips WHERE veröffentlichungsdatum < (SELECT veröffentlichungsdatum FROM strips WHERE strip_id = ?) AND veröffentlichungsdatum < CURRENT_TIMESTAMP ORDER BY veröffentlichungsdatum DESC LIMIT 1");
+		$stmt = $connection->prepare("SELECT strip_id FROM strip WHERE releasedate < (SELECT releasedate FROM strip WHERE strip_id = ?) AND releasedate < CURRENT_TIMESTAMP ORDER BY releasedate DESC LIMIT 1");
 		$stmt->bind_param("i", $id);
 		$stmt->execute();
 		$stmt->bind_result($resId);
@@ -122,7 +122,7 @@
 			die("Database connection failed: ".$connection->connect_error);
 		}
 	
-		$stmt = $connection->prepare("SELECT strip_id FROM strips WHERE veröffentlichungsdatum < CURRENT_TIMESTAMP ORDER BY veröffentlichungsdatum ASC LIMIT 1");
+		$stmt = $connection->prepare("SELECT strip_id FROM strip WHERE releasedate < CURRENT_TIMESTAMP ORDER BY releasedate ASC LIMIT 1");
 		$stmt->execute();
 		$stmt->bind_result($resId);
 		$stmt->fetch();
@@ -143,7 +143,7 @@
 			die("Database connection failed: ".$connection->connect_error);
 		}
 	
-		$stmt = $connection->prepare("SELECT strip_id FROM strips WHERE veröffentlichungsdatum < CURRENT_TIMESTAMP ORDER BY veröffentlichungsdatum DESC LIMIT 1");
+		$stmt = $connection->prepare("SELECT strip_id FROM strip WHERE releasedate < CURRENT_TIMESTAMP ORDER BY releasedate DESC LIMIT 1");
 		$stmt->execute();
 		$stmt->bind_result($resId);
 		$stmt->fetch();
@@ -164,7 +164,7 @@
 			die("Database connection failed: ".$connection->connect_error);
 		}
 	
-		$stmt = $connection->prepare("SELECT strip_id FROM strips WHERE veröffentlichungsdatum < CURRENT_TIMESTAMP ORDER BY RAND() ASC LIMIT 1");
+		$stmt = $connection->prepare("SELECT strip_id FROM strip WHERE releasedate < CURRENT_TIMESTAMP ORDER BY RAND() ASC LIMIT 1");
 		$stmt->execute();
 		$stmt->bind_result($resId);
 		$stmt->fetch();
@@ -185,7 +185,7 @@
 			die("Database connection failed: ".$connection->connect_error);
 		}
 		
-		$stmt = $connection->prepare("SELECT strip_id, name, datei, veröffentlichungsdatum FROM strips ORDER BY veröffentlichungsdatum DESC");
+		$stmt = $connection->prepare("SELECT strip_id, name, data, releasedate FROM strip ORDER BY releasedate DESC");
 		$stmt->execute();
 		$stmt->bind_result($id,$name,$file,$date);
 		
@@ -235,7 +235,7 @@
 		{
 			unlink($file);
 			
-			$stmt = $connection->prepare("DELETE FROM strips WHERE strip_id = ?");
+			$stmt = $connection->prepare("DELETE FROM strip WHERE strip_id = ?");
 			$stmt->bind_param("i", $id);
 			$stmt->execute();
 			$stmt->free_result();
@@ -279,4 +279,37 @@
 	
 		return $webcomics;
 	}
+	
+	
+	function commentStrip($text,$stripId)
+	{
+		require('connDetails.php');
+		
+		$text = addslashes($text); //this function escapes all logical symbols
+		
+		if($stripId == -1337)
+		{
+			return;
+		}
+		
+		$userId = getActiveId();
+		
+		$connection = new mysqli($database['dbServer'],$database['dbUser'],$database['dbPassword'],$database['dbName']);
+		
+		if($connection->errno != 0)
+		{
+			die("Database connection failed: ".$connection->connect_error);
+		}
+		
+		$stmt = $connection->prepare("CREATE commentstrip { fk_user_id = ".$userId."; fk_strip_id = ".$stripId."; ");
+		$stmt->execute();
+	}
+	
+
+
+	
+	
+	
+	
+	
 ?>
