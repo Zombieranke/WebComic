@@ -259,7 +259,7 @@
 			die("Database connection failed: ".$connection->connect_error);
 		}
 	
-		$stmt = $connection->prepare("SELECT titel, webcomic_id FROM webcomic");
+		$stmt = $connection->prepare("SELECT title, webcomic_id FROM webcomic");
 		$stmt->execute();
 		$stmt->bind_result($title,$id);
 	
