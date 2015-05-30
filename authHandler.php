@@ -16,7 +16,7 @@
 		}
 		else
 		{
-			return $_SESSION['permLevel'] == ANON ? TRUE : FALSE;
+			return $reqPermLevel == ANON ? TRUE : FALSE;
 		}
 	}
 
