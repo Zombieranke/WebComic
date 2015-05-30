@@ -25,59 +25,7 @@
 	
 	
 	
-	
-	$adminCreateStmt = $connection->prepare
-	(
-		"CREATE TABLE IF NOT EXISTS admin
-		(
-			admin_id INT(11) AUTO_INCREMENT PRIMARY KEY,
-			username VARCHAR(256) UNIQUE NOT NULL,
-			password VARCHAR(256) NOT NULL,
-			email VARCHAR(256),
-			avatar VARCHAR(256)
-		)"
-	);
-	
-	$adminCreateStmt->execute();
-	
-	if($adminCreateStmt->errno != 0)
-	{
-		die("Admin creation failed: ".$adminCreateStmt->error);
-	}
-	
-	$adminCreateStmt->free_result();
-	$adminCreateStmt->close();
-	
-	
-	
-	
-	
-	$webcomicCreateStmt = $connection->prepare
-	(
-		"CREATE TABLE IF NOT EXISTS webcomic
-		(
-			webcomic_id INT(11) AUTO_INCREMENT PRIMARY KEY,
-			logo VARCHAR(256),
-			css VARCHAR(256),
-			titel VARCHAR(256),
-			fk_admin_id INT(11),
-			FOREIGN KEY(fk_admin_id) REFERENCES admin(admin_id)
-		)"
-	);
-	
-	$webcomicCreateStmt->execute();
-	
-	if($webcomicCreateStmt->errno != 0)
-	{
-		die("Webcomic creation failed: ".$webcomicCreateStmt->error);
-	}
-	
-	$webcomicCreateStmt->free_result();
-	$webcomicCreateStmt->close();
-	
-	
-	
-	$userCreateStmt = $connection->prepare
+	$userCreateStmt = $connection->prepare  //permaban is now realised by setting the timestamp to the year 2100
 	(
 		"CREATE TABLE IF NOT EXISTS user
 		(
@@ -86,8 +34,8 @@
 			password VARCHAR(256) NOT NULL,
 			email VARCHAR(256) NOT NULL,
 			avatar VARCHAR(256),
-			permaban BOOLEAN NOT NULL,
-			timestamp TIMESTAMP,
+			adminflag BOOLEAN NOT NULL,
+			timestamp TIMESTAMP,			
 			suspendflag BOOLEAN NOT NULL
 		)"
 	);
@@ -101,6 +49,33 @@
 	
 	$userCreateStmt->free_result();
 	$userCreateStmt->close();
+	
+	
+	
+	
+	$webcomicCreateStmt = $connection->prepare
+	(
+		"CREATE TABLE IF NOT EXISTS webcomic
+		(
+			webcomic_id INT(11) AUTO_INCREMENT PRIMARY KEY,
+			logo VARCHAR(256),
+			css VARCHAR(256),
+			titel VARCHAR(256),
+			fk_user_id INT(11),
+			FOREIGN KEY(fk_user_id) REFERENCES user(user_id)
+		)"
+	);
+	
+	$webcomicCreateStmt->execute();
+	
+	if($webcomicCreateStmt->errno != 0)
+	{
+		die("Webcomic creation failed: ".$webcomicCreateStmt->error);
+	}
+	
+	$webcomicCreateStmt->free_result();
+	$webcomicCreateStmt->close();
+	
 	
 	
 	$stripCreateStmt = $connection->prepare
@@ -161,7 +136,6 @@
 			PRIMARY KEY(fk_strip_id,fk_user_id),
 			FOREIGN KEY(fk_strip_id) REFERENCES strip(strip_id),
 			FOREIGN KEY(fk_user_id) REFERENCES user(user_id),
-			adminflag BOOLEAN NOT NULL
 		)"
 	);
 	

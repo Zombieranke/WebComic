@@ -329,9 +329,15 @@
 			die("Database connection failed: ".$connection->connect_error);
 		}
 		
-		$stmt = $connection->prepare("SELECT comment, timestamp, adminflag (fk_user_id, fk_strip_id, comment, adminflag) VALUES ( \'".$userId."\', \'".$stripId."\', \'".$text."\', \'".$adminflag."\')");
+		$stmt = $connection->prepare("SELECT username, avatar, comment, timestamp, adminflag FROM comment LEFT JOIN user ON comment.fk_user_id = user.user_id ORDER BY timestamp ASC");
 		$stmt->execute();
 		
+		$array = array();
+		
+		while($row = mysql_fetch_assoc($stmt))
+		{
+  			 $array[] = $row;
+		}
 		
 		
 	}
