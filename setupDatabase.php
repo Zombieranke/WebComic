@@ -35,8 +35,7 @@
 			email VARCHAR(256) NOT NULL,
 			avatar VARCHAR(256),
 			adminflag BOOLEAN NOT NULL,
-			timestamp TIMESTAMP,			
-			suspendflag BOOLEAN NOT NULL
+			suspended TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 		)"
 	);
 	
@@ -152,8 +151,8 @@
 	
 	$addAdminStmt = $connection->prepare
 	(
-		"INSERT INTO user (username,password,email,adminflag,suspendflag)
-		 VALUES (\"admin\",\"".password_hash("admin", PASSWORD_BCRYPT)."\",\"admin@admin.admin\",TRUE,FALSE)"
+		"INSERT INTO user (username,password,email,adminflag)
+		 VALUES (\"admin\",\"".password_hash("admin", PASSWORD_BCRYPT)."\",\"admin@admin.admin\",TRUE)"
 	);
 	
 	$addAdminStmt->execute();

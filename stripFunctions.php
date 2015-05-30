@@ -329,7 +329,7 @@
 			die("Database connection failed: ".$connection->connect_error);
 		}
 		
-		$stmt = $connection->prepare("SELECT username, avatar, comment, timestamp, adminflag FROM comment LEFT JOIN user ON comment.fk_user_id = user.user_id ORDER BY timestamp ASC LIMIT ".$offset.",20 ");
+		$stmt = $connection->prepare("SELECT username, avatar, comment, timestamp, adminflag FROM commentStrip cs LEFT JOIN user ON cs.fk_user_id = user.user_id ORDER BY cs.timestamp ASC LIMIT ".$offset.",20 ");
 		$stmt->execute();
 		
 		$stmt->bind_result($username,$avatar,$comment,$timestamp,$adminflag);
