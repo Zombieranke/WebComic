@@ -8,8 +8,8 @@
 	{
 		$database['dbServer'] = 'localhost';
 		$database['dbName'] = 'Webcomic';
-		$database['dbUser'] = 'Webcomic';
-		$database['dbPassword'] = 'Webcomic';
+		$database['dbUser'] = 'root';
+		$database['dbPassword'] = 'password';
 	}
 	
 ?>
