@@ -84,15 +84,15 @@
 	echo '<script type="text/javascript" src="uploadHelper.js"></script>
 	<form id="uploadForm" action="'.htmlspecialchars($_SERVER['PHP_SELF']).'?selection='.$_GET['selection'].'" method="POST" enctype="multipart/form-data" onReset="purgeForm()">
 		<fieldset>
-			<input type="file" name="upload[]" onChange="addUpload(this)"/>
+			<input type="file" class="inputFile" name="upload[]" onChange="addUpload(this)"/> </br>
 			<label>
 				Release Date:
 			</label>
-			<input type="datetime-local" name="releaseDate[]" placeholder="YYYY-MM-DD HH:DD:SS"/>
+			<input type="datetime-local" class="inputDate" name="releaseDate[]" placeholder="YYYY-MM-DD HH:DD:SS"/> </br>
 			<label>
 				Annotation:
 			</label>
-			<textarea name="annotation[]"></textarea>
+			<textarea class="stripAnnotation" name="annotation[]"></textarea> </br>
 			
 		<select name="webcomic" id="comicSelection">'; 
 				$webcomics = getWebcomics();
