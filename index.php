@@ -9,24 +9,26 @@
 	</head>
 	
 	<body>
-		<div class="wrapper">
-			<div class="logo">
-				<a href="index.php">
-					<img src="pictures/logo.jpg" alt="Very cool Logo">
-				</a>
-			</div>
-			<ul id="navigation">
-				<li><a href="index.php">Comic</a> </li>
-				<li><a href="index.php">About me</a> </li>
-				<li><a href="index.php">Contact</a>	</li>
-				<li><a href="index.php">Login</a> </li>
-			</ul>
-			
-			<div id="content">
-				<?php 		
-					include('comicNavigation.php');
-				?>
-			</div>
+		<div id="wrapper">
+			<fieldset>
+				<div class="logo">
+					<a href="index.php">
+						<img src="pictures/logo.jpg" alt="Very cool Logo">
+					</a>
+				</div>
+				<ul id="navigation">
+					<li><a href="index.php">Comic</a> </li>
+					<li><a href="index.php">About me</a> </li>
+					<li><a href="index.php">Contact</a>	</li>
+					<li><a href="index.php">Login</a> </li>
+				</ul>
+				
+				<div id="content">
+					<?php 		
+						include('comicNavigation.php');
+					?>
+				</div>
+			</fieldset>
 		</div>
 	</body>
 </html>

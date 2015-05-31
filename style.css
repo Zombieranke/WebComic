@@ -9,14 +9,24 @@ html
 	width: 100%;
 }
 
-.wrapper
+#wrapper
 {
 	display: block;
-    height: 1200x;
     width: 60%;
     margin-right: 20%;
     margin-left: 20%;
 }
+
+
+#wrapperBackend
+{
+	display: block;
+	height: 920px;
+    width: 60%;
+    margin-right: 20%;
+    margin-left: 20%;
+}
+
 
 .logo img
 {
@@ -95,12 +105,6 @@ html
 #comicPicture
 {
 	width: 100%;
-}
-
-.editThumbs
-{
-	height: 300px;
-	width: 300px;
 }
 
 #loginForm
@@ -206,15 +210,14 @@ html
 #options
 {
 	width: 100%;
-	margin-top: 5%;
+	margin-top: 2%;
 }
 
 #optionsListDiv
 {
 	display: block;
 	float: left;
-    margin-left: 2%;
-    margin-right: 2%;
+    margin: 2%;
     width: 30%;
     border: 3px solid RGB(111,155,255);
 	border-radius: 5px;
@@ -250,17 +253,16 @@ html
 {
 	display: block;
 	float: left;
-    margin-left: 2%;
-    margin-right: 2%;
+    margin: 2%;
     width: 60%;
-    height: 400px;
+    font-family: Arial;
 }
 
 
 #activeApplication fieldset
 {
-	margin-top: 0;
-	padding-top: 0;
+	border: 3px solid RGB(111,155,255);
+	border-radius: 5px;
 }
 
 #newPassForm p
@@ -296,5 +298,39 @@ html
 
 #newPassSubmit
 {
+	margin: 1%;
+}
+
+#editStripModule h1
+{
+	font-size: 27px;
+	margin: 1%;
+}
+
+
+.editStrip
+{
+	float: left;
+	margin: 2%;
+	border: solid 1px RGB(180,180,180);
+}
+
+.editStrip h2
+{
+	font-size: 20px;
+	margin: 1%;
+}
+
+.editThumb
+{
+	margin-left: 3%;
+	margin-right: 3%;
+	width: 200px;
+	height: 200px;
+}
+
+.editStrip p
+{
+	font-size: 13.5px;
 	margin: 1%;
 }

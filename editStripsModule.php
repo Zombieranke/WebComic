@@ -26,26 +26,30 @@
 		}
 		
 		$strips = getStrips();
-		echo "<h1> Edit your Strips </h1>";
+		
 		if($strips)
 		{
-			echo "<fieldset>";
+			echo "<div id=\"editStripModule\">";
+			echo 	"<fieldset>";
+			echo 		"<h1> Edit your Strips </h1>";
+			
 			foreach($strips as $strip)
 			{
-				echo "<div class=\"strip\">";
-				echo 	"<h2>".$strip['name']."</h2>";
-				echo 	"<img class=\"editThumbs\" src=\"".$strip['file']."\"/>";
-				echo 	"<p>Release Date: ".$strip['date']."</p>";
-				echo 	"<form action=\"".htmlspecialchars($_SERVER['PHP_SELF']).'?selection='.$_GET['selection']."\" method=\"POST\">";
-				echo 		"<button type=\"submit\" name=\"delete\" value=\"".$strip['id']."\">Delete this strip</button>";
-				echo 	"</form>";
-				echo "</div>";
+				echo 	"<div class=\"editStrip\">";
+				echo 		"<h2>".$strip['name']."</h2>";
+				echo 		"<img class=\"editThumb\" src=\"".$strip['file']."\"/>";
+				echo 		"<p>Release Date: ".$strip['date']."</p>";
+				echo 		"<form action=\"".htmlspecialchars($_SERVER['PHP_SELF']).'?selection='.$_GET['selection']."\" method=\"POST\">";
+				echo 			"<button type=\"submit\" name=\"delete\" value=\"".$strip['id']."\">Delete this strip</button>";
+				echo 		"</form>";
+				echo 	"</div>";
 			}
-			echo "</fieldset>";
+			echo 	"</fieldset>";
+			echo "</div>";
 		}
 		else
 		{
-			echo "<p>Keinen Comicstrip gefunden</p>";
+			echo "<p>No strips found</p>";
 		}
 			
 		

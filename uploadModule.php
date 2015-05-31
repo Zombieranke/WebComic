@@ -94,7 +94,6 @@
 			</label>
 			<textarea name="annotation[]"></textarea>
 			
-		</fieldset>
 		<select name="webcomic" id="comicSelection">'; 
 				$webcomics = getWebcomics();
 				foreach ($webcomics as $comic)
@@ -104,6 +103,7 @@
 		echo '</select>
 		<input id="resetButton" type="reset" name="resetForm" value="Reset" />
 		<input id="submitButton" type="submit" name="uploadFiles" value="Upload Files"/>
+		</fieldset>
 	</form>';
 	}
 ?>

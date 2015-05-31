@@ -13,36 +13,38 @@
 	</head>
 	
 	<body>
-		<div class="wrapper">
-			<div class="logo">
-				<img src="pictures/logo.jpg" alt="Very cool Logo">
-			</div>
-			
-			<?php 
-					if(!isset($_SESSION['username']) && isset($_POST['username']) && $_POST['password'])
-					{
-						if(authorizeAdmin($_POST['username'],$_POST['password']))
+		<div id="wrapperBackend">
+			<fieldset>
+				<div class="logo">
+					<img src="pictures/logo.jpg" alt="Very cool Logo">
+				</div>
+				
+				<?php 
+						if(!isset($_SESSION['username']) && isset($_POST['username']) && $_POST['password'])
 						{
-							$_SESSION['username'] = $_POST['username'];
-							$_SESSION['permLevel'] = ADMIN;
+							if(authorizeAdmin($_POST['username'],$_POST['password']))
+							{
+								$_SESSION['username'] = $_POST['username'];
+								$_SESSION['permLevel'] = ADMIN;
+							}
 						}
-					}
-					if(isset($_SESSION['username']) && isset($_SESSION['permLevel']))
-					{
-						if(isAuthorized(ADMIN))
+						if(isset($_SESSION['username']) && isset($_SESSION['permLevel']))
 						{
-							include("options.php");
+							if(isAuthorized(ADMIN))
+							{
+								include("options.php");
+							}
+							else
+							{
+								echo "<p class=\"permError\">Unzureichende Befugnisse</p>";
+							}
 						}
 						else
 						{
-							echo "<p class=\"permError\">Unzureichende Befugnisse</p>";
-						}
-					}
-					else
-					{
-						include("loginAdmin.php");
-					}	
-				?>
+							include("loginAdmin.php");
+						}	
+					?>
+			</fieldset>
 		</div>
 	</body>
 </html>	
