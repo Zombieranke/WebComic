@@ -4,7 +4,7 @@
 	$webcomic = getWebcomics();
 
 	echo '<script type="text/javascript" src="uploadHelper.js"></script>
-			<form id="logoForm" action="logo.php" method="POST" enctype="multipart/form-data" onReset="purgeForm()">
+			<form id="logoForm" action="'.htmlspecialchars($_SERVER['PHP_SELF']).'?selection='.$_GET['selection'].'" method="POST" enctype="multipart/form-data" onReset="purgeForm()">
 			<fieldset>
 			<select name="webcomic" id="comicSelection">';
 	$webcomics = getWebcomics();
@@ -30,6 +30,9 @@
 	
 	function upload_logo($fileupload){
 		$dir = "./logos/";
+		if(!is_dir($dir)){
+			mkdir($dir);
+		}
 		
 		if($fileupload['type'] == "image/gif" || $fileupload['type'] == "image/png" || $fileupload['type'] == "image/jpeg"){
 			$ispicture = true;
@@ -56,10 +59,8 @@
 			
 		require_once ('connDetails.php');
 		
-		/*
-		 * FUNKTIONIERT NICHT
-		 * $mydbobject = new mysqli($database['dbServer'], $database['dbUser'], $databse['dbPassword'], $database['dbName']);
-		*/
+		//Funktioniert nicht :(
+		//$mydbobject = new mysqli($database['dbServer'], $database['dbUser'], $databse['dbPassword'], $database['dbName']);
 		$mydbobject = new mysqli("localhost", "Webcomic", "Webcomic", "Webcomic");
 
 		$sql =	"UPDATE webcomic SET logo=? WHERE webcomic_id =$mywebcomic";
