@@ -6,7 +6,7 @@
 		{
 			if($_POST['newPass'] == $_POST['newPassConfirm'])
 			{
-				changeAdminPass($_SESSION['username'], $_POST['oldPass'], $_POST['newPass']);
+				changePassword($_SESSION['username'], $_POST['oldPass'], $_POST['newPass']);
 			}
 			else
 			{

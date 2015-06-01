@@ -20,15 +20,11 @@
 				</div>
 				
 				<?php 
-						if(!isset($_SESSION['username']) && isset($_POST['username']) && $_POST['password'])
+						if(!isset($_SESSION['user_name']) && isset($_POST['username']) && $_POST['password'])
 						{
-							if(authorizeAdmin($_POST['username'],$_POST['password']))
-							{
-								$_SESSION['username'] = $_POST['username'];
-								$_SESSION['permLevel'] = ADMIN;
-							}
+							loginUser($_POST['username'],$_POST['password']);
 						}
-						if(isset($_SESSION['username']) && isset($_SESSION['permLevel']))
+						if(isset($_SESSION['user_name']) && isset($_SESSION['permLevel']))
 						{
 							if(isAuthorized(ADMIN))
 							{

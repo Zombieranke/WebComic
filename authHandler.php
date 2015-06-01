@@ -20,7 +20,7 @@
 		}
 	}
 
-	function authorizeAdmin($username,$password)
+	function loginUser($username,$password)
 	{
 		require ('connDetails.php');
 		
@@ -31,11 +31,11 @@
 			die("Database connection failed: ".$connection->connect_error);
 		}
 		
-		$stmt = $connection->prepare("SELECT password FROM user WHERE username=? AND adminflag=true");
+		$stmt = $connection->prepare("SELECT password, adminflag FROM user WHERE username=?");
 		$stmt->bind_param('s', $username);
 	
 		$stmt->execute();
-		$stmt->bind_result($database_password);
+		$stmt->bind_result($database_password, $admin);
 		$stmt->fetch();
 		$stmt->free_result();
 		$stmt->close();
@@ -49,6 +49,16 @@
 		{
 			if(password_verify($password, $database_password))
 			{
+				if($admin)
+				{
+					$_SESSION['permLevel'] = ADMIN;
+				}
+				else
+				{
+					$_SESSION['permLevel'] = USER;
+				}
+				
+				$_SESSION['user_name'] = $username;
 				return true;
 			}
 			else
@@ -64,9 +74,9 @@
 		}
 	}
 	
-	function changeAdminPass($username,$from,$to)
+	function changePassword($username,$from,$to)
 	{
-		if(authorizeAdmin($username, $from))
+		if(loginUser($username, $from))
 		{
 			$newpass = password_hash($to, PASSWORD_BCRYPT);
 			

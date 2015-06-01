@@ -1,3 +1,17 @@
+<?php 
+	session_start();
+	
+	require_once ('authHandler.php');
+	if(isset($_GET['logout']))
+	{
+		session_unset();
+		session_destroy();
+	}
+	if(!isset($_SESSION['user_name']) && isset($_POST['username']) && $_POST['password'])
+	{
+		loginUser($_POST['username'],$_POST['password']);
+	}
+?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -28,6 +42,20 @@
 						include('comicNavigation.php');
 					?>
 				</div>
+				<?php 
+				if(!isset($_SESSION['user_name']))
+				{
+					echo '<div id="loginLinks">
+						<a href="register.php">Register</a>
+						|
+						<a href="login.php">Login</a>
+					</div>';
+				}
+				else
+				{
+					echo '<a href="'.htmlspecialchars($_SERVER['PHP_SELF']).'?logout">Logout</a>';
+				}
+				?>
 			</fieldset>
 		</div>
 	</body>

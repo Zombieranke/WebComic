@@ -180,7 +180,7 @@
 			
 			if(isAuthorized(ADMIN) || isAuthorized(USER))
 			{
-				$commentForm  = "<form action=\"".htmlspecialchars($_SERVER['PHP_SELF'])."?id=".$$curId."\" method=\"POST\" id=\"commentForm\">";
+				$commentForm  = "<form action=\"".htmlspecialchars($_SERVER['PHP_SELF'])."?id=".$curId."\" method=\"POST\" id=\"commentForm\">";
 				$commentForm .=		"<fieldset>";
 				$commentForm .=			"<input type=\"text\" name=\"comment\" placeholder=\"Write your comment here\"/>";
 				$commentForm .=		"</fieldset>";
