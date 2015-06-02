@@ -358,11 +358,11 @@
 	{
 		$outputString  = "<div class=\"comment\">";
 		$outputString .=	"<p class=\"commentHeader\">";
-		$outputString .=		$commentProperties['timestamp']."</br>";
-		$outputString .=		"<b>".$commentProperties['username']." wrote: ";
+		$outputString .=		$timestamp."</br>";
+		$outputString .=		"<b>".$username." wrote: ";
 		$outputString .=	"</p>";
 		
-		if($commentProperties['adminflag'])
+		if($adminflag)
 		{
 			$outputString .=	"<p class=\"commentContent\" class=\"adminComment\">";
 		}
@@ -370,7 +370,7 @@
 		{
 			$outputString .=	"<p class=\"commentContent\">";
 		}
-		$outputString .=		$commentProperties['comment'];
+		$outputString .=		$comment;
 		$outputString .=	"</p>";
 		$outputString .= "</div>";
 		
