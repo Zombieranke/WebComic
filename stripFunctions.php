@@ -322,6 +322,8 @@
 	{
 		require('connDetails.php');
 		
+		echo $stripId.",  ".$offset;
+		
 		$connection = new mysqli($database['dbServer'],$database['dbUser'],$database['dbPassword'],$database['dbName']);
 		
 		if($connection->errno != 0)
@@ -329,8 +331,8 @@
 			die("Database connection failed: ".$connection->connect_error);
 		}
 		
-		$stmt = $connection->prepare("SELECT username, avatar, comment, cs.timestamp, adminflag FROM commentStrip AS cs LEFT JOIN user AS u ON cs.fk_user_id = u.user_id WHERE fk_srip_id = ? ORDER BY cs.timestamp ASC LIMIT ?,20 ");
-		$stmt->bind_param("ii", $tripId, $offset);
+		$stmt = $connection->prepare("SELECT username, avatar, comment, timestamp, adminflag FROM commentStrip AS cs LEFT JOIN user AS u ON cs.fk_user_id = u.user_id WHERE cs.fk_srip_id = ? ORDER BY cs.timestamp ASC LIMIT ?,20 ");
+		$stmt->bind_param('ii', $stripId, $offset);
 		$stmt->execute();
 		
 		$stmt->bind_result($username,$avatar,$comment,$timestamp,$adminflag);
@@ -348,13 +350,16 @@
 			$i++;
 		}
 		
+		$stmt-close();
+		$connection->close();
+		
 		return $commentArray;
 		
 	}
 	
 	
 	
-	function createDiv($username, $avatar, $timestamp, $comment, $adminflag)
+	function createCommentDiv($username, $avatar, $timestamp, $comment, $adminflag)
 	{
 		$outputString  = "<div class=\"comment\">";
 		$outputString .=	"<p class=\"commentHeader\">";

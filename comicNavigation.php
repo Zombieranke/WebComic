@@ -14,12 +14,12 @@
 		}
 	}
 	
-	if(isset($_POST['comment']))
+	if(isset($_POST['createComment']) && isset($_POST['commentContent']))
 	{
 		$latestId = getLatestId();
-		$curId = isset($_GET['id']) ? $_GET['id'] : -1337;
+		$curId = isset($_GET['id']) ? $_GET['id'] : $latestId;
 		
-		commentStrip($_POST['comment'],$curId);
+		commentStrip($_POST['commentContent'],$curId);
 	}
 	
 	
@@ -182,7 +182,8 @@
 			{
 				$commentForm  = "<form action=\"".htmlspecialchars($_SERVER['PHP_SELF'])."?id=".$curId."\" method=\"POST\" id=\"commentForm\">";
 				$commentForm .=		"<fieldset>";
-				$commentForm .=			"<input type=\"text\" name=\"comment\" placeholder=\"Write your comment here\"/>";
+				$commentForm .=			"<input type=\"text\" name=\"commentContent\" placeholder=\"Write your comment here\"/>";
+				$commentForm .=			"<input type=\"submit\" name=\"createComment\" value=\"Share\"/>";
 				$commentForm .=		"</fieldset>";
 				$commentForm .=	 "</form>";
 				
@@ -199,7 +200,7 @@
 			{
 				if(!empty($commentArray[$i]['username']))
 				{
-					echo createDiv($commentArray[$i]['username'],$commentArray[$i]['avatar'],$commentArray[$i]['timestamp'],$commentArray[$i]['comment'],$commentArray[$i]['adminflag']);
+					echo createCommentDiv($commentArray[$i]['username'],$commentArray[$i]['avatar'],$commentArray[$i]['timestamp'],$commentArray[$i]['comment'],$commentArray[$i]['adminflag']);
 				}
 				
 			}
