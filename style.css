@@ -76,14 +76,14 @@ html
 
 .comic_navigation img
 {
-	height: 64px;
-	width: 64px;
+	width: 7%;
+	height: same-as-width;
 }
 
 .navRandom img
 {
-	width: 260px;
-	height: 64px;
+	width: 28%;
+	height: (same-as-width)/4;
 }
 
 .comic_navigation li
@@ -380,8 +380,7 @@ html
 #stripAnnotation
 {
 	font-family: Arial;
-	font-weight: bold;
-	font-size: 18px;
+	font-size: 20px;
 	margin: 1%;
 }
 
@@ -442,7 +441,7 @@ html
 	border: solid 1px RGB(180,180,180);
 	border-radius: 4px;
 	margin: 1%;
-	font-size: 16px;
+	font-size: 18px;
 }
 
 .commentHeader
@@ -470,7 +469,7 @@ html
 .adminComment .commentHeader
 {
 	color: #FF0000;
-	font-size: 23px;
+	font-size: 24px;
 }
 
 .adminComment .commentContent

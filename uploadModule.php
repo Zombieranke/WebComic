@@ -53,7 +53,7 @@
 						}
 						else
 						{
-							$annotation =filter_var($_POST['annotation'][$i], FILTER_SANITIZE_STRING);
+							$annotation = $_POST['annotation'][$i];
 							$releaseDate = $_POST['releaseDate'][$i];
 							if(empty($releaseDate) )
 							{
