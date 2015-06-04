@@ -238,7 +238,7 @@ html
     margin: 2%;
     width: 30%;
     border: 3px solid RGB(111,155,255);
-	border-radius: 5px;
+	border-radius: 8px;
 }
 
 #optionsListDiv li
@@ -282,7 +282,7 @@ html
 	padding: 0.5%;
 	margin: 0.5%;
 	border: 3px solid RGB(111,155,255);
-	border-radius: 5px;
+	border-radius: 8px;
 }
 
 #newPassForm p
@@ -293,10 +293,11 @@ html
 .newPass
 {
 	margin: 1%;
+	margin-left: 2%;
 	line-height: 25px;
 	text-align: left;
 	width: 300px;
-	background: RGB(200,200,200);
+	background: RGB(220,220,220);
 	padding-left: 2.5%;
 	border: solid 2px RGB(130,130,130);
 	border-radius: 5px;
@@ -319,8 +320,30 @@ html
 #newPassSubmit
 {
 	margin: 1%;
+	margin-left: 2%;
+	border: 3px solid #3366dd;
+	border-radius: 5px;
+	background: #3366dd;
+	font-family: Arial, Helvetica, sansserif;
+	font-weight: bold;
+	color: #e8cf41;
+	font-size: 15px;
 }
 
+#newPassSubmit:hover
+{
+	margin: 1%;
+	margin-left: 2%;
+	border: 3px solid #5b82dd;
+	border-radius: 5px;
+	background: #5b82dd;
+	font-family: Arial, Helvetica, sansserif;
+	font-weight: bold;
+	color: #e8cf41;
+	font-size: 15px;
+	cursor: pointer;
+}	
+	
 #editStripModule h1
 {
 	font-size: 27px;
@@ -332,7 +355,8 @@ html
 {
 	float: left;
 	margin: 2%;
-	border: solid 1px RGB(180,180,180);
+	border: solid 2px RGB(111,155,255);
+	border-radius: 5px;
 }
 
 .editStrip h2
