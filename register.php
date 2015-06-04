@@ -6,6 +6,7 @@
 	
 	require_once ('connDetails.php');
 	
+	
 	if(isset($_POST['username'],$_POST['password'],$_POST['passwordConfirm'],$_POST['email']))
 	{
 		if($_POST['password'] == $_POST['passwordConfirm'])
@@ -56,14 +57,14 @@
 
 
 
-	echo '<form action="'.htmlspecialchars($_SERVER['PHP_SELF']).'" method="POST" id="registrationForm" enctype="multipart/form-data">
+	echo '<form action="'.htmlspecialchars($_SERVER['PHP_SELF']).'?register=true" method="POST" id="registrationForm" enctype="multipart/form-data">
 		<fieldset>
 			<input type="text" name="username" placeholder="Username"/>
 			<input type="password" name="password" placeholder="Password"/>
 			<input type="password" name="passwordConfirm" placeholder="Confirm Password"/>
 			<input type="text" name="email" placeholder="E-mail adress"/>
 	
-			<input type="submit" name="login" value="Register" id="registrationButton"/>
+			<input type="submit" name="register" value="Register" id="registrationButton"/>
 		</fieldset>
 	</form>
 	<a href="index.php">&lt;&lt;&lt;&lt;Back to main site</a>';
