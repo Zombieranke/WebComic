@@ -363,6 +363,14 @@ html
 	text-align: right;
 }
 
+#stripAnnotation
+{
+	font-family: Arial;
+	font-weight: bold;
+	font-size: 18px;
+	margin: 1%;
+}
+
 #commentForm textarea
 {
 	padding: 1%;

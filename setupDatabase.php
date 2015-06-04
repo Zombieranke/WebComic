@@ -10,6 +10,11 @@
 		die("Database connection failed: ".$connection->connect_error);
 	}
 	
+	$dbCreateStmt = $connection->prepare("DROP DATABASE IF EXISTS ".$database['dbName']);
+	$dbCreateStmt->execute();
+	$dbCreateStmt->free_result();
+	$dbCreateStmt->close();
+	
 	$dbCreateStmt = $connection->prepare("CREATE DATABASE IF NOT EXISTS ".$database['dbName']);
 	$dbCreateStmt->execute();
 	
@@ -83,7 +88,7 @@
 		(
 			strip_id INT(11) AUTO_INCREMENT PRIMARY KEY,
 			name VARCHAR(256),
-			annotation VARCHAR(512),
+			annotation VARCHAR(4096),
 			data VARCHAR(256) NOT NULL,
 			releasedate TIMESTAMP,
 			fk_webcomic_id INT(11),
