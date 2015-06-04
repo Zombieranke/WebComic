@@ -363,22 +363,21 @@
 	
 	function createCommentDiv($username, $avatar, $timestamp, $comment, $adminflag)
 	{
-		$outputString  = "<div class=\"comment\">";
-		$outputString .=	"<p class=\"commentHeader\">";
-		$outputString .=		$timestamp."</br>";
-		$outputString .=		"<b>".$username." wrote: ";
-		$outputString .=	"</p>";
-		
 		if($adminflag)
 		{
-			$outputString .=	"<p class=\"commentContent\" class=\"adminComment\">";
+			$outputString  = "<div class=\"adminComment\">";
 		}
 		else
 		{
-			$outputString .=	"<p class=\"commentContent\">";
+			$outputString  = "<div class=\"comment\">";
 		}
-		$outputString .=		$comment;
+		$outputString .=	"<p class=\"commentHeader\">";
+		$outputString .=		"<span class=\"commentTimestamp\">".$timestamp."</span>";
+		$outputString .=		$username." wrote: ";
 		$outputString .=	"</p>";
+		$outputString .=	"<div class=\"commentContent\">";
+		$outputString .=		$comment;
+		$outputString .=	"</div>";
 		$outputString .= "</div>";
 		
 		return $outputString;

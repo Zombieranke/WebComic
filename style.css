@@ -362,14 +362,37 @@ html
 }
 
 
-.comment
+.comment, .adminComment
 {
-	font-family: Arial;
+	font-family: Calibri;
 	border: solid 1px RGB(180,180,180);
 	margin: 1%;
+	font-size: 16px;
 }
 
 .commentHeader
 {
+	margin-left: 1%;
 	font-weight: bold;
+	font-size: 22px;
+}
+
+.commentTimestamp
+{
+	float: right;
+	color: gray;
+	font-size: 17px;
+	font-style: italic;
+	font-weight: normal;
+	margin-right: 1%;
+}
+
+.commentContent
+{
+	margin-left: 2%;
+}
+
+.adminComment .commentHeader
+{
+	color: #FF0000;
 }
