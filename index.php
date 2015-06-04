@@ -4,17 +4,18 @@
 	require_once ('authHandler.php');
 	require_once ('styleFunctions.php');
 	
+	if(isset($_GET['logout']))
+	{
+		session_unset();
+		session_destroy();
+	}
+	
 	if(!isset($_SESSION['webcomicId']))
 	{
 		require ('stripFunctions.php');
 		$_SESSION['webcomicId'] = getDefaultWebcomic();
 	}
 	
-	if(isset($_GET['logout']))
-	{
-		session_unset();
-		session_destroy();
-	}
 	if(!isset($_SESSION['user_name']) && !isset($_POST['register']) && isset($_POST['username'], $_POST['password']))
 	{
 		loginUser($_POST['username'],$_POST['password']);
