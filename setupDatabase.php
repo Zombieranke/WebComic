@@ -172,7 +172,7 @@
 	
 	$addWebComicStmt = $connection->prepare
 	(
-		"INSERT INTO webcomic (title,css,logo) VALUES (\"Webcomic\",\"./css/style.css\",\"./logos/logo.jpg\");"
+		"INSERT INTO webcomic (title) VALUES (\"Webcomic\");"
 	);
 	
 	$addWebComicStmt->execute();
