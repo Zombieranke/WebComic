@@ -51,14 +51,14 @@
 			$hasNext=false;
 			$hasPrevious = false;
 		
-			$comicNavigation =	"<ul class=\"comic_navigation\">";
+			$comicNavigation =	"<a Name=\"comic\"></a><ul class=\"comic_navigation\">";
 			
 			if($firstId!=$curId)
 			{
 				$comicNavigation .=	"<li class=\"navFirst\">";
 				$comicNavigation .=		"<a href=\"index.php?id=";
 				$comicNavigation .= 	$firstId;
-				$comicNavigation .= 	"\">";
+				$comicNavigation .= 	"#comic\">";
 				$comicNavigation .=			"<img src=\"pictures/greenArrows/doubleArrowLeft.png\" alt=\"Go to oldest strip\">"; 
 				$comicNavigation .=		"</a>";
 				$comicNavigation .= "</li>";
@@ -74,7 +74,7 @@
 				$comicNavigation .=	"<li class=\"navPrevious\">";
 				$comicNavigation .=		"<a href=\"index.php?id=";
 				$comicNavigation .= 	$previousId;
-				$comicNavigation .= 	"\">";
+				$comicNavigation .= 	"#comic\">";
 				$comicNavigation .=			"<img src=\"pictures/greenArrows/singleArrowLeft.png\" alt=\"Go to previous strip\">";
 				$comicNavigation .=		"</a>";
 				$comicNavigation .= "</li>";
@@ -89,7 +89,7 @@
 				$comicNavigation .=	"<li class=\"navRandom\">";
 				$comicNavigation .=		"<a href=\"index.php?id=";
 				$comicNavigation .= 	$randomId;
-				$comicNavigation .= 	"\">";
+				$comicNavigation .= 	"#comic\">";
 				$comicNavigation .=			"<img src=\"pictures/greenArrows/random.png\" alt=\"Go to random strip\">";
 				$comicNavigation .=		"</a>";
 				$comicNavigation .= "</li>";
@@ -99,7 +99,7 @@
 				$comicNavigation .=	"<li class=\"navNext\">";
 				$comicNavigation .=		"<a href=\"index.php?id=";
 				$comicNavigation .= 	$nextId;
-				$comicNavigation .= 	"\">";
+				$comicNavigation .= 	"#comic\">";
 				$comicNavigation .=			"<img src=\"pictures/greenArrows/singleArrowRight.png\" alt=\"Go to next strip\">";
 				$comicNavigation .=		"</a>";
 				$comicNavigation .= "</li>";
@@ -114,7 +114,7 @@
 				$comicNavigation .=	"<li class=\"navLatest\">";
 				$comicNavigation .=		"<a href=\"index.php?id=";
 				$comicNavigation .= 	$latestId;
-				$comicNavigation .= 	"\">";
+				$comicNavigation .= 	"#comic\">";
 				$comicNavigation .=			"<img src=\"pictures/greenArrows/doubleArrowRight.png\" alt=\"Go to latest strip\">";
 				$comicNavigation .=		"</a>";
 				$comicNavigation .= "</li>";
@@ -130,7 +130,7 @@
 			
 			if($hasNext) //If there is a strip after this one, the current strip turns into a clickable image which leads to the next strip
 			{
-				echo "<a href=\"index.php?id=".$nextId."\">";
+				echo "<a href=\"index.php?id=".$nextId."#comic\">";
 			}
 			
 			echo "<img id=\"comicPicture\" src=\"".$curPath."\" alt=\"Comicstrip\">";
@@ -175,10 +175,10 @@
 						switch(event.keyCode)
 						{
 						case 37:';
-							echo empty($previousId) ? '' : 'location.search="id='.$previousId.'";';
+							echo empty($previousId) ? '' : 'location.hash="#comic";location.search="id='.$previousId.'"; ';
 							echo 'break; 
 						case 39:';
-							echo empty($nextId) ? '' : 'location.search="id='.$nextId.'";';
+							echo empty($nextId) ? '' : 'location.hash="#comic";location.search="id='.$nextId.'";';
 							echo 'break;
 						default:
 							break;
