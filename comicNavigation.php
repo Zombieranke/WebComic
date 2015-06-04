@@ -178,11 +178,11 @@
 					
 					</script>';
 			
-			if(isAuthorized(ADMIN) || isAuthorized(USER))
+			if(isset($_SESSION['user_name']))
 			{
-				$commentForm  = "<form action=\"".htmlspecialchars($_SERVER['PHP_SELF'])."?id=".$curId."\" method=\"POST\" id=\"commentForm\">";
+				$commentForm  = "<form id=\"commentForm\" action=\"".htmlspecialchars($_SERVER['PHP_SELF'])."?id=".$curId."\" method=\"POST\" >";
 				$commentForm .=		"<fieldset>";
-				$commentForm .=			"<input type=\"text\" name=\"commentContent\" placeholder=\"Write your comment here\"/>";
+				$commentForm .=			"<textarea name=\"commentContent\" placeholder=\"Write your comment here\" rows=\"3\" cols=\"50\"/></textarea>";
 				$commentForm .=			"<input type=\"submit\" name=\"createComment\" value=\"Share\"/>";
 				$commentForm .=		"</fieldset>";
 				$commentForm .=	 "</form>";
