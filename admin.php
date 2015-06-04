@@ -16,7 +16,9 @@
 		<div id="wrapperBackend">
 			<fieldset>
 				<div class="logo">
-					<img src="pictures/logo.jpg" alt="Very cool Logo">
+					<a href="index.php">
+						<img src="pictures/logo.jpg" alt="Very cool Logo">
+					</a>
 				</div>
 				
 				<?php 
