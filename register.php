@@ -1,6 +1,4 @@
 <?php
-	session_start();
-	
 	if(!defined('includeConnDetails'))
 	{
 		define('includeConnDetails', TRUE);
