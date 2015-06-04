@@ -8,7 +8,7 @@
 		session_unset();
 		session_destroy();
 	}
-	if(!isset($_SESSION['user_name']) && isset($_POST['username']) && $_POST['password'])
+	if(!isset($_SESSION['user_name']) && !isset($_POST['register']) && isset($_POST['username']) && $_POST['password'])
 	{
 		loginUser($_POST['username'],$_POST['password']);
 	}
