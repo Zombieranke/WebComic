@@ -376,20 +376,21 @@
 			die("Database connection failed: ".$connection->connect_error);
 		}
 		
-		$stmt = $connection->prepare("SELECT username, avatar, comment, timestamp, adminflag
+		$stmt = $connection->prepare("SELECT comment_id,username, avatar, comment, timestamp, adminflag
 									FROM commentStrip AS cs LEFT JOIN user AS u 
 									ON cs.fk_user_id = u.user_id WHERE cs.fk_strip_Id = ? 
 									ORDER BY cs.timestamp ASC LIMIT ?,20 ");
 		$stmt->bind_param('ii', $stripId, $offset);
 		$stmt->execute();
 		
-		$stmt->bind_result($username,$avatar,$comment,$timestamp,$adminflag);
+		$stmt->bind_result($commentId,$username,$avatar,$comment,$timestamp,$adminflag);
 	
 		$i=0;
 		$commentArray = array();
 		
 		while($stmt->fetch())
 		{
+			$commentArray[$i]['commentId'] = $commentId;
 			$commentArray[$i]['username'] = $username;
 			$commentArray[$i]['avatar'] = $avatar;
 			$commentArray[$i]['comment'] = $comment;
@@ -408,7 +409,7 @@
 	
 	
 	
-	function createCommentDiv($username, $avatar, $timestamp, $comment, $adminflag)
+	function createCommentDiv($commentId, $username, $avatar, $timestamp, $comment, $adminflag)
 	{
 		if($adminflag)
 		{
@@ -418,10 +419,16 @@
 		{
 			$outputString  = "<div class=\"comment\">";
 		}
-		$outputString .=	"<p class=\"commentHeader\">";
-		$outputString .=		"<span class=\"commentTimestamp\">".$timestamp."</span>";
+		$outputString .=	"<span class=\"commentHeader\">";
 		$outputString .=		$username." wrote: ";
-		$outputString .=	"</p>";
+		if(isAuthorized(ADMIN))
+		{
+			$outputString .= "<form action=\"".htmlspecialchars($_SERVER['PHP_SELF'])."\" method=\"POST\">";
+			$outputString .= 	"<button class=\"deleteCommentButton\" type=\"submit\" name=\"deleteComment\"  value=\"".$commentId."\"><img src=\"pictures/redCross.png\" alt=\"Delete Comment\"></button>";
+			$outputString .= "</form>";
+		}
+		$outputString .=		"<span class=\"commentTimestamp\">".$timestamp."</span>";
+		$outputString .=	"</span>";
 		$outputString .=	"<div class=\"commentContent\">";
 		$outputString .=		stripslashes($comment);
 		$outputString .=	"</div>";
@@ -432,7 +439,25 @@
 	}
 	
 	
-	
+	function deleteComment($commentId)
+	{
+		require('connDetails.php');
+		
+		$connection = new mysqli($database['dbServer'],$database['dbUser'],$database['dbPassword'],$database['dbName']);
+		
+		if($connection->errno != 0)
+		{
+			die("Database connection failed: ".$connection->connect_error);
+		}
+		
+		$stmt = $connection->prepare("DELETE FROM commentStrip WHERE comment_id = ?");
+		$stmt->bind_param('i', $commentId);
+		$stmt->execute();
+		
+		$stmt->free_result();
+		$stmt->close();
+		$connection->close();
+	}
 	
 	
 	

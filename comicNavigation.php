@@ -22,6 +22,11 @@
 		commentStrip($_POST['commentContent'],$curId);
 	}
 	
+	if(isset($_POST['deleteComment']) && isAuthorized(ADMIN))
+	{
+		deleteComment($_POST['deleteComment']);
+	}
+	
 	
 	$latestId = getLatestId();
 	if(empty($latestId))
@@ -204,7 +209,7 @@
 			{
 				if(!empty($commentArray[$i]['username']))
 				{
-					echo createCommentDiv($commentArray[$i]['username'],$commentArray[$i]['avatar'],$commentArray[$i]['timestamp'],$commentArray[$i]['comment'],$commentArray[$i]['adminflag']);
+					echo createCommentDiv($commentArray[$i]['commentId'],$commentArray[$i]['username'],$commentArray[$i]['avatar'],$commentArray[$i]['timestamp'],$commentArray[$i]['comment'],$commentArray[$i]['adminflag']);
 				}
 				
 			}

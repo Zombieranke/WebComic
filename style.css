@@ -556,6 +556,29 @@ html
 	margin-top: 0.5%;
 }
 
+.comment form, .adminComment form
+{
+	display: inline;
+	float: right;
+	margin-right: 2%;
+	margin-top: 0.5%;
+}
+
+.deleteCommentButton
+{
+	display: inline;
+	float: right;
+	cursor: pointer;
+	background: none;
+	border: none;
+}
+
+.deleteCommentButton img
+{
+	width: 75%;
+	height: auto;
+}
+
 .commentContent
 {
 	margin-left: 2%;
