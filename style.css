@@ -261,6 +261,8 @@ html
 
 #activeApplication fieldset
 {
+	padding: 0.5%;
+	margin: 0.5%;
 	border: 3px solid RGB(111,155,255);
 	border-radius: 5px;
 }
