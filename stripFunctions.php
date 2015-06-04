@@ -287,6 +287,7 @@
 		
 		$text = addslashes($text); //this function escapes all logical symbols
 		
+		
 		if($stripId == -1337)
 		{
 			return;
@@ -299,13 +300,16 @@
 			die("Database connection failed: ".$connection->connect_error);
 		}
 		
-		$stmt = $connection->prepare("SELECT user_id, adminflag FROM user WHERE username = ?");
+		$stmt = $connection->prepare("SELECT user_id FROM user WHERE username = ?");
 		$stmt->bind_param('s', $_SESSION['user_name']);
-		$stmt->bind_result('ii', $userId, $adminflag);
+		$stmt->bind_result($userId);
 		$stmt->execute();
+		$stmt->fetch();
 		
-		$stmt = $connection->prepare("INSERT INTO commentstrip (fk_user_id, fk_strip_id, comment, adminflag) VALUES ( '?', '?', '?', '?')");
-		$stmt->bind_param('iisi',$userId. $stripId, $text, $adminflag);
+		$stmt->free_result();
+		
+		$stmt = $connection->prepare("INSERT INTO commentStrip (fk_user_id, fk_strip_Id, comment) VALUES (?, ?, ?)");
+		$stmt->bind_param('iis', $userId, $stripId, $text);
 		$stmt->execute();
 		
 		$stmt->close();
@@ -346,7 +350,9 @@
 			$commentArray[$i]['adminflag'] = $adminflag;
 			$i++;
 		}
-	
+		
+		$stmt->free_result();
+		$stmt->close();
 		$connection->close();
 		
 		return $commentArray;

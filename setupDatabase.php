@@ -128,11 +128,11 @@
 	(
 		"CREATE TABLE IF NOT EXISTS commentStrip
 		(
+			comment_id INT(11) AUTO_INCREMENT PRIMARY KEY,
 			fk_user_id INT(11) NOT NULL,
 			fk_strip_Id INT(11) NOT NULL,
 			comment VARCHAR(512) NOT NULL,
 			timestamp TIMESTAMP NOT NULL,
-			PRIMARY KEY(fk_strip_id,fk_user_id),
 			FOREIGN KEY(fk_strip_id) REFERENCES strip(strip_id),
 			FOREIGN KEY(fk_user_id) REFERENCES user(user_id)
 		)"
