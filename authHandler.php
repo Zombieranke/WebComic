@@ -125,8 +125,13 @@
 		
 		if( !empty($id) ) // If user exists, create reset key and write it into the db as well as send the user a mail.
 		{
-			$stmt = $connection->prepare("UPDATE user SET resetkey =? WHERE user_id=?");
-			$stmt->bind_param('ss', $newpass, $username);
+			$resetkey = "hsj39gh5rpkoth5togh";
+			
+			$stmt = $connection->prepare("UPDATE user SET resetkey=? WHERE user_id=?");
+			$stmt->bind_param('si', $resetkey, $id);
+			$stmt->execute();
+			$stmt->free_result();
+			$stmt->close();
 			
 			if( !defined('PasswordReset') )
 			{
