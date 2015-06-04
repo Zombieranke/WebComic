@@ -181,4 +181,5 @@
 	$addWebComicStmt->close();
 	
 	$connection->close();
+	echo 'Setup successful.';
 ?>
