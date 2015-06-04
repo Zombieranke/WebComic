@@ -2,6 +2,8 @@
 	if( defined('PasswordReset') )
 	{
 		echo 'Password has been reset.';
+		if( isset($resetkey) )
+			echo 'Resetkey: ' . $resetkey;
 	}
 	else
 	{
