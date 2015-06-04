@@ -107,7 +107,7 @@ html
 	width: 100%;
 }
 
-#loginForm
+.loginForm
 {
 	color: #4433ee;
 	fontsize: 20px;
@@ -119,19 +119,19 @@ html
 	font-weight: bold;
 }
 
-#loginForm a:visited,#loginForm a:link
+.loginForm a:visited,.loginForm a:link
 {
 	text-decoration: none;
 	color: #ee7711;
 }
 
-#loginForm a:hover,#loginForm a:active
+.loginForm a:hover,.loginForm a:active
 {
 	text-decoration: underline;
 	color: #ee7711;
 }
 
-#loginForm fieldset
+.loginForm fieldset
 {
 	border-color: #3366dd;
 	border-width: 3px;
@@ -160,7 +160,7 @@ html
 	margin: 0px 5px 5px 5px;
 }
 
-#loginForm input[type=text],#loginForm input[type=password]
+.loginForm input[type=text],.loginForm input[type=password]
 {
 	float: left;
 	margin-left: 0px;
@@ -359,4 +359,17 @@ html
 #loginLinks
 {
 	text-align: right;
+}
+
+
+.comment
+{
+	font-family: Arial;
+	border: solid 1px RGB(180,180,180);
+	margin: 1%;
+}
+
+.commentHeader
+{
+	font-weight: bold;
 }

@@ -34,26 +34,39 @@
 					<li><a href="index.php">Comic</a> </li>
 					<li><a href="index.php">About me</a> </li>
 					<li><a href="index.php">Contact</a>	</li>
-					<li><a href="index.php">Login</a> </li>
+					<li><a href="index.php?login=true">Login</a> </li>
 				</ul>
 				
 				<div id="content">
-					<?php 		
-						include('comicNavigation.php');
+					<?php 
+						if(isset($_GET['login']))
+						{
+							include('login.php');
+						}
+						else if(isset($_GET['register']))
+						{
+							include('register.php');
+						}
+						else
+						{
+							include('comicNavigation.php');
+						}
 					?>
 				</div>
 				<?php 
 				if(!isset($_SESSION['user_name']))
 				{
-					echo '<div id="loginLinks">
-						<a href="register.php">Register</a>
+					echo '<div class="loginLinks">
+						<a href="index.php?register=true">Register</a>
 						|
-						<a href="login.php">Login</a>
+						<a href="index.php?login=true">Login</a>
 					</div>';
 				}
 				else
 				{
-					echo '<a href="'.htmlspecialchars($_SERVER['PHP_SELF']).'?logout">Logout</a>';
+					echo "<div class=\"loginLinks\">";
+					echo	"<a href=\"".htmlspecialchars($_SERVER['PHP_SELF'])."?logout\">Logout</a>";
+					echo "</div>";
 				}
 				?>
 			</fieldset>
