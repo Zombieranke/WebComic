@@ -10,6 +10,7 @@
 		echo			"<li><a href=\"admin.php?selection=editStrip\">Edit Strip</a></li>";
 		echo			"<li><a href=\"admin.php?selection=changePassword\">Change Password</a></li>";
 		echo			"<li><a href=\"admin.php?selection=changeCss\">Change Stylesheet</a></li>";
+		echo 			"<li><a href=\"index.php?logout\">Logout</a></li>";
 		echo		"</ul>";	
 		echo	"</div>";
 		
