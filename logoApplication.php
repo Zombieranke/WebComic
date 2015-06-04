@@ -1,22 +1,35 @@
 <?php
+	if(!defined('includeConnDetails'))
+	{
+		define('includeConnDetails', TRUE);
+	}
 	require_once ('stripFunctions.php');
 	
-	$webcomic = getWebcomics();
+	$comicList= "";
+	
+	$webcomics = getWebcomics();
+	foreach ($webcomics as $comic)
+	{
+		$comicList .= '<option value='.$comic['id'].'>'.$comic['title'].'</option>';
+	}
 
-	echo '<script type="text/javascript" src="uploadHelper.js"></script>
-			<form id="logoForm" action="'.htmlspecialchars($_SERVER['PHP_SELF']).'?selection='.$_GET['selection'].'" method="POST" enctype="multipart/form-data" onReset="purgeForm()">
-				<fieldset>
-					<select name="webcomic" id="comicSelection">';
-					$webcomics = getWebcomics();
-					foreach ($webcomics as $comic)
-					{
-						echo '<option value='.$comic['id'].'>'.$comic['title'].'</option>';
-					}
-	echo 			'</select>
-					<input type="file" name="picture">
-					<br/>
-					<input type="reset" name="resetForm" value="Reset" />
-					<input type="submit" name="uploadLogo" value="Upload Logo"/>
+	echo '<form id="logoSelect" action="'.htmlspecialchars($_SERVER['PHP_SELF']).'?selection='.$_GET['selection'].'" method="POST" > ';
+		getLogo();
+	echo '<select name="comicSelection" id="comicSelection">';
+	echo $comicList;
+	echo '</select>';
+	echo '<input id="changeLogoButton" type="submit" name="changeLogoButton" value="Select Logo" />';
+	echo '</form>';
+	
+	echo '<form id="logoForm" action="'.htmlspecialchars($_SERVER['PHP_SELF']).'?selection='.$_GET['selection'].'" method="POST" enctype="multipart/form-data" onReset="purgeForm()">
+			<fieldset>
+				<select name="webcomic" id="comicSelection">';
+	echo $comicList;
+	echo 		'</select>
+				<input type="file" name="picture">
+				<br/>
+				<input type="reset" name="resetForm" value="Reset" />
+				<input type="submit" name="uploadLogo" value="Upload Logo"/>
 				</fieldset>
 			</form>';
 			
@@ -27,6 +40,54 @@
 		
 		upload_logo($fileupload);
 		store_logo($fileupload, $mywebcomic);
+	}
+	
+	if(isset($_POST['changeLogoButton'], $_POST['logoSelect'],$_POST['comicSelection']))
+	{
+		require ('connDetails.php');
+		if(!is_numeric($_POST['comicSelection']))
+		{
+			die("Parameters wrong");
+		}
+			
+		$newLogo = filter_var($_POST['logoSelect'], FILTER_SANITIZE_STRING);
+		$newLogo = "./logos/".$newLogo;
+			
+		$connection = new mysqli($database['dbServer'],$database['dbUser'],$database['dbPassword'],$database['dbName']);
+			
+		if($connection->errno != 0)
+		{
+			die("Database connection failed: ".$connection->connect_error);
+		}
+			
+		$stmt = $connection->prepare("UPDATE webcomic SET logo = ? WHERE webcomic_id = ?");
+		$stmt->bind_param("si", $newLogo,$_POST['comicSelection']);
+		$stmt->execute();
+		$stmt->free_result();
+		$stmt->close();
+		$connection->close();
+		echo '<p id="logoChangeSuccess">Done</p>';
+	}
+	
+	function getLogo()
+	{
+		if(!is_dir("logos"))
+		{
+			return false;
+		}
+		else
+		{
+			$file = opendir("./logos/");
+			echo "<select name=\"logoSelect\">";
+			while($myfile = readdir($file))
+			{
+				if(!is_dir("./logos/".$myfile))
+					echo "<option>".$myfile."</option> ";
+			}
+			echo "</select>";
+	
+	
+		}
 	}
 	
 	function upload_logo($fileupload)

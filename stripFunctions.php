@@ -248,6 +248,29 @@
 		}
 	}
 	
+	function getDefaultWebcomic()
+	{
+		require('connDetails.php');
+	
+		$connection = new mysqli($database['dbServer'],$database['dbUser'],$database['dbPassword'],$database['dbName']);
+	
+		if($connection->errno != 0)
+		{
+			die("Database connection failed: ".$connection->connect_error);
+		}
+	
+		$stmt = $connection->prepare("SELECT webcomic_id FROM webcomic LIMIT 1");
+		$stmt->execute();
+		$stmt->bind_result($id);
+		$stmt->fetch();
+		$stmt->free_result();
+		$stmt->close();
+	
+		$connection->close();
+	
+		return $id;
+	}
+	
 	function getWebcomics()
 	{
 		require('connDetails.php');
