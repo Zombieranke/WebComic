@@ -77,13 +77,13 @@ html
 .comic_navigation img
 {
 	width: 7%;
-	height: same-as-width;
+	height: auto;
 }
 
 .navRandom img
 {
 	width: 28%;
-	height: (same-as-width)/4;
+	height: auto;
 }
 
 .comic_navigation li
@@ -112,9 +112,9 @@ html
 	color: #4433ee;
 	fontsize: 20px;
 	margin-top: 10%;
-	margin-left: 25%;
+	margin-left: 30%;
 	padding: 1%;
-	width: 400px;
+	width: 40%;
 	font-family: Arial, Helvetica, sansserif;
 	font-weight: bold;
 }
@@ -133,11 +133,9 @@ html
 
 .loginForm fieldset
 {
-	border-color: #3366dd;
-	border-width: 3px;
+	border: 3px solid #3366dd;
 	border-radius: 40px;
-	background-color: rgba(0,0,0,0.3);
-	border-style: solid;
+	background-color: rgb(210,210,210);
 }
 
 .loginIcon
@@ -145,10 +143,10 @@ html
 	display: inline;
 	float: left;
 	margin-top: 10px;
-	margin-right: 0px;
-	margin-left: 55px;
-	height: 50px;
-	width: 50px;
+	margin-right: 0%;
+	margin-left: 10%;
+	width: 7%;
+	height: same-as-width;
 	background: RGB(130,130,130);
 	border: solid 5px RGB(130,130,130);
 	border-top-left-radius: 5px;
@@ -157,7 +155,7 @@ html
 
 .loginIcon img
 {
-	margin: 0px 5px 5px 5px;
+	margin: 0px 7% 7% 7%;
 }
 
 .loginForm input[type=text],.loginForm input[type=password]
@@ -168,7 +166,7 @@ html
 	line-height: 50px;
 	text-align: left;
 	width: 200px;
-	background: RGB(200,200,200);
+	background: RGB(220,220,220);
 	padding-left: 5%;
 	border: solid 5px RGB(130,130,130);
 	border-top-right-radius: 5px;
