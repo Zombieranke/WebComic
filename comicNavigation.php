@@ -135,6 +135,10 @@
 				echo "</a>";
 			}
 			
+			$annotation = getAnnotation($curId);
+			
+			echo "<p id=stripAnnotation>".$annotation."</p>";
+			
 			echo $comicNavigation;
 			
 			if(isAuthorized(ADMIN))

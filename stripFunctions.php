@@ -281,6 +281,30 @@
 	}
 	
 	
+	function getAnnotation($stripId)
+	{
+		require('connDetails.php');
+		
+		$connection = new mysqli($database['dbServer'],$database['dbUser'],$database['dbPassword'],$database['dbName']);
+		
+		if($connection->errno != 0)
+		{
+			die("Database connection failed: ".$connection->connect_error);
+		}
+		
+		$stmt = $connection->prepare("SELECT annotation FROM strip WHERE strip_id = ?");
+		$stmt->bind_param('i', $stripId);
+		$stmt->bind_result($annotation);
+		$stmt->execute();
+		$stmt->fetch();
+		
+		$stmt->close();
+		$connection->close();
+		
+		return $annotation;
+	}
+	
+	
 	function commentStrip($text,$stripId)
 	{
 		require('connDetails.php');
