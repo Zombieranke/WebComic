@@ -1,11 +1,18 @@
 <?php 
 	session_start();
 	require_once ('authHandler.php');
+	require_once ('styleFunctions.php');
+	
+	if(!isset($_SESSION['webcomicId']))
+	{
+		require ('stripFunctions.php');
+		$_SESSION['webcomicId'] = getDefaultWebcomic();
+	}
 ?>
 <!DOCTYPE html>
 <html>
 	<head>
-		<link type="text/css" rel="stylesheet" href="style.css">
+		<link type="text/css" rel="stylesheet" href="<?php $css = getAppliedCss($_SESSION['webcomicId']); $css = $css ? $css : "style.css"; echo $css;?>">
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 		<title>
 			W3BC0M1C
@@ -16,7 +23,7 @@
 		<div id="wrapperBackend">
 			<fieldset>
 				<div class="logo">
-					<img src="pictures/logo.jpg" alt="Very cool Logo">
+					<img src="<?php $logo = getAppliedLogo($_SESSION['webcomicId']); $logo = $logo ? $logo : "pictures/logo.jpg"; echo $logo;?>" alt="Very cool Logo">
 				</div>
 				
 				<?php 
