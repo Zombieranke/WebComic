@@ -78,7 +78,7 @@
 						}
 					?>
 				</div>
-				<?php 
+				<?php
 				if(!isset($_SESSION['user_name']))
 				{
 					echo '<div class="loginLinks">
