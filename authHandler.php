@@ -129,6 +129,8 @@
 			$resetkey1 = rtrim(base64_encode(md5(microtime())),"=");
 			$resetkey2 = rtrim(base64_encode(md5(microtime())),"=");
 			echo $resetkey1 . $resetkey2;
+			$
+			echo 
 			/*
 			$stmt = $connection->prepare("UPDATE user SET resetkey=? WHERE user_id=?");
 			$stmt->bind_param('si', $resetkey, $id);

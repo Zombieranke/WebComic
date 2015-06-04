@@ -4,6 +4,7 @@
 		echo "<div id=\"options\">";
 		echo 	"<div id=\"optionsListDiv\">";
 		echo		"<ul id=\"optionsList\">";
+		echo 			"<li><a href=\"index.php\">Back to Comic</a></li>";
 		echo			"<li><a href=\"admin.php?selection=changeLogo\">Change Logo</a></li>";
 		echo			"<li><a href=\"admin.php?selection=uploadStrip\">Upload Strip</a></li>";
 		echo			"<li><a href=\"admin.php?selection=editStrip\">Edit Strip</a></li>";
