@@ -31,15 +31,16 @@ html
 .logo img
 {
 	width: 100%;
+	height: auto;
 }
 
 #navigation li
 {
     display: inline;
+    float: left;
     margin-left: 4%;
     margin-right: 4%;
     list-style-type: none;
-    text-align: center;
 }
 
 #navigation
@@ -199,12 +200,12 @@ html
 	margin: 10px 0px 10px 55px;
 	width: 280px;
 	height: 40px;
-	border: 5px RGB(255,0,221);
-	border-radius: 5px;
+	border: 5px solid #3366dd;
+	border-radius: 10px;
 	background: #3366dd;
 	font-family: Arial, Helvetica, sansserif;
 	font-weight: bold;
-	color: #e8c14b;
+	color: #e8cf41;
 	font-size: 25px;
 }
 
@@ -214,12 +215,12 @@ html
 	margin: 10px 0px 10px 55px;
 	width: 280px;
 	height: 40px;
-	border: 5px RGB(255,0,221);
-	border-radius: 5px;
+	border: 5px solid #5b82dd;
+	border-radius: 10px;
 	background: #5b82dd;
 	font-family: Arial, Helvetica, sansserif;
 	font-weight: bold;
-	color: #e8c14b;
+	color: #e8cf41;
 	font-size: 25px;
 	cursor: pointer;
 }
@@ -389,6 +390,49 @@ html
 	font-family: Arial;
 }
 
+#uploadForm select
+{
+	font-family: Arial;
+	height: 28px;
+	font-size: 15px;
+	margin-left: 3%;
+	width: 180px;
+	padding-left: 1.5%;
+	margin-bottom: 1%;
+}
+
+#uploadForm #resetButton, #uploadForm #submitButton
+{
+	padding: 2px;
+	margin-left: 2%;
+	border: 5px RGB(255,0,221);
+	border-radius: 5px;
+	background: #3366dd;
+	font-family: Arial, Helvetica, sansserif;
+	font-weight: bold;
+	color: #e8cf41;
+	font-size: 18px;
+}
+
+#uploadForm #resetButton:hover, #uploadForm #submitButton:hover
+{
+	padding: 2px;
+	margin-left: 2%;
+	border-radius: 5px;
+	font-family: Arial, Helvetica, sansserif;
+	font-weight: bold;
+	color: #e8cf41;
+	font-size: 18px;
+	background: #5b82dd;
+	cursor: pointer;
+}
+
+#activeApplication fieldset fieldset
+{
+	border-width: 2px;
+	margin: 3%;
+}
+
 #loginLinks
 {
 	text-align: right;
@@ -424,18 +468,17 @@ html
 	background: #3366dd;
 	font-family: Arial;
 	font-weight: bold;
-	color: #e8c14b;
+	color: #e8cf41;
 	font-size: 20px;
 }
 
 #commentForm input[type=submit]:hover
 {
-	border: 5px #5b82dd;
-	border-radius: 5px;
+	border: 5px solid #5b82dd;
 	background: #5b82dd;
 	font-family: Arial, Helvetica, sansserif;
 	font-weight: bold;
-	color: #e8c14b;
+	color: #e8cf41;
 	font-size: 20px;
 	cursor: pointer;
 }
