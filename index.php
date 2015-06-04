@@ -2,21 +2,13 @@
 	session_start();
 	
 	require_once ('authHandler.php');
-	require_once ('styleFunctions.php');
 	
 	if(isset($_GET['logout']))
 	{
 		session_unset();
 		session_destroy();
 	}
-	
-	if(!isset($_SESSION['webcomicId']))
-	{
-		require ('stripFunctions.php');
-		$_SESSION['webcomicId'] = getDefaultWebcomic();
-	}
-	
-	if(!isset($_SESSION['user_name']) && !isset($_POST['register']) && isset($_POST['username'], $_POST['password']))
+	if(!isset($_SESSION['user_name']) && !isset($_POST['register']) && isset($_POST['username']) && isset($_POST['password']))
 	{
 		loginUser($_POST['username'],$_POST['password']);
 	}
@@ -28,7 +20,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<link type="text/css" rel="stylesheet" href="<?php $css =getAppliedCss($_SESSION['webcomicId']); $css = $css ? $css : "style.css"; echo $css; ?>">
+		<link type="text/css" rel="stylesheet" href="style.css">
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 		<title>
 			W3BC0M1C
@@ -40,7 +32,7 @@
 			<fieldset>
 				<div class="logo">
 					<a href="index.php">
-						<img src="<?php $logo = getAppliedLogo($_SESSION['webcomicId']); $logo = $logo ? $logo : "pictures/logo.jpg"; echo $logo;?>" alt="Very cool Logo">
+						<img src="pictures/logo.jpg" alt="Very cool Logo">
 					</a>
 				</div>
 				<ul id="navigation">
@@ -50,6 +42,7 @@
 					<?php
 						if( isset($_SESSION['user_name']) )
 						{
+							echo '<li><a href="index.php?profile">Profile</a></li>';
 							echo '<li><a href="index.php?logout">Logout</a></li>';
 						}
 						else
@@ -60,7 +53,7 @@
 					
 						if( isAuthorized(ADMIN) )
 						{
-							echo '<li><a href="admin.php">Admin</a></li>';
+							echo '<li><a href="admin.php">Backend</a></li>';
 						}
 					?>
 				</ul>
