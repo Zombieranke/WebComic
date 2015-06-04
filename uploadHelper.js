@@ -15,7 +15,7 @@ function addUpload(oldnode)
 	input = document.createElement("br");
 	node.appendChild(input);
 	
-	input = document.createElement("label");
+	input = document.createElement("div");
 	var text = document.createTextNode("Release Date: ");
 	input.appendChild(text);
 	node.appendChild(input);
@@ -30,13 +30,13 @@ function addUpload(oldnode)
 	input = document.createElement("br");
 	node.appendChild(input);
 	
-	input = document.createElement("label");
+	input = document.createElement("div");
 	text = document.createTextNode("Annotation: ");
 	input.appendChild(text);
 	node.appendChild(input);
 	
 	input = document.createElement("textarea");
-	input.classList.add("stripAnnotation");
+	input.classList.add("uploadAnnotation");
 	input.setAttribute("name","annotation[]");
 	node.appendChild(input);
 	
