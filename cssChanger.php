@@ -8,7 +8,7 @@
 			define('includeConnDetails', TRUE);
 		}
 		
-		require_once ('connDetails.php');
+		require ('connDetails.php');
 
 		if(isset($_POST['changeCssButton'], $_POST['cssSelect'],$_POST['comicSelection']))
 		{
