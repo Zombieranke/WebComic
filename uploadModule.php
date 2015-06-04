@@ -7,7 +7,7 @@
 			define('includeConnDetails', TRUE);
 		}
 		
-		require_once ('connDetails.php');
+		require ('connDetails.php');
 		require_once ('stripFunctions.php');
 		
 	
