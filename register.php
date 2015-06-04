@@ -1,6 +1,4 @@
 <?php
-	session_start();
-	
 	if(!defined('includeConnDetails'))
 	{
 		define('includeConnDetails', TRUE);
@@ -37,6 +35,10 @@
 				if($entry->execute())
 				{
 					echo "<p>User: ".$username." erfolgreich registriert</p>";
+				}
+				else
+				{
+					echo "<p>Username: ".$username." already exists!</p>";
 				}
 				
 				$entry->free_result();
