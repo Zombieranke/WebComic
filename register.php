@@ -4,7 +4,7 @@
 		define('includeConnDetails', TRUE);
 	}
 	
-	require_once ('connDetails.php');
+	require ('connDetails.php');
 	
 	
 	if(isset($_POST['username'],$_POST['password'],$_POST['passwordConfirm'],$_POST['email']))
