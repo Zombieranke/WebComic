@@ -83,26 +83,28 @@
 
 	echo '<script type="text/javascript" src="uploadHelper.js"></script>
 	<form id="uploadForm" action="'.htmlspecialchars($_SERVER['PHP_SELF']).'?selection='.$_GET['selection'].'" method="POST" enctype="multipart/form-data" onReset="purgeForm()">
-		<fieldset>
-			<input type="file" class="inputFile" name="upload[]" onChange="addUpload(this)"/> </br>
-			<label>
-				Release Date:
-			</label>
-			<input type="datetime-local" class="inputDate" name="releaseDate[]" placeholder="YYYY-MM-DD HH:DD:SS"/> </br>
-			<label>
-				Annotation:
-			</label>
-			<textarea class="stripAnnotation" name="annotation[]"></textarea> </br>
+		<fieldset id="containerFieldset">
+			<fieldset>
+				<input type="file" class="inputFile" name="upload[]" onChange="addUpload(this)"/> </br>
+				<label>
+					Release Date:
+				</label>
+				<input type="datetime-local" class="inputDate" name="releaseDate[]" placeholder="YYYY-MM-DD HH:DD:SS"/> </br>
+				<label>
+					Annotation:
+				</label>
+				<textarea class="stripAnnotation" name="annotation[]"></textarea> </br>
+			</fieldset>
 			
-		<select name="webcomic" id="comicSelection">'; 
+			<select name="webcomic" id="comicSelection">'; 
 				$webcomics = getWebcomics();
 				foreach ($webcomics as $comic)
 				{
 					echo '<option value='.$comic['id'].'>'.$comic['title'].'</option>';
 				}
 		echo '</select>
-		<input id="resetButton" type="reset" name="resetForm" value="Reset" />
-		<input id="submitButton" type="submit" name="uploadFiles" value="Upload Files"/>
+			<input id="resetButton" type="reset" name="resetForm" value="Reset" />
+			<input id="submitButton" type="submit" name="uploadFiles" value="Upload Files"/>
 		</fieldset>
 	</form>';
 	}
