@@ -32,7 +32,7 @@
 							}
 							else
 							{
-								echo "<p class=\"permError\">Unzureichende Befugnisse</p>";
+								echo "<p class=\"permError\">You are not authorized!</p>";
 							}
 						}
 						else

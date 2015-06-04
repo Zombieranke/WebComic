@@ -4,6 +4,7 @@
 		<input type="text" name="username" placeholder="Username"/>
 		<div class="loginIcon"><img src="pictures/lock-icon.png" alt="Lock-Icon for the password"></div>
 		<input type="password" name="password" placeholder="Password"/>
-		<input type="submit" name="login" value="Login" id="loginButton"/>
+		<a href="index.php?reset">Forgot your password? Reset here.</a>
+		<input type="submit" name="login" value="Login" id="loginButton"/>		
 	</fieldset>
 </form>

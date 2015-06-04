@@ -7,6 +7,10 @@
 	define("USER",1);
 	define("ADMIN",2);
 
+	if( !isset($_SESSION['permLevel']) )
+	{
+		$_SESSION['permLevel'] = ANON;
+	}
 
 	function isAuthorized($reqPermLevel)
 	{
@@ -97,6 +101,11 @@
 			$stmt->close();
 			$connection->close();
 		}
+	}
+	
+	function resetPassword()
+	{
+		//
 	}
 
 ?>

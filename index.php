@@ -2,6 +2,7 @@
 	session_start();
 	
 	require_once ('authHandler.php');
+	
 	if(isset($_GET['logout']))
 	{
 		session_unset();
@@ -10,6 +11,10 @@
 	if(!isset($_SESSION['user_name']) && isset($_POST['username']) && $_POST['password'])
 	{
 		loginUser($_POST['username'],$_POST['password']);
+	}
+	else if( !isset($_SESSION['user_name']) && isset($_POST['username']) && isset($_GET['reset']) )
+	{
+		resetPassword($_POST['username']);
 	}
 ?>
 <!DOCTYPE html>
@@ -31,21 +36,40 @@
 					</a>
 				</div>
 				<ul id="navigation">
-					<li><a href="index.php">Comic</a> </li>
-					<li><a href="index.php">About me</a> </li>
-					<li><a href="index.php">Contact</a>	</li>
-					<li><a href="index.php?login=true">Login</a> </li>
+					<li><a href="index.php">Comic</a></li>
+					<li><a href="index.php?view=about">About</a></li>
+					<li><a href="index.php?view=contact">Contact</a></li>
+					<?php
+						if( isset($_SESSION['user_name']) )
+						{
+							echo '<li><a href="index.php?logout">Logout</a></li>';
+						}
+						else
+						{
+							echo '<li><a href="index.php?login=true">Login</a></li>';
+							echo '<li><a href="index.php?register=true">Register</a></li>';
+						}
+					
+						if( isAuthorized(ADMIN) )
+						{
+							echo '<li><a href="admin.php">Admin</a></li>';
+						}
+					?>
 				</ul>
 				
 				<div id="content">
-					<?php 
-						if(isset($_GET['login']))
+					<?php
+						if(isset($_GET['login']) && $_GET['login'] == 'true')
 						{
 							include('login.php');
 						}
 						else if(isset($_GET['register']))
 						{
 							include('register.php');
+						}
+						else if (isset($_GET['reset']))
+						{
+							include('reset.php');
 						}
 						else
 						{
