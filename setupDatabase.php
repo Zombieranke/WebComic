@@ -38,6 +38,8 @@
 			username VARCHAR(256) UNIQUE NOT NULL,
 			password VARCHAR(256) NOT NULL,
 			email VARCHAR(256) NOT NULL,
+			resetkey VARCHAR(100),
+			timelimit TIMESTAMP,
 			avatar VARCHAR(256),
 			adminflag BOOLEAN NOT NULL,
 			suspended TIMESTAMP DEFAULT CURRENT_TIMESTAMP
