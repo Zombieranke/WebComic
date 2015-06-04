@@ -423,7 +423,7 @@
 		$outputString .=		$username." wrote: ";
 		$outputString .=	"</p>";
 		$outputString .=	"<div class=\"commentContent\">";
-		$outputString .=		$comment;
+		$outputString .=		stripslashes($comment);
 		$outputString .=	"</div>";
 		$outputString .= "</div>";
 		

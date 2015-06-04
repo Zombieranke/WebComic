@@ -53,7 +53,7 @@
 						}
 						else
 						{
-							$annotation =filter_var($_POST['annotation'][$i], FILTER_SANITIZE_STRING);
+							$annotation = $_POST['annotation'][$i];
 							$releaseDate = $_POST['releaseDate'][$i];
 							if(empty($releaseDate) )
 							{
@@ -86,14 +86,14 @@
 		<fieldset id="containerFieldset">
 			<fieldset>
 				<input type="file" class="inputFile" name="upload[]" onChange="addUpload(this)"/> </br>
-				<label>
+				<div>
 					Release Date:
-				</label>
+				</div>
 				<input type="datetime-local" class="inputDate" name="releaseDate[]" placeholder="YYYY-MM-DD HH:DD:SS"/> </br>
-				<label>
+				<div>
 					Annotation:
-				</label>
-				<textarea class="stripAnnotation" name="annotation[]"></textarea> </br>
+				</div>
+				<textarea class="uploadAnnotation" name="annotation[]" rows="2"></textarea> </br>
 			</fieldset>
 			
 			<select name="webcomic" id="comicSelection">'; 

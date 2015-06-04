@@ -76,14 +76,14 @@ html
 
 .comic_navigation img
 {
-	height: 64px;
-	width: 64px;
+	width: 7%;
+	height: same-as-width;
 }
 
 .navRandom img
 {
-	width: 260px;
-	height: 64px;
+	width: 28%;
+	height: (same-as-width)/4;
 }
 
 .comic_navigation li
@@ -340,12 +340,15 @@ html
 #uploadForm .inputFile
 {
 	margin: 1%;
+	margin-left: 2%;
 }
 
-#uploadForm label
+#uploadForm div
 {
 	font-size: 16px;
-	margin-left: 1%;
+	margin-left: 2%;
+	margin-top: 1%;
+	display: inline-block;
 }
 
 #uploadForm .inputDate
@@ -355,7 +358,18 @@ html
 	line-height: 20px;
 	font-size: 16px;
 	text-align: left;
-	padding-left: 2%;
+	padding-left: 1.5%;
+}
+
+.uploadAnnotation
+{
+	padding: 1%;
+	resize: none;
+	font-size: 15px;
+	margin: 2%;
+	margin-top: 1%;
+	width: 94%;
+	font-family: Arial;
 }
 
 #loginLinks
@@ -366,8 +380,7 @@ html
 #stripAnnotation
 {
 	font-family: Arial;
-	font-weight: bold;
-	font-size: 18px;
+	font-size: 20px;
 	margin: 1%;
 }
 
@@ -428,7 +441,7 @@ html
 	border: solid 1px RGB(180,180,180);
 	border-radius: 4px;
 	margin: 1%;
-	font-size: 16px;
+	font-size: 18px;
 }
 
 .commentHeader
@@ -456,6 +469,7 @@ html
 .adminComment .commentHeader
 {
 	color: #FF0000;
+	font-size: 24px;
 }
 
 .adminComment .commentContent

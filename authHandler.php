@@ -103,9 +103,38 @@
 		}
 	}
 	
-	function resetPassword()
+	function resetPassword($username)
 	{
-		//
+		// If username exists, create a reset key, write the key into the database and send it to the user via his/her entered email.
+		require('connDetails.php');
+		
+		$connection = new mysqli($database['dbServer'],$database['dbUser'],$database['dbPassword'],$database['dbName']);
+		
+		if($connection->errno != 0)
+		{
+			die("Database connection failed: ".$connection->connect_error);
+		}
+		
+		$stmt = $connection->prepare("SELECT user_id FROM user WHERE username=?");
+		$stmt->bind_param('s', $username);
+		$stmt->execute();
+		$stmt->bind_result($id);
+		$stmt->fetch();
+		$stmt->free_result();
+		$stmt->close();
+		
+		if( !empty($id) ) // If user exists, create reset key and write it into the db as well as send the user a mail.
+		{
+			$stmt = $connection->prepare("UPDATE user SET resetkey =? WHERE user_id=?");
+			$stmt->bind_param('ss', $newpass, $username);
+			
+			if( !defined('PasswordReset') )
+			{
+				define('PasswordReset', TRUE);
+			}
+		}
+		
+		$connection->close();
 	}
 
 ?>
