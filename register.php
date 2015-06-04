@@ -38,6 +38,10 @@
 				{
 					echo "<p>User: ".$username." erfolgreich registriert</p>";
 				}
+				else
+				{
+					echo "<p>Username: ".$username." already exists!</p>";
+				}
 				
 				$entry->free_result();
 				$entry->close();
