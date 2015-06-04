@@ -86,6 +86,7 @@
 					?>
 				</div>
 				<?php
+				/*
 				if(!isset($_SESSION['user_name']))
 				{
 					echo '<div class="loginLinks">
@@ -100,6 +101,7 @@
 					echo	"<a href=\"".htmlspecialchars($_SERVER['PHP_SELF'])."?logout\">Logout</a>";
 					echo "</div>";
 				}
+				*/
 				?>
 			</fieldset>
 		</div>
