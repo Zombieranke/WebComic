@@ -72,6 +72,10 @@
 						{
 							include('reset.php');
 						}
+						else if( isset($_GET['profile']) )
+						{
+							include('profile.php');
+						}
 						else
 						{
 							include('comicNavigation.php');
