@@ -126,11 +126,8 @@
 		if( !empty($id) ) // If user exists, create reset key and write it into the db as well as send the user a mail.
 		{
 			//echo  rtrim(base64_encode(md5(microtime())),"=");
-			$resetkey1 = rtrim(base64_encode(md5(microtime())),"=");
-			$resetkey2 = rtrim(base64_encode(md5(microtime())),"=");
-			echo $resetkey1 . $resetkey2;
-			$
-			echo 
+			//$resetkey1 = rtrim(base64_encode(md5(microtime())),"=");
+			//$resetkey2 = rtrim(base64_encode(md5(microtime())),"=");
 			/*
 			$stmt = $connection->prepare("UPDATE user SET resetkey=? WHERE user_id=?");
 			$stmt->bind_param('si', $resetkey, $id);
