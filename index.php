@@ -42,7 +42,10 @@
 					<?php
 						if( isset($_SESSION['user_name']) )
 						{
-							echo '<li><a href="index.php?profile">Profile</a></li>';
+							if( $_SESSION['permLevel'] == USER )
+							{
+								echo '<li><a href="index.php?profile">Profile</a></li>';
+							}
 							echo '<li><a href="index.php?logout">Logout</a></li>';
 						}
 						else
@@ -72,7 +75,7 @@
 						{
 							include('reset.php');
 						}
-						else if( isset($_GET['profile']) )
+						else if( isset($_GET['profile']) && $_SESSION['permLevel'] == USER )
 						{
 							include('profile.php');
 						}
@@ -83,6 +86,7 @@
 					?>
 				</div>
 				<?php
+				/*
 				if(!isset($_SESSION['user_name']))
 				{
 					echo '<div class="loginLinks">
@@ -97,6 +101,7 @@
 					echo	"<a href=\"".htmlspecialchars($_SERVER['PHP_SELF'])."?logout\">Logout</a>";
 					echo "</div>";
 				}
+				*/
 				?>
 			</fieldset>
 		</div>
