@@ -105,6 +105,7 @@ html
 #comicPicture
 {
 	width: 100%;
+	height: auto;
 }
 
 .loginForm
@@ -112,9 +113,9 @@ html
 	color: #4433ee;
 	fontsize: 20px;
 	margin-top: 10%;
-	margin-left: 30%;
+	margin-left: 27%;
 	padding: 1%;
-	width: 40%;
+	width: 400px;
 	font-family: Arial, Helvetica, sansserif;
 	font-weight: bold;
 }
@@ -143,10 +144,10 @@ html
 	display: inline;
 	float: left;
 	margin-top: 10px;
-	margin-right: 0%;
-	margin-left: 10%;
-	width: 7%;
-	height: same-as-width;
+	margin-right: 0px;
+	margin-left: 55px;
+	height: 50px;
+	width: 50px;
 	background: RGB(130,130,130);
 	border: solid 5px RGB(130,130,130);
 	border-top-left-radius: 5px;
@@ -155,7 +156,8 @@ html
 
 .loginIcon img
 {
-	margin: 0px 7% 7% 7%;
+	margin: 5px;
+	margin-top: 0px;
 }
 
 .loginForm input[type=text],.loginForm input[type=password]
@@ -172,6 +174,23 @@ html
 	border-top-right-radius: 5px;
 	border-bottom-right-radius: 5px;
 	font-size: 25px;
+}
+
+.loginForm input[type=password]
+{
+	margin-bottom: 5px;
+}
+
+.loginForm a:link, .loginForm a:visited
+{
+	margin-left: 93px;
+	font-size: 19px;
+}
+
+.loginForm a:hover, .loginForm a:active
+{
+	margin-left: 93px;
+	font-size: 19px;
 }
 
 #loginButton
