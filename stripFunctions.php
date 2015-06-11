@@ -331,6 +331,110 @@
 	function getFavouriteDiv($stripId)
 	{
 		echo "The Favourite Function is in work";
+		
+		require('connDetails.php');
+		
+		if($stripId == -1337)
+		{
+			return;
+		}
+		
+		$connection = new mysqli($database['dbServer'],$database['dbUser'],$database['dbPassword'],$database['dbName']);
+		
+		if($connection->errno != 0)
+		{
+			die("Database connection failed: ".$connection->connect_error);
+		}
+		
+		$stmt = $connection->prepare("SELECT user_id FROM user WHERE username = ?");
+		$stmt->bind_param('s', $_SESSION['user_name']);
+		$stmt->bind_result($userId);
+		$stmt->execute();
+		$stmt->fetch();
+		
+		$stmt->free_result();
+		
+		$stmt = $connection->prepare("SELECT fk_strip_Id FROM faveStrip WHERE fk_strip_Id = ?");
+		$stmt->bind_param('i', $stripId);
+		$stmt->execute();
+		$stmt->store_result();
+		
+		$count = $stmt->num_rows;
+		
+		$stmt->free_result();
+		
+		$stmt = $connection->prepare("SELECT fk_user_id FROM faveStrip WHERE fk_strip_Id = ? AND fk_user_id = ?");
+		$stmt->bind_param('ii', $stripId, $userId);
+		$stmt->execute();
+		$stmt->store_result();
+		
+		if($stmt->num_rows == 1)
+		{
+			$alreadyFavourited = true;
+		}
+		else
+		{
+			$alreadyFavourited = false;
+		}
+		$stmt->free_result();
+		
+		$stmt->close();
+		$connection->close();
+		
+		$outputString =  "<div>";
+		
+		
+		if(isAuthorized(USER))
+		{
+			$outputString .= "<form action=\"index.php?id=".$stripId."\" method=\"POST\">";
+			
+			if($alreadyFavourited)
+			{
+				$outputString .= 	"<button id=\"unfavouriteButton\" type=\"submit\" name=\"unfavouriteStrip\"  value=\"".$userId."\"><img src=\"pictures/redCross.png\" alt=\"Unfavourite Strip\"></button>";
+				
+			}
+			else
+			{
+				$outputString .= 	"<button id=\"favouriteButton\" type=\"submit\" name=\"favouriteStrip\"  value=\"".$userId."\"><img src=\"pictures/redCross.png\" alt=\"Favourite Strip\"></button>";
+			}
+			
+			$outputString .= "</form>";
+		}
+		$outputString .=	"<div id=\"favouriteCount\">";
+		$outputString .=		
+		$outputString .=	"</div>";
+		$outputString .= "</div>";
+		echo $outputString;
+	}
+	
+	function favouriteStrip($stripId)
+	{
+		if($stripId == -1337)
+		{
+			return;
+		}
+		
+		$connection = new mysqli($database['dbServer'],$database['dbUser'],$database['dbPassword'],$database['dbName']);
+		
+		if($connection->errno != 0)
+		{
+			die("Database connection failed: ".$connection->connect_error);
+		}
+		
+		$stmt = $connection->prepare("SELECT user_id FROM user WHERE username = ?");
+		$stmt->bind_param('s', $_SESSION['user_name']);
+		$stmt->bind_result($userId);
+		$stmt->execute();
+		$stmt->fetch();
+		
+		$stmt->free_result();
+		
+		$stmt = $connection->prepare("INSERT INTO faveStrip (fk_user_id, fk_strip_Id) VALUES (?, ?)");
+		$stmt->bind_param('ii', $userId, $stripId);
+		$stmt->execute();
+		
+		$stmt->close();
+		$connection->close();
 	}
 	
 	
@@ -416,7 +520,7 @@
 	
 	
 	
-	function createCommentDiv($commentId, $username, $avatar, $timestamp, $comment, $adminflag)
+	function createCommentDiv($stripId, $commentId, $username, $avatar, $timestamp, $comment, $adminflag)
 	{
 		if($adminflag)
 		{
@@ -430,7 +534,7 @@
 		$outputString .=		$username." wrote: ";
 		if(isAuthorized(ADMIN))
 		{
-			$outputString .= "<form action=\"".htmlspecialchars($_SERVER['PHP_SELF'])."\" method=\"POST\">";
+			$outputString .= "<form action=\"index.php?id=".$stripId."\" method=\"POST\">";
 			$outputString .= 	"<button class=\"deleteCommentButton\" type=\"submit\" name=\"deleteComment\"  value=\"".$commentId."\"><img src=\"pictures/redCross.png\" alt=\"Delete Comment\"></button>";
 			$outputString .= "</form>";
 		}

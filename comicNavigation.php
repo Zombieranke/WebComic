@@ -211,7 +211,7 @@
 			{
 				if(!empty($commentArray[$i]['username']))
 				{
-					echo createCommentDiv($commentArray[$i]['commentId'],$commentArray[$i]['username'],$commentArray[$i]['avatar'],$commentArray[$i]['timestamp'],$commentArray[$i]['comment'],$commentArray[$i]['adminflag']);
+					echo createCommentDiv($curId,$commentArray[$i]['commentId'],$commentArray[$i]['username'],$commentArray[$i]['avatar'],$commentArray[$i]['timestamp'],$commentArray[$i]['comment'],$commentArray[$i]['adminflag']);
 				}
 				
 			}
