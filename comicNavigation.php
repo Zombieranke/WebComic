@@ -59,7 +59,7 @@
 				$comicNavigation .=		"<a href=\"index.php?id=";
 				$comicNavigation .= 	$firstId;
 				$comicNavigation .= 	"#comic\">";
-				$comicNavigation .=			"<img src=\"pictures/greenArrows/doubleArrowLeft.png\" alt=\"Go to oldest strip\">"; 
+				$comicNavigation .=			"<img src=\"pictures/redArrows/doubleArrowLeft.png\" alt=\"Go to oldest strip\">"; 
 				$comicNavigation .=		"</a>";
 				$comicNavigation .= "</li>";
 				$hasPrevious = true;
@@ -75,7 +75,7 @@
 				$comicNavigation .=		"<a href=\"index.php?id=";
 				$comicNavigation .= 	$previousId;
 				$comicNavigation .= 	"#comic\">";
-				$comicNavigation .=			"<img src=\"pictures/greenArrows/singleArrowLeft.png\" alt=\"Go to previous strip\">";
+				$comicNavigation .=			"<img src=\"pictures/redArrows/singleArrowLeft.png\" alt=\"Go to previous strip\">";
 				$comicNavigation .=		"</a>";
 				$comicNavigation .= "</li>";
 			}
@@ -90,7 +90,7 @@
 				$comicNavigation .=		"<a href=\"index.php?id=";
 				$comicNavigation .= 	$randomId;
 				$comicNavigation .= 	"#comic\">";
-				$comicNavigation .=			"<img src=\"pictures/greenArrows/random.png\" alt=\"Go to random strip\">";
+				$comicNavigation .=			"<img src=\"pictures/redArrows/random.png\" alt=\"Go to random strip\">";
 				$comicNavigation .=		"</a>";
 				$comicNavigation .= "</li>";
 			}
@@ -100,7 +100,7 @@
 				$comicNavigation .=		"<a href=\"index.php?id=";
 				$comicNavigation .= 	$nextId;
 				$comicNavigation .= 	"#comic\">";
-				$comicNavigation .=			"<img src=\"pictures/greenArrows/singleArrowRight.png\" alt=\"Go to next strip\">";
+				$comicNavigation .=			"<img src=\"pictures/redArrows/singleArrowRight.png\" alt=\"Go to next strip\">";
 				$comicNavigation .=		"</a>";
 				$comicNavigation .= "</li>";
 			}
@@ -115,7 +115,7 @@
 				$comicNavigation .=		"<a href=\"index.php?id=";
 				$comicNavigation .= 	$latestId;
 				$comicNavigation .= 	"#comic\">";
-				$comicNavigation .=			"<img src=\"pictures/greenArrows/doubleArrowRight.png\" alt=\"Go to latest strip\">";
+				$comicNavigation .=			"<img src=\"pictures/redArrows/doubleArrowRight.png\" alt=\"Go to latest strip\">";
 				$comicNavigation .=		"</a>";
 				$comicNavigation .= "</li>";
 				$hasNext = true;
@@ -127,6 +127,8 @@
 			$comicNavigation .= "</ul>";
 			
 			echo $comicNavigation;
+			
+			getFavouriteDiv($curId);
 			
 			if($hasNext) //If there is a strip after this one, the current strip turns into a clickable image which leads to the next strip
 			{

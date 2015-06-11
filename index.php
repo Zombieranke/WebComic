@@ -44,13 +44,13 @@
 				<ul id="navigation">
 					<li><a href="index.php">Comic</a></li>
 					<li><a href="index.php?view=about">About</a></li>
-					<li><a href="index.php?view=contact">Contact</a></li>
 					<?php
 						if( isset($_SESSION['user_name']) )
 						{
 							if( $_SESSION['permLevel'] == USER )
 							{
 								echo '<li><a href="index.php?profile">Profile</a></li>';
+								echo '<li><a href="index.php?favourite">Favourites</a></li>';
 							}
 							echo '<li><a href="index.php?logout">Logout</a></li>';
 						}
@@ -84,6 +84,10 @@
 						else if( isset($_GET['profile']) && $_SESSION['permLevel'] == USER )
 						{
 							include('profile.php');
+						}
+						else if( isset($_GET['favourite']) && $_SESSION['permLevel'] == USER )
+						{
+							include('favourite.php');
 						}
 						else
 						{

@@ -328,6 +328,13 @@
 	}
 	
 	
+	function getFavouriteDiv($stripId)
+	{
+		echo "The Favourite Function is in work";
+	}
+	
+	
+	
 	function commentStrip($text,$stripId)
 	{
 		require('connDetails.php');
