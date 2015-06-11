@@ -330,7 +330,6 @@
 	
 	function getFavouriteDiv($stripId)
 	{
-		echo "The Favourite Function is in work";
 		
 		require('connDetails.php');
 		
@@ -368,13 +367,15 @@
 		$stmt->execute();
 		$stmt->store_result();
 		
+		$alreadyFavourited = 0;
+	
 		if($stmt->num_rows == 1)
 		{
-			$alreadyFavourited = true;
+			$alreadyFavourited = 1;
 		}
 		else
 		{
-			$alreadyFavourited = false;
+			$alreadyFavourited = 0;
 		}
 		$stmt->free_result();
 		
@@ -388,20 +389,20 @@
 		{
 			$outputString .= "<form action=\"index.php?id=".$stripId."\" method=\"POST\">";
 			
-			if($alreadyFavourited)
+			if($alreadyFavourited == 1)
 			{
-				$outputString .= 	"<button id=\"unfavouriteButton\" type=\"submit\" name=\"unfavouriteStrip\"  value=\"".$userId."\"><img src=\"pictures/redCross.png\" alt=\"Unfavourite Strip\"></button>";
+				$outputString .= 	"<button id=\"unfavouriteButton\" type=\"submit\" name=\"unfavourite\"  value=\"".$userId."\">Unfavourite</button>";
 				
 			}
 			else
 			{
-				$outputString .= 	"<button id=\"favouriteButton\" type=\"submit\" name=\"favouriteStrip\"  value=\"".$userId."\"><img src=\"pictures/redCross.png\" alt=\"Favourite Strip\"></button>";
+				$outputString .= 	"<button id=\"favouriteButton\" type=\"submit\" name=\"favourite\"  value=\"".$userId."\">Favourite</button>";
 			}
 			
 			$outputString .= "</form>";
 		}
 		$outputString .=	"<div id=\"favouriteCount\">";
-		$outputString .=		
+		$outputString .=		$count." users have favourited this strip";
 		$outputString .=	"</div>";
 		$outputString .= "</div>";
 		echo $outputString;
@@ -409,10 +410,13 @@
 	
 	function favouriteStrip($stripId)
 	{
+		
 		if($stripId == -1337)
 		{
 			return;
 		}
+		
+		require('connDetails.php');
 		
 		$connection = new mysqli($database['dbServer'],$database['dbUser'],$database['dbPassword'],$database['dbName']);
 		
@@ -433,6 +437,38 @@
 		$stmt->bind_param('ii', $userId, $stripId);
 		$stmt->execute();
 		
+		$stmt->close();
+		$connection->close();
+	}
+	
+	function unfavouriteStrip($stripId)
+	{
+		if($stripId == -1337)
+		{
+			return;
+		}
+		
+		require('connDetails.php');
+		
+		$connection = new mysqli($database['dbServer'],$database['dbUser'],$database['dbPassword'],$database['dbName']);
+	
+		if($connection->errno != 0)
+		{
+			die("Database connection failed: ".$connection->connect_error);
+		}
+	
+		$stmt = $connection->prepare("SELECT user_id FROM user WHERE username = ?");
+		$stmt->bind_param('s', $_SESSION['user_name']);
+		$stmt->bind_result($userId);
+		$stmt->execute();
+		$stmt->fetch();
+	
+		$stmt->free_result();
+	
+		$stmt = $connection->prepare("DELETE FROM faveStrip WHERE fk_user_id = ? AND fk_strip_Id = ?");
+		$stmt->bind_param('ii', $userId, $stripId);
+		$stmt->execute();
+	
 		$stmt->close();
 		$connection->close();
 	}

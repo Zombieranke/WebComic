@@ -14,6 +14,22 @@
 		}
 	}
 	
+	if(isset($_POST['favourite']))
+	{
+		$latestId = getLatestId();
+		$curId = isset($_GET['id']) ? $_GET['id'] : $latestId;
+		
+		favouriteStrip($curId);
+	}
+	
+	if(isset($_POST['unfavourite']))
+	{
+		$latestId = getLatestId();
+		$curId = isset($_GET['id']) ? $_GET['id'] : $latestId;
+	
+		unfavouriteStrip($curId);
+	}
+	
 	if(isset($_POST['createComment']) && isset($_POST['commentContent']))
 	{
 		$latestId = getLatestId();
