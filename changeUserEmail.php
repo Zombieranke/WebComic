@@ -14,11 +14,34 @@
 		
 		echo '	<form id="newEmailForm" action="index.php?profile&selection='.$_GET['selection'].'" method="POST">
 					<fieldset>
-						<input id="newEmail" class="newEmail" type="password" name="newEmail" placeholder="New Email"/> </br>
+						<p> Your current Email-adress is: '.getEmail().' </p>
+						<input id="newEmail" class="newEmail" type="text" name="newEmail" placeholder="New Email"/> </br>
 						<input class="newEmail" type="password" name="passForEmail" placeholder="Enter your password here"/> </br>
-						<input id="newEmailSubmit" type="submit" name="changeUserPass" value="Change Password" />
+						<input id="newEmailSubmit" type="submit" name="changeUserPass" value="Change Email" />
 					</fieldset>
 				</form>';
+	}
+	
+	function getEmail()
+	{
+		require('connDetails.php');
+		
+		$connection = new mysqli($database['dbServer'],$database['dbUser'],$database['dbPassword'],$database['dbName']);
+		
+		if($connection->errno != 0)
+		{
+			die("Database connection failed: ".$connection->connect_error);
+		}
+		
+		$stmt = $connection->prepare("SELECT email FROM user WHERE username = ?");
+		$stmt->bind_param('s', $_SESSION['user_name']);
+		$stmt->bind_result($email);
+		$stmt->execute();
+		$stmt->fetch();
+		
+		$stmt->free_result();
+		
+		return $email;
 	}
 
 ?>
