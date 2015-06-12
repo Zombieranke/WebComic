@@ -40,6 +40,17 @@ body
 	color: DodgerBlue;
 }
 
+#installHeadline
+{
+	margin: auto;
+	max-width: 20%;
+	top: 10%;
+	position: relative;
+	font-size: 50px;
+	font-family: Comic Sans MS, Arial;
+	color: DodgerBlue;
+}
+
 #installButton
 {
 	position: fixed;

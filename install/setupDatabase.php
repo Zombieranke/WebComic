@@ -1,34 +1,14 @@
 <?php
-	define("includeConnDetails",TRUE);
+	$drops = "DROP TABLE IF EXISTS commentStrip;";
+	$drops .= "DROP TABLE IF EXISTS faveStrip;";
+	$drops .= "DROP TABLE IF EXISTS strip;";
+	$drops .= "DROP TABLE IF EXISTS webcomic;";
+	$drops .= "DROP TABLE IF EXISTS user;";
+
+
+	$connection->multi_query($drops);
 	
-	require_once ('connDetails.php');
-	
-	$connection = new mysqli($database['dbServer'],$database['dbUser'],$database['dbPassword']);
-	
-	if($connection->errno != 0)
-	{
-		die("Database connection failed: ".$connection->connect_error);
-	}
-	
-	$dbCreateStmt = $connection->prepare("DROP DATABASE IF EXISTS ".$database['dbName']);
-	$dbCreateStmt->execute();
-	$dbCreateStmt->free_result();
-	$dbCreateStmt->close();
-	
-	$dbCreateStmt = $connection->prepare("CREATE DATABASE IF NOT EXISTS ".$database['dbName']);
-	$dbCreateStmt->execute();
-	
-	if($dbCreateStmt->errno != 0)
-	{
-		die("Database creation failed: ".$dbCreateStmt->error);
-	}
-	
-	$dbCreateStmt->free_result();
-	$dbCreateStmt->close();
-	
-	$connection->select_db($database['dbName']);
-	
-	
+	while($connection->next_result());
 	
 	$userCreateStmt = $connection->prepare  //permaban is now realised by setting the timestamp to the year 2100
 	(
@@ -89,9 +69,10 @@
 		"CREATE TABLE IF NOT EXISTS strip
 		(
 			strip_id INT(11) AUTO_INCREMENT PRIMARY KEY,
-			name VARCHAR(256),
+			stripname VARCHAR(256),
+			filename VARCHAR(256),
 			annotation VARCHAR(4096),
-			data VARCHAR(256) NOT NULL,
+			datapath VARCHAR(256) NOT NULL,
 			releasedate TIMESTAMP,
 			fk_webcomic_id INT(11),
 			FOREIGN KEY(fk_webcomic_id) REFERENCES webcomic(webcomic_id)
@@ -155,38 +136,4 @@
 	$commentStripCreateStmt->free_result();
 	$commentStripCreateStmt->close();
 	
-	
-	$addAdminStmt = $connection->prepare
-	(
-		"INSERT INTO user (username,password,email,adminflag)
-		 VALUES (\"admin\",\"".password_hash("admin", PASSWORD_BCRYPT)."\",\"admin@admin.admin\",TRUE)"
-	);
-	
-	$addAdminStmt->execute();
-	
-	if($addAdminStmt->errno != 0)
-	{
-		die("Adding admin has failed: ".$addAdminStmt->error);
-	}
-	
-	$addAdminStmt->free_result();
-	$addAdminStmt->close();
-	
-	$addWebComicStmt = $connection->prepare
-	(
-		"INSERT INTO webcomic (title) VALUES (\"Webcomic\");"
-	);
-	
-	$addWebComicStmt->execute();
-	
-	if($addWebComicStmt->errno != 0)
-	{
-		die("Adding Webcomic has failed: ".$addWebComicStmt->error);
-	}
-	
-	$addWebComicStmt->free_result();
-	$addWebComicStmt->close();
-	
-	$connection->close();
-	echo 'Setup successful.';
 ?>

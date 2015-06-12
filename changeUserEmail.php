@@ -15,7 +15,7 @@
 		echo '	<form id="newEmailForm" action="index.php?profile&selection='.$_GET['selection'].'" method="POST">
 					<fieldset>
 						<p> Your current Email-adress is: '.getEmail().' </p>
-						<input id="newEmail" class="newEmail" type="text" name="newEmail" placeholder="New Email"/> </br>
+						<input id="newEmail" class="newEmail" type="email" name="newEmail" placeholder="New Email"/> </br>
 						<input class="newEmail" type="password" name="passForEmail" placeholder="Enter your password here"/> </br>
 						<input id="newEmailSubmit" type="submit" name="changeUserPass" value="Change Email" />
 					</fieldset>

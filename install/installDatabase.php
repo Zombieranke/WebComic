@@ -1,19 +1,30 @@
 <?php
 	if(isset($_SESSION['error']))
 	{
-		switch($_SESSION['errorCode'])
+		if($_SESSION['error'] == true)
 		{
-			case 0: 
-				break;
-				
-			case 1:
-				echo '<p id="installError"> Could not connect to database. Please check specified information! </p>';
-				
-			default:
-				break;
+			switch($_SESSION['errorCode'])
+			{
+				case 0: 
+					break;
+					
+				case 1:
+					echo '<p id="installError"> Entries cannot be empty. Please check specified information! </p>';
+					break;
+					
+				case 2:
+					echo '<p id="installError"> Could not connect to database. Please check specified information! </p>';
+					break;
+					
+				default:
+					break;
+			}
+			unset($_SESSION['error']);
+			unset($_SESSION['errorCode']);
 		}
-		unset($_SESSION['error']);
 	}
+	
+	echo 	'<h1 id="installHeadline">Database connection</h1>';
 
 
 	echo 	'<form id="installForm" action="'.htmlspecialchars($_SERVER['PHP_SELF']).'" method="POST">

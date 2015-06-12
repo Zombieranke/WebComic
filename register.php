@@ -62,7 +62,7 @@
 			<input type="text" name="username" placeholder="Username"/>
 			<input type="password" name="password" placeholder="Password"/>
 			<input type="password" name="passwordConfirm" placeholder="Confirm Password"/>
-			<input type="text" name="email" placeholder="E-mail adress"/>
+			<input type="email" name="email" placeholder="E-mail adress"/>
 	
 			<input type="submit" name="register" value="Register" id="registrationButton"/>
 		</fieldset>

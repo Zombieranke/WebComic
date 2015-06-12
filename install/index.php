@@ -50,6 +50,10 @@
 			break;
 			
 		case 4:
+			include('installFinished.php');
+			break;
+			
+		case 5:
 			include('installCleanup.php');
 			break;
 			
