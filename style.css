@@ -109,11 +109,20 @@ html
 	height: auto;
 }
 
+#adminLoginDiv
+{
+	width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    display: block;
+}
+
 .loginForm
 {
 	color: #4433ee;
 	fontsize: 20px;
-	margin-top: 10%;
+	margin-top: 5%;
+	margin-bottom: 5%;
 	margin-left: 27%;
 	padding: 1%;
 	width: 400px;
@@ -135,8 +144,9 @@ html
 
 .loginForm fieldset
 {
+	padding-top: 3%;
 	border: 3px solid #3366dd;
-	border-radius: 40px;
+	border-radius: 15px;
 	background-color: rgb(210,210,210);
 }
 
@@ -197,31 +207,31 @@ html
 #loginButton
 {
 	float: left;
-	margin: 10px 0px 10px 55px;
-	width: 280px;
-	height: 40px;
-	border: 5px solid #3366dd;
-	border-radius: 10px;
+	margin: 7px 90px 20px 90px;
+	width: 220px;
+	height: 35px;
+	border: 3px solid #3366dd;
+	border-radius: 5px;
 	background: #3366dd;
 	font-family: Arial, Helvetica, sansserif;
 	font-weight: bold;
 	color: #e8cf41;
-	font-size: 25px;
+	font-size: 22px;
 }
 
 #loginButton:hover
 {
 	float: left;
-	margin: 10px 0px 10px 55px;
-	width: 280px;
-	height: 40px;
+	margin: 7px 90px 20px 90px;
+	width: 220px;
+	height: 35px;
 	border: 5px solid #5b82dd;
-	border-radius: 10px;
+	border-radius: 5px;
 	background: #5b82dd;
 	font-family: Arial, Helvetica, sansserif;
 	font-weight: bold;
 	color: #e8cf41;
-	font-size: 25px;
+	font-size: 22px;
 	cursor: pointer;
 }
 
@@ -237,7 +247,7 @@ html
 	float: left;
     margin: 2%;
     width: 30%;
-    border: 3px solid RGB(111,155,255);
+    border: 3px solid #5880ff;
 	border-radius: 8px;
 }
 
@@ -282,8 +292,14 @@ html
 	padding: 0.5%;
 	margin: 0.5%;
 	margin-top: 0%;
-	border: 3px solid RGB(111,155,255);
+	border: 3px solid #5880ff;
 	border-radius: 8px;
+}
+
+#activeApplication fieldset fieldset
+{
+	border-width: 2px;
+	margin: 3%;
 }
 
 #newPassForm p, #newEmailForm p
@@ -467,11 +483,7 @@ html
 	cursor: pointer;
 }
 
-#activeApplication fieldset fieldset
-{
-	border-width: 2px;
-	margin: 3%;
-}
+
 
 #loginLinks
 {
@@ -607,4 +619,116 @@ html
 .adminComment .commentContent
 {
 	font-weight: bold;
+}
+
+
+#favouriteList
+{
+	margin-top: 3%;
+	font-family: Calibri;
+}
+
+#favouriteList li
+{
+    margin: 2%;
+    list-style-type: square;
+}
+
+
+#favouriteList a:link, #favouriteList a:visited
+{
+	font-size: 25px;
+	color: #000000;
+	text-decoration: none;
+}
+
+
+#favouriteList a:hover, #favouriteList a:active
+{
+	font-size: 25px;
+	color: #FF0000;
+}
+
+
+
+#registrationFieldset
+{
+	margin: 3% 24% 3% 24%;
+	width: 50%;
+	padding: 0.5%;
+	padding-top: 2.5%;
+	padding-bottom: 2%;
+	border: 3px solid #5880ff; /*RGB(111,155,255)*/
+	border-radius: 15px;
+}
+
+.registration
+{
+	margin: 1% 11.5% 1% 11.5%;
+	line-height: 25px;
+	text-align: left;
+	width: 72%;
+	background: RGB(220,220,220);
+	padding-left: 4%;
+	border: solid 2px RGB(130,130,130);
+	border-radius: 5px;
+	font-size: 20px;
+}
+
+#registrationSubmit
+{
+	margin: 3% 24.5% 1% 24.5%;
+	width: 50%;
+	border: 3px solid #3366dd;
+	border-radius: 5px;
+	background: #3366dd;
+	font-family: Arial, Helvetica, sansserif;
+	font-weight: bold;
+	color: #e8cf41;
+	font-size: 20px;
+}
+
+#registrationSubmit:hover
+{
+	margin: 3% 24.5% 1% 24.5%;
+	width: 50%;
+	border: 3px solid #5b82dd;
+	border-radius: 5px;
+	background: #5b82dd;
+	font-family: Arial, Helvetica, sansserif;
+	font-weight: bold;
+	color: #e8cf41;
+	font-size: 20px;
+	cursor: pointer;
+}
+
+
+#delayRegistrationButton
+{
+	margin: 1% 24.5% 2% 24.5%;
+	width: 50%;
+	border: 3px solid RGB(210,210,210);
+	border-radius: 5px;
+	background: RGB(210,210,210);
+	font-family: Arial, Helvetica, sansserif;
+	font-weight: bold;
+	color: RGB(110,110,110);
+	font-size: 18px;
+	text-decoration: none;
+}
+
+
+#delayRegistrationButton:hover
+{
+	margin: 1% 24.5% 2% 24.5%;
+	width: 50%;
+	border: 3px solid RGB(225,225,225);
+	border-radius: 5px;
+	background: RGB(225,225,225);
+	font-family: Arial, Helvetica, sansserif;
+	font-weight: bold;
+	color: RGB(110,110,110);
+	font-size: 18px;
+	text-decoration: none;
+	cursor: pointer;
 }

@@ -35,7 +35,7 @@
 	$stmt->free_result();
 	$connection->close();
 	
-	echo "<ul>";
+	echo "<ul id=favouriteList>";
 	
 	for($i=0; $i<40; $i++)
 	{

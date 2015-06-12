@@ -57,15 +57,18 @@
 
 
 
-	echo '<form action="'.htmlspecialchars($_SERVER['PHP_SELF']).'?register=true" method="POST" id="registrationForm" enctype="multipart/form-data">
-		<fieldset>
-			<input type="text" name="username" placeholder="Username"/>
-			<input type="password" name="password" placeholder="Password"/>
-			<input type="password" name="passwordConfirm" placeholder="Confirm Password"/>
-			<input type="email" name="email" placeholder="E-mail adress"/>
-	
-			<input type="submit" name="register" value="Register" id="registrationButton"/>
-		</fieldset>
-	</form>
-	<a href="index.php">&lt;&lt;&lt;&lt;Back to main site</a>';
+	echo '
+		<fieldset id="registrationFieldset">
+			<form id="registrationForm" action="'.htmlspecialchars($_SERVER['PHP_SELF']).'?register=true" method="POST" enctype="multipart/form-data">
+				<input class="registration" type="text" name="username" placeholder="Username"/>
+				<input class="registration" type="password" name="password" placeholder="Password"/>
+				<input class="registration" type="password" name="passwordConfirm" placeholder="Confirm Password"/>
+				<input class="registration" type="text" name="email" placeholder="E-mail address"/>
+		
+				<input id="registrationSubmit" type="submit" name="register" value="Register Now" />
+			</form>
+			<form action="index.php" method="POST">
+				<button id="delayRegistrationButton" type="submit" name="delayRegistration"  value="delayRegistration">Sign Up Later</button>
+			</form>
+		</fieldset>';
 ?>
