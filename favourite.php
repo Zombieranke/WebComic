@@ -16,9 +16,9 @@
 	
 	$stmt->free_result();
 	
-	$stmt = $connection->prepare("SELECT fk_strip_Id FROM faveStrip WHERE fk_user_id = ?");
+	$stmt = $connection->prepare("SELECT fk_strip_id,stripname FROM faveStrip JOIN strip ON fk_strip_id = strip_id WHERE fk_user_id = ?");
 	$stmt->bind_param('i', $userId);
-	$stmt->bind_result($stripId);
+	$stmt->bind_result($stripId, $stripName);
 	$stmt->execute();
 	
 	$favouriteArray = array();
@@ -27,7 +27,8 @@
 	
 	while($stmt->fetch())
 	{
-		$favouriteArray[$i] = $stripId;
+		$favouriteArray[$i]['stripId'] = $stripId;
+		$favouriteArray[$i]['stripName'] = $stripName;
 		$i++;
 	}
 	
@@ -40,7 +41,7 @@
 	{
 		if(!empty($favouriteArray[$i]))
 		{
-			echo createFavouriteEntry($favouriteArray[$i]);
+			echo createFavouriteEntry($favouriteArray[$i]['stripId'],$favouriteArray[$i]['stripName']);
 		}
 		
 	}
@@ -48,10 +49,10 @@
 	echo "</ul>";
 	
 	
-	function createFavouriteEntry($stripId)
+	function createFavouriteEntry($stripId, $stripName)
 	{
 		$outputString  = "<div>";
-		$outputString .= 	"<li><a class=\"favouriteLink\" href=\"index.php?id=".$stripId."#comic\">".$stripId."</a></li>";
+		$outputString .= 	"<li><a class=\"favouriteLink\" href=\"index.php?id=".$stripId."#comic\">".$stripName."</a></li>";
 		$outputString .= "<div>";
 		return $outputString;
 	}
