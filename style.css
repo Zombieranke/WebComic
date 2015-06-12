@@ -286,12 +286,12 @@ html
 	border-radius: 8px;
 }
 
-#newPassForm p
+#newPassForm p, #newEmailForm p
 {
 	height: 35px;
 }
 
-.newPass
+.newPass, .newEmail
 {
 	margin: 1%;
 	margin-left: 2%;
@@ -318,7 +318,7 @@ html
 	display: inline;
 }
 
-#newPassSubmit
+#newPassSubmit, #newEmailSubmit
 {
 	margin: 1%;
 	margin-left: 2%;
@@ -331,7 +331,7 @@ html
 	font-size: 15px;
 }
 
-#newPassSubmit:hover
+#newPassSubmit:hover, #newEmailSubmit:hover
 {
 	margin: 1%;
 	margin-left: 2%;

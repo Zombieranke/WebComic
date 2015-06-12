@@ -141,5 +141,28 @@
 
 		$connection->close();
 	}
+	
+	function changeEmail($username,$from,$newEmail)
+	{
+		if(loginUser($username, $from))
+		{		
+			require ('connDetails.php');
+				
+			$connection = new mysqli($database['dbServer'],$database['dbUser'],$database['dbPassword'],$database['dbName']);
+				
+			if($connection->errno != 0)
+			{
+				die("Database connection failed: ".$connection->connect_error);
+			}
+				
+			$stmt = $connection->prepare("UPDATE user SET email =? WHERE username=?");
+			$stmt->bind_param('ss', $newEmail, $username);
+				
+			$stmt->execute();
+			$stmt->free_result();
+			$stmt->close();
+			$connection->close();
+		}
+	}
 
 ?>
