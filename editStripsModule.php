@@ -37,11 +37,11 @@
 			{
 				echo 	"<div class=\"editStrip\">";
 				echo 		"<h2>".$strip['stripname']."</h2>";
-				echo 		"<h3>".$strip['filename']."</h2>";
 				echo 		"<img class=\"editThumb\" src=\"".$strip['file']."\"/>";
 				echo 		"<p>Release Date: ".$strip['date']."</p>";
+				echo 		"<p>".$strip['filename']."</p>";
 				echo 		"<form action=\"".htmlspecialchars($_SERVER['PHP_SELF']).'?selection='.$_GET['selection']."\" method=\"POST\">";
-				echo 			"<button type=\"submit\" name=\"delete\" value=\"".$strip['id']."\">Delete this strip</button>";
+				echo 			"<button class=\"editStripDeleteButton\" type=\"submit\" name=\"delete\" value=\"".$strip['id']."\">Delete this strip</button>";
 				echo 		"</form>";
 				echo 	"</div>";
 			}

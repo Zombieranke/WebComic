@@ -21,7 +21,7 @@ html
 #wrapperBackend
 {
 	display: block;
-	height: 920px;
+	height: auto;
     width: 60%;
     margin-right: 20%;
     margin-left: 20%;
@@ -48,20 +48,22 @@ html
     width: 99%;
     height: 50px;
     margin: auto;
-    font-family: "Comic Sans MS";
+    font-family: "Gabriola";
 }
 
 #navigation a:link, #navigation a:visited
 {
-	font-size: 30px;
+	font-size: 35px;
 	color: #000000;
+	text-decoration: none;
 }
 
 
 #navigation a:hover, #navigation a:active
 {
-	font-size: 30px;
+	font-size: 35px;
 	color: #FF0000;
+	text-decoration: none;
 }
 
 .comic_navigation
