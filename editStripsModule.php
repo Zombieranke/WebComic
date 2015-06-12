@@ -36,7 +36,8 @@
 			foreach($strips as $strip)
 			{
 				echo 	"<div class=\"editStrip\">";
-				echo 		"<h2>".$strip['name']."</h2>";
+				echo 		"<h2>".$strip['stripname']."</h2>";
+				echo 		"<h3>".$strip['filename']."</h2>";
 				echo 		"<img class=\"editThumb\" src=\"".$strip['file']."\"/>";
 				echo 		"<p>Release Date: ".$strip['date']."</p>";
 				echo 		"<form action=\"".htmlspecialchars($_SERVER['PHP_SELF']).'?selection='.$_GET['selection']."\" method=\"POST\">";

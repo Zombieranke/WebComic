@@ -16,6 +16,21 @@ function addUpload(oldnode)
 	node.appendChild(input);
 	
 	input = document.createElement("div");
+	var text = document.createTextNode("Strip Name: ");
+	input.appendChild(text);
+	node.appendChild(input);
+	
+	input = document.createElement("input");
+	input.classList.add("inputText");
+	input.setAttribute("type","text");
+	input.setAttribute("name","stripName[]");
+	input.setAttribute("placeholder","Enter the name of the strip");
+	node.appendChild(input);
+	
+	input = document.createElement("br");
+	node.appendChild(input);
+	
+	input = document.createElement("div");
 	var text = document.createTextNode("Release Date: ");
 	input.appendChild(text);
 	node.appendChild(input);

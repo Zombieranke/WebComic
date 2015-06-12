@@ -19,7 +19,7 @@
 			die("Database connection failed: ".$connection->connect_error);
 		}
 		
-		$stmt = $connection->prepare("SELECT data FROM strip WHERE strip_id= ? AND releasedate < CURRENT_TIMESTAMP");
+		$stmt = $connection->prepare("SELECT datapath FROM strip WHERE strip_id= ? AND releasedate < CURRENT_TIMESTAMP");
 		$stmt->bind_param("i", $id);
 		$stmt->execute();
 		$stmt->bind_result($file);
@@ -46,7 +46,7 @@
 			die("Database connection failed: ".$connection->connect_error);
 		}
 	
-		$stmt = $connection->prepare("SELECT data FROM strip WHERE strip_id= ?");
+		$stmt = $connection->prepare("SELECT datapath FROM strip WHERE strip_id= ?");
 		$stmt->bind_param("i", $id);
 		$stmt->execute();
 		$stmt->bind_result($file);
@@ -185,16 +185,17 @@
 			die("Database connection failed: ".$connection->connect_error);
 		}
 		
-		$stmt = $connection->prepare("SELECT strip_id, name, data, releasedate FROM strip ORDER BY releasedate DESC");
+		$stmt = $connection->prepare("SELECT strip_id, stripname, filename, datapath, releasedate FROM strip ORDER BY releasedate DESC");
 		$stmt->execute();
-		$stmt->bind_result($id,$name,$file,$date);
+		$stmt->bind_result($id,$stripname,$filename,$file,$date);
 		
 		$i=0;
 		
 		while($stmt->fetch())
 		{
 			$result[$i]['id'] = $id;
-			$result[$i]['name'] = $name;
+			$result[$i]['stripname'] = $stripname;
+			$result[$i]['filename'] = $filename;
 			$result[$i]['file'] = $file;
 			$result[$i]['date'] = $date;
 			$i++;

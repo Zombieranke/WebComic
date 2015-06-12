@@ -89,9 +89,10 @@
 		"CREATE TABLE IF NOT EXISTS strip
 		(
 			strip_id INT(11) AUTO_INCREMENT PRIMARY KEY,
-			name VARCHAR(256),
+			stripname VARCHAR(256),
+			filename VARCHAR(256),
 			annotation VARCHAR(4096),
-			data VARCHAR(256) NOT NULL,
+			datapath VARCHAR(256) NOT NULL,
 			releasedate TIMESTAMP,
 			fk_webcomic_id INT(11),
 			FOREIGN KEY(fk_webcomic_id) REFERENCES webcomic(webcomic_id)

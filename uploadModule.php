@@ -36,7 +36,7 @@
 					is_uploaded_file($_FILES["upload"]['tmp_name'][$i]))
 				{
 					$extension = pathinfo($_FILES["upload"]['name'][$i], PATHINFO_EXTENSION);
-					$realName = basename($_FILES["upload"]['name'][$i]);
+					$fileName = basename($_FILES["upload"]['name'][$i]);
 					$newFileName = uniqid("strip_",TRUE).".".$extension;
 					$newFilePath = 'strips/'.$newFileName;
 					
@@ -53,23 +53,25 @@
 						}
 						else
 						{
+							$stripName = $_POST['stripName'][$i];
 							$annotation = $_POST['annotation'][$i];
 							$releaseDate = $_POST['releaseDate'][$i];
+							
 							if(empty($releaseDate) )
 							{
 								$releaseDate = date('Y-m-d G:i:s');
 								sleep(1);
 							}
 							
-							$stmt = $connection->prepare("INSERT INTO strip (name,data,annotation,releasedate,fk_webcomic_id) VALUES (?,?,?,?,?)");
-							$stmt->bind_param("ssssi", $realName, $newFilePath,$annotation,$releaseDate,$_POST['webcomic']);
+							$stmt = $connection->prepare("INSERT INTO strip (stripname,filename,datapath,annotation,releasedate,fk_webcomic_id) VALUES (?,?,?,?,?,?)");
+							$stmt->bind_param("sssssi", $stripName, $fileName, $newFilePath, $annotation, $releaseDate, $_POST['webcomic']);
 							$stmt->execute();
 							
 							$stmt->free_result();
 							$stmt->close();
 							
 							
-							echo '<p class="uploadStatus">Upload of '.$realName.' completed</p>';
+							echo '<p class="uploadStatus">Upload of '.$fileName.' completed</p>';
 						}
 					}
 					
@@ -86,6 +88,10 @@
 		<fieldset id="containerFieldset">
 			<fieldset>
 				<input type="file" class="inputFile" name="upload[]" onChange="addUpload(this)"/> </br>
+				<div>
+					Strip Name:
+				</div>
+				<input type="text" class="inputText" name="stripName[]" placeholder="Enter the name of the strip"/> </br>
 				<div>
 					Release Date:
 				</div>
