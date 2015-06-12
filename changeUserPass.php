@@ -1,6 +1,7 @@
 <?php
 	require_once ('authHandler.php');
-	if(isAuthorized(ADMIN))
+	
+	if(isAuthorized(USER))
 	{
 		if(isset($_POST['changeUserPass'],$_POST['newPass'],$_POST['newPassConfirm'], $_POST['oldPass']))
 		{
@@ -28,7 +29,7 @@
 						document.getElementById("checkMark").innerHTML = "<img src=\"pictures/Checkmark.png\"/>";
 						return true;
 					}
-					else
+					else if(newPassConfirm !="")
 					{
 						document.getElementById("checkMark").innerHTML = "<img src=\"pictures/redCross.png\"/>";
 						return false;
@@ -37,7 +38,7 @@
 					
 				</script>
 				
-				<form id="newPassForm" action="index.php?profile&'.$_GET['selection'].'" method="POST" onsubmit="return confirmPass();">
+				<form id="newPassForm" action="index.php?profile&selection='.$_GET['selection'].'" method="POST" onsubmit="return confirmPass();">
 					<fieldset>
 						<input id="newPass" class="newPass" type="password" name="newPass" placeholder="New password" onInput="confirmPass()"/> </br>
 						<input id="newPassConfirm" class="newPass" type="password" name="newPassConfirm" placeholder="Confirm new password" onInput="confirmPass()"/>

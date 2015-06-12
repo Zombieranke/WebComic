@@ -28,7 +28,7 @@
 						document.getElementById("checkMark").innerHTML = "<img src=\"pictures/Checkmark.png\"/>";
 						return true;
 					}
-					else
+					else if(newPassConfirm !="")
 					{
 						document.getElementById("checkMark").innerHTML = "<img src=\"pictures/redCross.png\"/>";
 						return false;

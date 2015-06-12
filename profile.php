@@ -13,6 +13,7 @@
 
 
 	echo "<div id=\"activeApplication\">";
+	
 	if(isset($_GET['selection']))
 	{
 		if($_GET['selection'] == "changePassword")
