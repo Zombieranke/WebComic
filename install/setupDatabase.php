@@ -1,4 +1,9 @@
 <?php
+	if(!defined('includeInstall'))
+	{
+		header('HTTP/1.0 403 Forbidden');
+		die("It is forbidden to access this page directly");
+	}
 	$drops = "DROP TABLE IF EXISTS commentStrip;";
 	$drops .= "DROP TABLE IF EXISTS faveStrip;";
 	$drops .= "DROP TABLE IF EXISTS strip;";

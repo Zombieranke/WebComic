@@ -93,6 +93,11 @@ body
 	color: DodgerBlue;
 }
 
+#installForm div
+{
+	float: left;
+}
+
 #installError
 {
 	position: relative;

@@ -1,5 +1,10 @@
 <?php
 	session_start();
+		
+	if(!defined("includeInstall"))
+	{
+		define("includeInstall", TRUE);
+	}
 	
 	if(!isset($_SESSION['installStep']))
 	{
@@ -30,34 +35,41 @@
 	
 	echo '<div id="installHeader"></div>';
 	
-	
-	switch($_SESSION['installStep'])
+	if(file_exists("install.lock"))
 	{
-		case 0:
-			include('installWelcome.php');
-			break;
-			
-		case 1:
-			include('installDatabase.php');
-			break;
-			
-		case 2:
-			include('installAdmin.php');
-			break;
-			
-		case 3:
-			include('installWebcomic.php');
-			break;
-			
-		case 4:
-			include('installFinished.php');
-			break;
-			
-		case 5:
-			include('installCleanup.php');
-			break;
-			
-		default:
-			break;
+		echo 	'<h1 id="installHeadline">Webcomic already installed!</h1>';
 	}
+	else 
+	{
+		switch($_SESSION['installStep'])
+		{
+			case 0:
+				include('installWelcome.php');
+				break;
+				
+			case 1:
+				include('installDatabase.php');
+				break;
+				
+			case 2:
+				include('installAdmin.php');
+				break;
+				
+			case 3:
+				include('installWebcomic.php');
+				break;
+				
+			case 4:
+				include('installFinished.php');
+				break;
+				
+			case 5:
+				include('installCleanup.php');
+				break;
+				
+			default:
+				break;
+		}
+	}
+	echo '</body>';
 ?>

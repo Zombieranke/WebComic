@@ -1,4 +1,9 @@
 <?php
+	if(!defined('includeInstall'))
+	{
+		header('HTTP/1.0 403 Forbidden');
+		die("It is forbidden to access this page directly");
+	}
 	if(!defined('includeConnDetails'))
 	{
 		define('includeConnDetails', TRUE);
@@ -101,14 +106,34 @@
 	
 	echo 	'<h1 id="installHeadline">Administrator account</h1>';
 	
+	echo	'<script type="text/javascript">
+					function confirmPass()
+				{
+					newPass = document.getElementById("newPass").value;
+					newPassConfirm = document.getElementById("newPassConfirm").value;
+					if(newPass == newPassConfirm && newPass != "")
+					{
+						document.getElementById("checkMark").innerHTML = "<img src=\"../pictures/Checkmark.png\"/>";
+						return true;
+					}
+					else if(newPassConfirm !="")
+					{
+						document.getElementById("checkMark").innerHTML = "<img src=\"../pictures/redCross.png\"/>";
+						return false;
+					}
+				}
+					
+				</script>';
+	
 	
 	echo 	'<form id="installForm" action="'.htmlspecialchars($_SERVER['PHP_SELF']).'" method="POST">
 				<lable>Username</lable>
 				<input type="text" name="adminName" placeholder="Username">
 				<lable>Password</lable>
-				<input type="password" name="adminPassword" placeholder="Password">
+				<input id="newPass" type="password" name="adminPassword" placeholder="Password" onInput="confirmPass()">
 				<lable>Confirm password</lable>
-				<input type="password" name="adminPasswordConfirm" placeholder="Confirm Password">
+				<input id="newPassConfirm" type="password" name="adminPasswordConfirm" placeholder="Confirm Password" onInput="confirmPass()">
+				<div id="checkMark"></div>
 				<lable>Email</lable>
 				<input type="email" name="adminEmail" placeholder="Email">
 				<button id="installButton" type="submit" name="progress" value="progress">Proceed</button>
