@@ -67,12 +67,23 @@ html
 }
 
 
+#favouriteDiv
+{
+	text-align: center;
+}
+
+#favouriteDiv form
+{
+	display: inline;
+}
+
 #favouriteButton
 {
+	display: inline;
 	font-family: 'Calibri';
 	border: 3px solid #ff0000; /* nice green: #3ab415 */
 	border-radius: 10px;
-	margin: 1% 39.5%;
+	margin: 1%;
 	width: 20%;
 	color: #ff0000; /* nice green: #3ab415 */
 	cursor: pointer;
@@ -86,10 +97,11 @@ html
 
 #unfavouriteButton:hover
 {
+	display: inline;
 	font-family: 'Calibri';
 	border: 3px solid #ff0000; /* nice green: #3ab415 */
 	border-radius: 10px;
-	margin: 1% 39.5%;
+	margin: 1%;
 	width: 20%;
 	color: #ff0000; /* nice green: #3ab415 */
 	cursor: pointer;
@@ -103,10 +115,11 @@ html
 
 #favouriteButton:hover
 {
+	display: inline;
 	font-family: 'Calibri';
 	border: 3px solid #ff0000; /* nice green: #3ab415 */
 	border-radius: 10px;
-	margin: 1% 39.5%;
+	margin: 1%;
 	width: 20%;
 	color: #FFFFFF;
 	cursor: pointer;
@@ -121,10 +134,11 @@ html
 
 #unfavouriteButton
 {
+	display: inline;
 	font-family: 'Calibri';
 	border: 3px solid #ff0000; /* nice green: #3ab415 */
 	border-radius: 10px;
-	margin: 1% 39.5%;
+	margin: 1%;
 	width: 20%;
 	color: #FFFFFF;
 	cursor: pointer;
@@ -146,23 +160,28 @@ html
 
 #favouriteCountDiv
 {
+	display: inline;
 	text-align: center;
 	color: #ff0000; /* nice green: #3ab415 */
-	font-size: 20px;
+	font-size: 22px;
 	font-family: 'Calibri','Arial Black', 'Arial';
 	font-weight: 700;
-	margin-bottom: 1%;
+	margin-left: 4%;
 }
 
 #favouriteCount
 {
 	font-family: 'Calibri','Arial Black', 'Arial';
 	font-weight: 900;
+	font-size: 25px;
 }
 
 #titleDiv
 {
-	margin: 1%;
+	text-align: center;
+	font-family: "Calibri","Arial",sans-serif;
+	font-size: 40px;
+	font-weight: bold;
 }
 
 .comic_navigation
