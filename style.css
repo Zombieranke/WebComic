@@ -163,7 +163,7 @@ html
 	display: inline;
 	text-align: center;
 	color: #ff0000; /* nice green: #3ab415 */
-	font-size: 22px;
+	font-size: 1.25vw;
 	font-family: 'Calibri','Arial Black', 'Arial';
 	font-weight: 700;
 	margin-left: 4%;
@@ -173,14 +173,14 @@ html
 {
 	font-family: 'Calibri','Arial Black', 'Arial';
 	font-weight: 900;
-	font-size: 25px;
+	font-size: 1.4vw;
 }
 
 #titleDiv
 {
 	text-align: center;
 	font-family: "Calibri","Arial",sans-serif;
-	font-size: 40px;
+	font-size: 3vw;
 	font-weight: bold;
 }
 
@@ -660,7 +660,7 @@ html
 {
 	padding: 1%;
 	resize: none;
-	font-size: 17px;
+	font-size: 1vw;
 	margin: 2%;
 	margin-bottom: 0%;
 	width: 94%;
@@ -680,8 +680,8 @@ html
 	background: #3366dd;
 	font-weight: bold;
 	color: #e8cf41;
-	font-size: 23px;
-	font-family: 'Calibri';
+	font-size: 1.2vw;
+	font-family: 'Calibri','Arial',sans-serif;
 	line-height: 100%;
 }
 
@@ -694,9 +694,9 @@ html
 	background: #5b82dd;
 	font-weight: bold;
 	color: #e8cf41;
-	font-size: 23px;
+	font-size: 1.2vw;
 	cursor: pointer;
-	font-family: 'Calibri';
+	font-family: 'Calibri','Arial',sans-serif;
 	line-height: 100%;
 }
 
@@ -722,8 +722,8 @@ html
 .comment, .adminComment
 {
 	display: inline-block;
-	font-family: Calibri;
-	font-size: 18px;
+	font-family: 'Calibri','Arial',sans-serif;
+	font-size: 1.1vw;
 	vertical-align: top;
 	width: 87%;
 	margin-bottom: 1%;
@@ -740,7 +740,7 @@ html
 {
 	margin-left: 0.5%;
 	font-weight: bold;
-	font-size: 22px;
+	font-size: 1.4vw;
 	margin-top: 2%;
 }
 
@@ -748,7 +748,7 @@ html
 {
 	float: right;
 	color: gray;
-	font-size: 18px;
+	font-size: 1.1vw;
 	font-style: italic;
 	font-weight: normal;
 	margin-right: 0%;
@@ -770,12 +770,18 @@ html
 	border: none;
 }
 
-.deleteCommentButton img
+.commentHeader form
 {
-	width: 75%;
-	height: auto;
+	display: inline;
+	margin-left: 1%;
+	width: 3.5%;
 }
 
+.deleteCommentButton img
+{
+	width: 100%;
+}
+	
 .commentContent
 {
 	margin-left: 0.5%;
@@ -787,7 +793,7 @@ html
 .adminComment .commentHeader
 {
 	color: #FF0000;
-	font-size: 24px;
+	font-size: 1.4vw;
 }
 
 .adminComment .commentContent
@@ -799,7 +805,7 @@ html
 #favouriteList
 {
 	margin-top: 3%;
-	font-family: Calibri;
+	font-family: 'Calibri','Arial',sans-serif;
 }
 
 #favouriteList li
