@@ -5,9 +5,9 @@
 	echo "<div id=\"options\">";
 	echo 	"<div id=\"optionsListDiv\">";
 	echo		"<ul id=\"optionsList\">";
-	//echo			"<li><a href=\"admin.php?selection=editStrip\">Edit Strip</a></li>";
 	echo			"<li><a href=\"index.php?profile&selection=changePassword\">Change Password</a></li>";
 	echo			"<li><a href=\"index.php?profile&selection=changeEmail\">Change E-Mail adress</a></li>";
+	echo			"<li><a href=\"index.php?profile&selection=changeAvatar\">Change Avatar</a></li>";
 	echo		"</ul>";
 	echo	"</div>";
 
@@ -23,6 +23,10 @@
 		else if($_GET['selection'] == "changeEmail")
 		{
 			include "changeUserEmail.php";
+		}
+		else if($_GET['selection'] == "changeAvatar")
+		{
+			include "changeUserAvatar.php";
 		}
 
 	}
