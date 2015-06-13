@@ -645,21 +645,36 @@ html
 	background-color: RGB(230,230,230);
 }
 
-.comment, .adminComment
+.commentBox
 {
-	font-family: Calibri;
 	border: solid 1px RGB(180,180,180);
 	border-radius: 10px;
 	margin: 1%;
+}
+
+.comment, .adminComment
+{
+	display: inline-block;
+	font-family: Calibri;
 	font-size: 18px;
+	vertical-align: top;
+	width: 87%;
+	margin-bottom: 1%;
+	margin-top: 0.5%;
+}
+
+.commentAvatar
+{
+	margin: 1%;
+	width: 10%;
 }
 
 .commentHeader
 {
-	margin-left: 1%;
-	margin-top: 0.5%;
+	margin-left: 0.5%;
 	font-weight: bold;
 	font-size: 22px;
+	margin-top: 2%;
 }
 
 .commentTimestamp
@@ -669,16 +684,14 @@ html
 	font-size: 18px;
 	font-style: italic;
 	font-weight: normal;
-	margin-right: 2%;
-	margin-top: 0.5%;
+	margin-right: 0%;
 }
 
 .comment form, .adminComment form
 {
 	display: inline;
 	float: right;
-	margin-right: 2%;
-	margin-top: 0.5%;
+	margin-right: 0.5%;
 }
 
 .deleteCommentButton
@@ -698,7 +711,7 @@ html
 
 .commentContent
 {
-	margin-left: 2%;
+	margin-left: 0.5%;
 	margin-right: 2%;
 	margin-bottom: 1%;
 	margin-top: 0.5%;

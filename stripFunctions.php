@@ -520,7 +520,6 @@
 		
 		$text = addslashes($text); //this function escapes all logical symbols
 		
-		
 		if($stripId == -1337)
 		{
 			return;
@@ -597,13 +596,23 @@
 	
 	function createCommentDiv($stripId, $commentId, $username, $avatar, $timestamp, $comment, $adminflag)
 	{
-		if($adminflag)
+		$outputString  = "<div class=\"commentBox\">";
+		if(empty($avatar))
 		{
-			$outputString  = "<div class=\"adminComment\">";
+			$outputString .=	"<img class=\"commentAvatar\" src=\"pictures/standardAvatar.jpg\" alt=\"Avatar of the author of this comment\">";
 		}
 		else
 		{
-			$outputString  = "<div class=\"comment\">";
+			$outputString .=	"<img class=\"commentAvatar\" src=\"avatars/".$avatar."\" alt=\"Avatar of the author of this comment\">";
+		}
+		
+		if($adminflag)
+		{
+			$outputString  .= "<div class=\"adminComment\">";
+		}
+		else
+		{
+			$outputString  .= "<div class=\"comment\">";
 		}
 		$outputString .=	"<span class=\"commentHeader\">";
 		$outputString .=		$username." wrote: ";
@@ -619,6 +628,8 @@
 		$outputString .=		stripslashes($comment);
 		$outputString .=	"</div>";
 		$outputString .= "</div>";
+		$outputString .= "</div>";
+		
 		
 		return $outputString;
 		

@@ -34,8 +34,10 @@
 	{
 		$latestId = getLatestId();
 		$curId = isset($_GET['id']) ? $_GET['id'] : $latestId;
-		
-		commentStrip($_POST['commentContent'],$curId);
+		if(!empty($_POST['commentContent']))
+		{
+			commentStrip($_POST['commentContent'],$curId);
+		}
 	}
 	
 	if(isset($_POST['deleteComment']) && isAuthorized(ADMIN))
