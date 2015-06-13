@@ -17,7 +17,7 @@
 						<p> Your current Email-adress is: <b>'.getEmail().'</b> </p>
 						<input id="newEmail" class="newEmail" type="email" name="newEmail" placeholder="New Email"/> </br>
 						<input class="newEmail" type="password" name="passForEmail" placeholder="Enter your password here"/> </br>
-						<input id="newEmailSubmit" type="submit" name="changeUserPass" value="Change Email" />
+						<input id="newEmailSubmit" type="submit" name="changeUserEmail" value="Change Email" />
 					</fieldset>
 				</form>';
 	}

@@ -82,13 +82,16 @@ if(isAuthorized(USER))
 
 
 
-	echo '	<form id="newEmailForm" action="index.php?profile&selection='.$_GET['selection'].'" method="POST" enctype="multipart/form-data">
-					<fieldset>
-						<input id="avatar" class="avatar" type="file" name="avatar"/> </br>
-						<input class="newAvatar" type="password" name="passForAvatar" placeholder="Enter your password here"/> </br>
-						<input id="newAvatarSubmit" type="submit" name="changeUserAvatar" value="Change Avatar" />
-					</fieldset>
-				</form>';
+	echo '	<form id="newAvatarForm" action="index.php?profile&selection='.$_GET['selection'].'" method="POST" enctype="multipart/form-data">
+				<fieldset>
+					<input id="avatar" class="avatar" type="file" name="avatar"/> </br>
+					<div>
+						Password:
+					</div>
+					<input id="newAvatarPass" type="password" name="passForAvatar" placeholder="Enter your password here"/> </br>
+					<input id="newAvatarSubmit" type="submit" name="changeUserAvatar" value="Change Avatar" />
+				</fieldset>
+			</form>';
 }
 
 
