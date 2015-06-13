@@ -599,7 +599,7 @@
 		$outputString  = "<div class=\"commentBox\">";
 		if(empty($avatar))
 		{
-			$outputString .=	"<img class=\"commentAvatar\" src=\"pictures/standardAvatar.jpg\" alt=\"Avatar of the author of this comment\">";
+			$outputString .=	"<img class=\"commentAvatar\" src=\"avatars/standardAvatar.jpg\" alt=\"Avatar of the author of this comment\">";
 		}
 		else
 		{

@@ -409,7 +409,7 @@ html
 	margin-top: 1%;
 }
 
-.newPass, .newEmail
+.newPass, .newEmail, #newAvatarPass
 {
 	margin: 1%;
 	margin-left: 2%;
@@ -468,30 +468,12 @@ html
 	text-align: center;
 }
 
-#newAvatarForm #newAvatarPass
-{
-	margin-left: 1%;
-	width: 30%;
-	line-height: 20px;
-	font-size: 16px;
-	text-align: left;
-	padding-left: 1.5%;
-}
-
 #newAvatarForm #avatar
 {
 	margin: 1%;
 	margin-left: 2%;
 }
 
-
-#newAvatarForm div
-{
-	font-size: 16px;
-	margin-left: 2%;
-	margin-top: 1%;
-	display: inline-block;
-}
 
 
 #editStripModule h1
