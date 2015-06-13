@@ -22,6 +22,25 @@
 	{
 		resetPassword($_POST['username']);
 	}
+	else if( !isset($_SESSION['user_name']) && isset($_POST['username'],$_POST['resetKey'],$_GET['resetConfirm'],$_POST['newPass'],$_POST['newPassConfirm']) )
+	{
+		if(validateKey($_POST['resetKey'], $_POST['username']))
+		{
+			if($_POST['newPass'] == $_POST['newPassConfirm'])
+			{
+				changePass($_POST['username'], $_POST['newPass']);
+				$resetError = 0;
+			}
+			else
+			{
+				$resetError = 2;
+			}
+		}
+		else
+		{
+			$resetError = 1;
+		}
+	}
 ?>
 <!DOCTYPE html>
 <html>
@@ -80,6 +99,10 @@
 						else if (isset($_GET['reset']))
 						{
 							include('reset.php');
+						}
+						else if (isset($_GET['resetKey'])|| isset($_GET['resetConfirm']))
+						{
+							include('resetConfirm.php');
 						}
 						else if( isset($_GET['profile']) && $_SESSION['permLevel'] == USER )
 						{
