@@ -1,9 +1,7 @@
 <?php
 	if( defined('PasswordReset') )
 	{
-		echo 'Password has been reset.';
-		if( isset($resetkey) )
-			echo 'Resetkey: ' . $resetkey;
+		echo '<p id="resetStatus">Password reset mail has been sent.</p>';
 	}
 	else
 	{
