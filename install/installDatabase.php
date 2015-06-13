@@ -33,8 +33,8 @@
 
 
 	echo 	'<div id="installForm"><form action="'.htmlspecialchars($_SERVER['PHP_SELF']).'" method="POST">
-				<lable>Database Adress</lable>
-				<input type="text" name="dbHost" placeholder="Database Adress">
+				<lable>Database Address</lable>
+				<input type="text" name="dbHost" placeholder="Database Address">
 				<lable>Database Name</lable>
 				<input type="text" name="dbName" placeholder="Database Name">
 				<lable>Database User</lable>
