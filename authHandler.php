@@ -186,7 +186,7 @@
 			
 			$mailSubject = 'Webcomic Password retrieval';
 			
-			$mailText = "Hello ".$username.",\n click on this link to reset your password: ".$resetLink."\nIf you did not trigger this email you might want your password.\n
+			$mailText = "Hello ".$username.",\nclick on this link to reset your password: ".$resetLink."\nIf you did not trigger this email you might want to change your password.\n
 					Yours sincerly, Webcomic Team";
 			
 			

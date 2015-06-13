@@ -244,9 +244,7 @@ html
 {
 	color: #4433ee;
 	fontsize: 20px;
-	margin-top: 5%;
-	margin-bottom: 5%;
-	margin-left: 27%;
+	margin: 5% auto;
 	padding: 1%;
 	width: 400px;
 	font-family: Arial, Helvetica, sansserif;

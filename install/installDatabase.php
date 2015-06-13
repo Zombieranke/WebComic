@@ -32,7 +32,7 @@
 	echo 	'<h1 id="installHeadline">Database connection</h1>';
 
 
-	echo 	'<form id="installForm" action="'.htmlspecialchars($_SERVER['PHP_SELF']).'" method="POST">
+	echo 	'<div id="installForm"><form action="'.htmlspecialchars($_SERVER['PHP_SELF']).'" method="POST">
 				<lable>Database Adress</lable>
 				<input type="text" name="dbHost" placeholder="Database Adress">
 				<lable>Database Name</lable>
@@ -42,7 +42,7 @@
 				<lable>Database Password</lable>
 				<input type="password" name="dbPassword" placeholder="Database Password">
 				<button id="installButton" type="submit" name="progress" value="progress">Proceed</button>
-			</form>';
+			</form></div>';
 	
 	echo 	'<form action="'.htmlspecialchars($_SERVER['PHP_SELF']).'" method="POST">
 				<button id="installButton2" type="submit" name="back" value="back">Back</button>

@@ -126,7 +126,7 @@
 				</script>';
 	
 	
-	echo 	'<form id="installForm" action="'.htmlspecialchars($_SERVER['PHP_SELF']).'" method="POST">
+	echo 	'<div id="installForm"><form action="'.htmlspecialchars($_SERVER['PHP_SELF']).'" method="POST">
 				<lable>Username</lable>
 				<input type="text" name="adminName" placeholder="Username">
 				<lable>Password</lable>
@@ -137,7 +137,7 @@
 				<lable>Email</lable>
 				<input type="email" name="adminEmail" placeholder="Email">
 				<button id="installButton" type="submit" name="progress" value="progress">Proceed</button>
-			</form>';
+			</form></div>';
 	
 	echo 	'<form action="'.htmlspecialchars($_SERVER['PHP_SELF']).'" method="POST">
 				<button id="installButton2" type="submit" name="back" value="back">Back</button>

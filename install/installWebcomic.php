@@ -116,13 +116,13 @@
 	
 	echo 	'<h1 id="installHeadline">Webcomic configuration</h1>';
 	
-	echo 	'<form id="installForm" action="'.htmlspecialchars($_SERVER['PHP_SELF']).'" method="POST" enctype="multipart/form-data">
+	echo 	'<div id="installForm"><form action="'.htmlspecialchars($_SERVER['PHP_SELF']).'" method="POST" enctype="multipart/form-data">
 				<lable>Webcomic name</lable>
 				<input type="text" name="comicName" placeholder="Name">
 				<lable>Logo</lable>
 				<input type="file" name="comicLogo" >
 				<button id="installButton" type="submit" name="progress" value="progress">Proceed</button>
-			</form>';
+			</form></div>';
 	
 	echo 	'<form action="'.htmlspecialchars($_SERVER['PHP_SELF']).'" method="POST">
 				<button id="installButton2" type="submit" name="back" value="back">Back</button>
