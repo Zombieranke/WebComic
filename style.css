@@ -66,12 +66,6 @@ html
 	text-decoration: none;
 }
 
-#favouriteDiv
-{
-	
-	
-}
-
 
 #favouriteButton
 {
@@ -176,19 +170,22 @@ html
 	height: auto;
 }
 
+
+
 .navRandom img
 {
 	width: 28%;
 	height: auto;
 }
 
+
 .comic_navigation li
 {
 	display: inline;
-	margin-left: 3.5%;
-    margin-right: 3.5%;
-    width: 99%;
+	margin-left: 4.5%;
+    margin-right: 4%;
 }
+
 
 #content
 {
