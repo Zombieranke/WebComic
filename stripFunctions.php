@@ -383,8 +383,43 @@
 		$stmt->close();
 		$connection->close();
 		
-		$outputString =  "<div>";
+		$outputString = '
+			<script type="text/javascript">
+				function favouriteSelected()
+				{
+					favButton = document.getElementById("favouriteButton");
+				
+					favButton.innerHTML = "<img id=\"favouriteStar\" src=\"pictures/favouriteStar_selected.jpg\"/>Favourite";
+					
+				}
+					
+				function favouriteUnselected()
+				{
+					favButton = document.getElementById("favouriteButton");
+				
+					favButton.innerHTML = "<img id=\"favouriteStar\" src=\"pictures/favouriteStar_unselected.jpg\"/>Favourite";
+					
+				}
+					
+				function unfavouriteSelected()
+				{
+					favButton = document.getElementById("unfavouriteButton");
+				
+					favButton.innerHTML = "<img id=\"favouriteStar\" src=\"pictures/favouriteStar_unselected.jpg\"/>Unfavourite";
+					
+				}
+					
+				function unfavouriteUnselected()
+				{
+					favButton = document.getElementById("unfavouriteButton");
+				
+					favButton.innerHTML = "<img id=\"favouriteStar\" src=\"pictures/favouriteStar_selected.jpg\"/>Favourited";
+					
+				}
+				
+			</script>';
 		
+		$outputString .=  "<div id=\"favouriteDiv\">";
 		
 		if(isAuthorized(USER))
 		{
@@ -392,18 +427,21 @@
 			
 			if($alreadyFavourited == 1)
 			{
-				$outputString .= 	"<button id=\"unfavouriteButton\" type=\"submit\" name=\"unfavourite\"  value=\"".$userId."\">Unfavourite</button>";
+				$outputString .= 	"<button id=\"unfavouriteButton\" onMouseOver=\"unfavouriteSelected()\" onMouseOut=\"unfavouriteUnselected()\" type=\"submit\" name=\"unfavourite\"  value=\"".$userId."\"><img id=\"favouriteStar\" src=\"pictures/favouriteStar_selected.jpg\" alt=\"A star to indicate the favourite option\">Favourited</button>";
 				
 			}
 			else
 			{
-				$outputString .= 	"<button id=\"favouriteButton\" type=\"submit\" name=\"favourite\"  value=\"".$userId."\">Favourite</button>";
+				$outputString .= 	"<button id=\"favouriteButton\" onMouseOver=\"favouriteSelected()\" onMouseOut=\"favouriteUnselected()\" type=\"submit\" name=\"favourite\"  value=\"".$userId."\"><img id=\"favouriteStar\" src=\"pictures/favouriteStar_unselected.jpg\" alt=\"A star to indicate the favourite option\">Favourite</button>";
 			}
 			
 			$outputString .= "</form>";
 		}
-		$outputString .=	"<div id=\"favouriteCount\">";
-		$outputString .=		$count." users have favourited this strip";
+		$outputString .=	"<div id=\"favouriteCountDiv\">";
+		$outputString .=		"<span id=\"favouriteCount\">";
+		$outputString .=			$count;
+		$outputString .=		"</span>";
+		$outputString .= 		" users have favourited this strip";
 		$outputString .=	"</div>";
 		$outputString .= "</div>";
 		echo $outputString;

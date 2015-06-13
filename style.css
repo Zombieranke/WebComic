@@ -66,6 +66,99 @@ html
 	text-decoration: none;
 }
 
+#favouriteDiv
+{
+	
+	
+}
+
+
+#favouriteButton
+{
+	border: 3px solid #3ab415;
+	border-radius: 10px;
+	margin: 1% 39.5%;
+	width: 20%;
+	color: #3ab415;
+	cursor: pointer;
+	background: none;
+	font-weight: bold;
+	font-size: 23px;
+	text-align: right;
+	padding-right: 3%;
+	
+}
+
+#unfavouriteButton:hover
+{
+	border: 3px solid #3ab415;
+	border-radius: 10px;
+	margin: 1% 39.5%;
+	width: 20%;
+	color: #3ab415;
+	cursor: pointer;
+	background: none;
+	font-weight: bold;
+	font-size: 23px;
+	text-align: right;
+	padding-right: 1%;
+}	
+
+#favouriteButton:hover
+{
+	border: 3px solid #3ab415;
+	border-radius: 10px;
+	margin: 1% 39.5%;
+	width: 20%;
+	color: #FFFFFF;
+	cursor: pointer;
+	background: none;
+	background: #3ab415;
+	font-weight: bold;
+	font-size: 23px;
+	text-align: right;
+	padding-right: 3%;
+	
+}
+
+#unfavouriteButton
+{
+	border: 3px solid #3ab415;
+	border-radius: 10px;
+	margin: 1% 39.5%;
+	width: 20%;
+	color: #FFFFFF;
+	cursor: pointer;
+	background: none;
+	background: #3ab415;
+	font-weight: bold;
+	font-size: 23px;
+	text-align: right;
+	padding-right: 1.5%;
+	
+}
+
+#favouriteStar
+{
+	float: left;
+	margin-left: 3%;
+}
+
+#favouriteCountDiv
+{
+	text-align: center;
+	color: #3ab415;
+	font-size: 18px;
+	font-family: 'Arial Black', 'Arial';
+	font-weight: 700;
+	margin-bottom: 1%;
+}
+
+#favouriteCount
+{
+	font-family: 'Arial Black', 'Arial';
+	font-weight: 900;
+}
 .comic_navigation
 {
 	display: block;

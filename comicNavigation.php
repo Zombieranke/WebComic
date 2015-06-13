@@ -146,6 +146,7 @@
 			
 			getFavouriteDiv($curId);
 			
+			
 			if($hasNext) //If there is a strip after this one, the current strip turns into a clickable image which leads to the next strip
 			{
 				echo "<a href=\"index.php?id=".$nextId."#comic\">";
