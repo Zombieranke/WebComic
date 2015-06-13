@@ -244,7 +244,7 @@ html
 {
 	color: #4433ee;
 	fontsize: 20px;
-	margin: 5% auto;
+	margin: 3% auto 5%;
 	padding: 1%;
 	width: 400px;
 	font-family: Arial, Helvetica, sansserif;
@@ -920,4 +920,34 @@ html
 	font-weight: bold;
 	margin-top: 2%;
 	margin-bottom: 4%;
+}
+
+#loginError
+{
+	color: #ff0000;
+	font-family: Arial, Helvetica, sansserif;
+	font-size: 1.3vw;
+	text-align: center;
+	font-weight: bold;
+	margin-top: 2%;
+}
+
+#registerMessageError
+{
+	color: #ff0000;
+	font-family: Arial, Helvetica, sansserif;
+	font-size: 1.3vw;
+	text-align: center;
+	font-weight: bold;
+	margin-top: 2%;
+}
+
+#registerMessageSuccess
+{
+	color: #3ab415;
+	font-family: Arial, Helvetica, sansserif;
+	font-size: 1.3vw;
+	text-align: center;
+	font-weight: bold;
+	margin-top: 2%;
 }

@@ -25,7 +25,7 @@
 			
 			if(strcmp($username,"") == 0 || strcmp($password,"") == 0 || strcmp($email,"") == 0)
 			{
-				echo "<p>Please fully fill the form </p>";
+				echo "<div id=\"registerMessageError\">Please fully fill the form</div>";
 			}
 			else
 			{
@@ -35,11 +35,11 @@
 					
 				if($entry->execute())
 				{
-					echo "<p>User: ".$username." erfolgreich registriert</p>";
+					echo "<div id=\"registerMessageSuccess\">User: ".$username." erfolgreich registriert</p>";
 				}
 				else
 				{
-					echo "<p>Username: ".$username." already exists!</p>";
+					echo "<div id=\"registerMessageError\">Username '".$username."' already exists!</p>";
 				}
 				
 				$entry->free_result();
@@ -50,7 +50,7 @@
 		}
 		else
 		{
-			echo "<p>Passwords did not match</p>";
+			echo "<div id=\"registerMessageError\">Passwords did not match!</div>";
 		}
 	}
 
