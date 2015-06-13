@@ -4,6 +4,8 @@
 	require_once ('authHandler.php');
 	require_once ('styleFunctions.php');
 	
+	$loginResult = true;
+	
 	if(isset($_GET['logout']))
 	{
 		session_unset();
@@ -16,7 +18,7 @@
 	}
 	if(!isset($_SESSION['user_name']) && !isset($_POST['register']) && isset($_POST['username']) && isset($_POST['password']))
 	{
-		loginUser($_POST['username'],$_POST['password']);
+		$loginResult = loginUser($_POST['username'],$_POST['password']);
 	}
 	else if( !isset($_SESSION['user_name']) && isset($_POST['username']) && isset($_GET['reset']) )
 	{
@@ -88,8 +90,15 @@
 				
 				<div id="content">
 					<?php
-						if(isset($_GET['login']) && $_GET['login'] == 'true')
+						if((isset($_GET['login']) && $_GET['login'] == 'true') || !$loginResult)
 						{
+							if(!$loginResult)
+							{
+								echo' <div id="loginError">
+										Wrong username or password
+									  </div>';
+							}
+							
 							include('login.php');
 						}
 						else if(isset($_GET['register']))

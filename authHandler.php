@@ -67,13 +67,12 @@
 			}
 			else
 			{
-				echo "<p id=\"loginError\">Wrong username or password</p>";
 				return false;
 			}
 		}
 		else
 		{
-			echo "<p id=\"loginError\">Wrong username or password</p>";
+			//echo "<div id=\"loginError\">Wrong username or password</div>";
 			return false;
 		}
 	}
