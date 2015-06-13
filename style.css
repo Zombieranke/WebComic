@@ -436,20 +436,23 @@ html
 	display: inline;
 }
 
-#newPassSubmit, #newEmailSubmit
+#newPassSubmit, #newEmailSubmit, #newAvatarForm #newAvatarSubmit
 {
 	margin: 1%;
 	margin-left: 2%;
+	width: 25%;
 	border: 3px solid #3366dd;
 	border-radius: 5px;
 	background: #3366dd;
 	font-family: Arial, Helvetica, sansserif;
 	font-weight: bold;
 	color: #e8cf41;
-	font-size: 15px;
+	font-size: 18px;
+	line-height: 100%;
+	text-align: center;
 }
 
-#newPassSubmit:hover, #newEmailSubmit:hover
+#newPassSubmit:hover, #newEmailSubmit:hover, #newAvatarForm #newAvatarSubmit:hover
 {
 	margin: 1%;
 	margin-left: 2%;
@@ -459,36 +462,10 @@ html
 	font-family: Arial, Helvetica, sansserif;
 	font-weight: bold;
 	color: #e8cf41;
-	font-size: 15px;
-	cursor: pointer;
-}
-
-#newAvatarForm #newAvatarSubmit
-{
-	padding: 2px;
-	margin-left: 2%;
-	margin-top: 2%;
-	margin-bottom: 1%;
-	border: 5px RGB(255,0,221);
-	border-radius: 5px;
-	background: #3366dd;
-	font-family: Arial, Helvetica, sansserif;
-	font-weight: bold;
-	color: #e8cf41;
 	font-size: 18px;
-}
-
-#newAvatarForm #newAvatarSubmit:hover
-{
-	padding: 2px;
-	margin-left: 2%;
-	border-radius: 5px;
-	font-family: Arial, Helvetica, sansserif;
-	font-weight: bold;
-	color: #e8cf41;
-	font-size: 18px;
-	background: #5b82dd;
 	cursor: pointer;
+	line-height: 100%;
+	text-align: center;
 }
 
 #newAvatarForm #newAvatarPass
