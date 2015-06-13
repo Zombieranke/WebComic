@@ -933,3 +933,23 @@ html
 	font-weight: bold;
 	margin-top: 2%;
 }
+
+#registerMessageError
+{
+	color: #ff0000;
+	font-family: Arial, Helvetica, sansserif;
+	font-size: 1.3vw;
+	text-align: center;
+	font-weight: bold;
+	margin-top: 2%;
+}
+
+#registerMessageSuccess
+{
+	color: #3ab415;
+	font-family: Arial, Helvetica, sansserif;
+	font-size: 1.3vw;
+	text-align: center;
+	font-weight: bold;
+	margin-top: 2%;
+}
