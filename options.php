@@ -8,8 +8,10 @@
 		echo			"<li><a href=\"admin.php?selection=changeLogo\">Change Logo</a></li>";
 		echo			"<li><a href=\"admin.php?selection=uploadStrip\">Upload Strip</a></li>";
 		echo			"<li><a href=\"admin.php?selection=editStrip\">Edit Strip</a></li>";
-		echo			"<li><a href=\"admin.php?selection=changePassword\">Change Password</a></li>";
 		echo			"<li><a href=\"admin.php?selection=changeCss\">Change Stylesheet</a></li>";
+		echo			"<li><a href=\"admin.php?selection=changePassword\">Change Password</a></li>";
+		echo			"<li><a href=\"admin.php?selection=changeEmail\">Change Email</a></li>";
+		echo			"<li><a href=\"admin.php?selection=changeAvatar\">Change Avatar</a></li>";
 		echo 			"<li><a href=\"index.php?logout\">Logout</a></li>";
 		echo		"</ul>";	
 		echo	"</div>";
@@ -33,6 +35,14 @@
 				else if($_GET['selection'] == "changePassword")
 				{
 					include "changeAdminPass.php";
+				}
+				else if($_GET['selection'] == "changeEmail")
+				{
+					include "changeUserEmail.php";
+				}
+				else if($_GET['selection'] == "changeAvatar")
+				{
+					include "changeUserAvatar.php";
 				}
 				else if($_GET['selection'] == "changeCss")
 				{

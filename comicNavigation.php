@@ -108,7 +108,7 @@
 				$comicNavigation .=		"<a href=\"index.php?id=";
 				$comicNavigation .= 	$randomId;
 				$comicNavigation .= 	"#comic\">";
-				$comicNavigation .=			"<img src=\"pictures/redArrows/random.png\" alt=\"Go to random strip\">";
+				$comicNavigation .=			"<img src=\"pictures/redArrows/random_calibri.jpg\" alt=\"Go to random strip\">";
 				$comicNavigation .=		"</a>";
 				$comicNavigation .= "</li>";
 			}

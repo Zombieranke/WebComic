@@ -69,6 +69,7 @@ html
 
 #favouriteButton
 {
+	font-family: 'Calibri';
 	border: 3px solid #3ab415;
 	border-radius: 10px;
 	margin: 1% 39.5%;
@@ -77,14 +78,15 @@ html
 	cursor: pointer;
 	background: none;
 	font-weight: bold;
-	font-size: 1.2vw;
+	font-size: 1.3vw;
 	text-align: right;
 	padding-right: 3%;
-	
+	line-height: 100%;
 }
 
 #unfavouriteButton:hover
 {
+	font-family: 'Calibri';
 	border: 3px solid #3ab415;
 	border-radius: 10px;
 	margin: 1% 39.5%;
@@ -93,13 +95,15 @@ html
 	cursor: pointer;
 	background: none;
 	font-weight: bold;
-	font-size: 1.2vw;
+	font-size: 1.3vw;
 	text-align: right;
 	padding-right: 1%;
+	line-height: 100%;
 }	
 
 #favouriteButton:hover
 {
+	font-family: 'Calibri';
 	border: 3px solid #3ab415;
 	border-radius: 10px;
 	margin: 1% 39.5%;
@@ -109,14 +113,15 @@ html
 	background: none;
 	background: #3ab415;
 	font-weight: bold;
-	font-size: 1.2vw;
+	font-size: 1.3vw;
 	text-align: right;
 	padding-right: 3%;
-	
+	line-height: 100%;
 }
 
 #unfavouriteButton
 {
+	font-family: 'Calibri';
 	border: 3px solid #3ab415;
 	border-radius: 10px;
 	margin: 1% 39.5%;
@@ -126,10 +131,10 @@ html
 	background: none;
 	background: #3ab415;
 	font-weight: bold;
-	font-size: 1.2vw;
+	font-size: 1.3vw;
 	text-align: right;
-	padding-right: 1.5%;
-	
+	padding-right: 2%;
+	line-height: 100%;
 }
 
 #favouriteStar
@@ -143,15 +148,15 @@ html
 {
 	text-align: center;
 	color: #3ab415;
-	font-size: 18px;
-	font-family: 'Arial Black', 'Arial';
+	font-size: 20px;
+	font-family: 'Calibri','Arial Black', 'Arial';
 	font-weight: 700;
 	margin-bottom: 1%;
 }
 
 #favouriteCount
 {
-	font-family: 'Arial Black', 'Arial';
+	font-family: 'Calibri','Arial Black', 'Arial';
 	font-weight: 900;
 }
 
@@ -398,7 +403,10 @@ html
 
 #newPassForm p, #newEmailForm p
 {
-	height: 35px;
+	font-family: "Calibri","Arial",sans-serif;
+	font-size: 20px;
+	margin-left: 2.5%;
+	margin-top: 1%;
 }
 
 .newPass, .newEmail
@@ -613,10 +621,11 @@ html
 	border: 2px solid #3366dd;
 	border-radius: 10px;
 	background: #3366dd;
-	font-family: Arial;
 	font-weight: bold;
 	color: #e8cf41;
-	font-size: 20px;
+	font-size: 23px;
+	font-family: 'Calibri';
+	line-height: 100%;
 }
 
 #commentForm input[type=submit]:hover
@@ -626,11 +635,12 @@ html
 	border: 2px solid #5b82dd;
 	border-radius: 10px;
 	background: #5b82dd;
-	font-family: Arial;
 	font-weight: bold;
 	color: #e8cf41;
-	font-size: 20px;
+	font-size: 23px;
 	cursor: pointer;
+	font-family: 'Calibri';
+	line-height: 100%;
 }
 
 #commentForm

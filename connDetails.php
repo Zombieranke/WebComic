@@ -7,7 +7,7 @@
 	else
 	{
 		$database['dbServer'] = 'localhost';
-		$database['dbName'] = 'Webcomic';
+		$database['dbName'] = 'WebComic';
 		$database['dbUser'] = 'root';
 		$database['dbPassword'] = 'password';
 	}
