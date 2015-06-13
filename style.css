@@ -636,6 +636,26 @@ html
 	margin: 1%;
 }
 
+#stripDeleteButton
+{
+	width: 25%;
+	cursor: pointer;
+	background: RGB(230,230,230);
+	border-radius: 10px;
+	border: 3px solid RGB(230,230,230);
+	font-size: 1vw;
+	font-weight: bold;
+	text-align: center;
+	line-height: 100%;
+}
+
+#stripDeleteButton img
+{
+	width: 7.5%;
+	height: auto;
+	margin-right: 7%;
+}
+
 #commentForm textarea
 {
 	padding: 1%;
