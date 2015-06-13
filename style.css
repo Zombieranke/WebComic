@@ -37,7 +37,6 @@ html
 #navigation li
 {
     display: inline;
-    float: left;
     margin-left: 4%;
     margin-right: 4%;
     list-style-type: none;
@@ -45,9 +44,10 @@ html
 
 #navigation
 {
+	
     width: 99%;
     height: 50px;
-    margin: auto;
+    text-align: center;
     font-family: "MV Boli","Gabriola","Segoe Print", "Comic Sans MS";
 }
 
@@ -77,7 +77,7 @@ html
 	cursor: pointer;
 	background: none;
 	font-weight: bold;
-	font-size: 23px;
+	font-size: 145%;
 	text-align: right;
 	padding-right: 3%;
 	
@@ -93,7 +93,7 @@ html
 	cursor: pointer;
 	background: none;
 	font-weight: bold;
-	font-size: 23px;
+	font-size: 145%;
 	text-align: right;
 	padding-right: 1%;
 }	
@@ -109,7 +109,7 @@ html
 	background: none;
 	background: #3ab415;
 	font-weight: bold;
-	font-size: 23px;
+	font-size: 145%;
 	text-align: right;
 	padding-right: 3%;
 	
@@ -126,7 +126,7 @@ html
 	background: none;
 	background: #3ab415;
 	font-weight: bold;
-	font-size: 23px;
+	font-size: 145%;
 	text-align: right;
 	padding-right: 1.5%;
 	
