@@ -912,3 +912,14 @@ html
 	text-decoration: none;
 	cursor: pointer;
 }
+
+#resetMessage
+{
+	color: #3ab415;
+	font-family: Arial, Helvetica, sansserif;
+	font-size: 1.3vw;
+	text-align: center;
+	font-weight: bold;
+	margin-top: 2%;
+	margin-bottom: 4%;
+}

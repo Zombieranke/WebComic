@@ -1,7 +1,7 @@
 <?php
 	if( defined('PasswordReset') )
 	{
-		echo '<p id="resetStatus">Password reset mail has been sent.</p>';
+		echo '<div id="resetMessage">Password reset mail has been sent</div>';
 	}
 	else
 	{
