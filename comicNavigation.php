@@ -182,7 +182,7 @@
 				{
 					echo "<form action=\"".htmlspecialchars($_SERVER['PHP_SELF'])."\" method=\"POST\">";
 				}
-				echo "<button type=\"submit\" name=\"delete\" value=\"".$curId."\">Delete this strip</button>";
+				echo "<button id=\"stripDeleteButton\" type=\"submit\" name=\"delete\" value=\"".$curId."\"><img src=\"pictures/redCross.png\" alt=\"Delete Strip\">Delete this strip</button>";
 				echo "</form>";
 			}
 			

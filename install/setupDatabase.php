@@ -74,7 +74,7 @@
 		"CREATE TABLE IF NOT EXISTS strip
 		(
 			strip_id INT(11) AUTO_INCREMENT PRIMARY KEY,
-			stripname VARCHAR(256),
+			stripname VARCHAR(256) NOT NULL,
 			filename VARCHAR(256),
 			annotation VARCHAR(4096),
 			datapath VARCHAR(256) NOT NULL,
