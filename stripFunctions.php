@@ -31,6 +31,34 @@
 		return $file;
 	}
 	
+	function getStripTitle($stripId)
+	{
+		require ('connDetails.php');
+		
+		$connection = new mysqli($database['dbServer'],$database['dbUser'],$database['dbPassword'],$database['dbName']);
+		
+		if($connection->errno != 0)
+		{
+			die("Database connection failed: ".$connection->connect_error);
+		}
+		
+		$stmt = $connection->prepare("SELECT stripname FROM strip WHERE strip_id= ?");
+		$stmt->bind_param("i", $stripId);
+		$stmt->execute();
+		$stmt->bind_result($title);
+		$stmt->fetch();
+		$stmt->free_result();
+		
+		$stmt->close();
+		$connection->close();
+		
+		$outputString  = "<div id=\"titleDiv\">";
+		$outputString .=	$title;
+		$outputString .= "</div>";
+		
+		return $outputString;
+	}
+	
 	function fetchStripAbs($id)
 	{
 		require ('connDetails.php');
@@ -389,7 +417,7 @@
 				{
 					favButton = document.getElementById("favouriteButton");
 				
-					favButton.innerHTML = "<img id=\"favouriteStar\" src=\"pictures/favouriteStar_selected.jpg\"/>Favourite";
+					favButton.innerHTML = "<img id=\"favouriteStar\" src=\"pictures/redFavouriteStar/favouriteStar_selected.jpg\"/>Favourite";
 					
 				}
 					
@@ -397,7 +425,7 @@
 				{
 					favButton = document.getElementById("favouriteButton");
 				
-					favButton.innerHTML = "<img id=\"favouriteStar\" src=\"pictures/favouriteStar_unselected.jpg\"/>Favourite";
+					favButton.innerHTML = "<img id=\"favouriteStar\" src=\"pictures/redFavouriteStar/favouriteStar_unselected.jpg\"/>Favourite";
 					
 				}
 					
@@ -405,7 +433,7 @@
 				{
 					favButton = document.getElementById("unfavouriteButton");
 				
-					favButton.innerHTML = "<img id=\"favouriteStar\" src=\"pictures/favouriteStar_unselected.jpg\"/>Unfavourite";
+					favButton.innerHTML = "<img id=\"favouriteStar\" src=\"pictures/redFavouriteStar/favouriteStar_unselected.jpg\"/>Unfavourite";
 					
 				}
 					
@@ -413,7 +441,7 @@
 				{
 					favButton = document.getElementById("unfavouriteButton");
 				
-					favButton.innerHTML = "<img id=\"favouriteStar\" src=\"pictures/favouriteStar_selected.jpg\"/>Favourited";
+					favButton.innerHTML = "<img id=\"favouriteStar\" src=\"pictures/redFavouriteStar/favouriteStar_selected.jpg\"/>Favourited";
 					
 				}
 				
@@ -427,12 +455,12 @@
 			
 			if($alreadyFavourited == 1)
 			{
-				$outputString .= 	"<button id=\"unfavouriteButton\" onMouseOver=\"unfavouriteSelected()\" onMouseOut=\"unfavouriteUnselected()\" type=\"submit\" name=\"unfavourite\"  value=\"".$userId."\"><img id=\"favouriteStar\" src=\"pictures/favouriteStar_selected.jpg\" alt=\"A star to indicate the favourite option\">Favourited</button>";
+				$outputString .= 	"<button id=\"unfavouriteButton\" onMouseOver=\"unfavouriteSelected()\" onMouseOut=\"unfavouriteUnselected()\" type=\"submit\" name=\"unfavourite\"  value=\"".$userId."\"><img id=\"favouriteStar\" src=\"pictures/redFavouriteStar/favouriteStar_selected.jpg\" alt=\"A star to indicate the favourite option\">Favourited</button>";
 				
 			}
 			else
 			{
-				$outputString .= 	"<button id=\"favouriteButton\" onMouseOver=\"favouriteSelected()\" onMouseOut=\"favouriteUnselected()\" type=\"submit\" name=\"favourite\"  value=\"".$userId."\"><img id=\"favouriteStar\" src=\"pictures/favouriteStar_unselected.jpg\" alt=\"A star to indicate the favourite option\">Favourite</button>";
+				$outputString .= 	"<button id=\"favouriteButton\" onMouseOver=\"favouriteSelected()\" onMouseOut=\"favouriteUnselected()\" type=\"submit\" name=\"favourite\"  value=\"".$userId."\"><img id=\"favouriteStar\" src=\"pictures/redFavouriteStar/favouriteStar_unselected.jpg\" alt=\"A star to indicate the favourite option\">Favourite</button>";
 			}
 			
 			$outputString .= "</form>";

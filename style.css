@@ -70,11 +70,11 @@ html
 #favouriteButton
 {
 	font-family: 'Calibri';
-	border: 3px solid #3ab415;
+	border: 3px solid #ff0000; /* nice green: #3ab415 */
 	border-radius: 10px;
 	margin: 1% 39.5%;
 	width: 20%;
-	color: #3ab415;
+	color: #ff0000; /* nice green: #3ab415 */
 	cursor: pointer;
 	background: none;
 	font-weight: bold;
@@ -87,11 +87,11 @@ html
 #unfavouriteButton:hover
 {
 	font-family: 'Calibri';
-	border: 3px solid #3ab415;
+	border: 3px solid #ff0000; /* nice green: #3ab415 */
 	border-radius: 10px;
 	margin: 1% 39.5%;
 	width: 20%;
-	color: #3ab415;
+	color: #ff0000; /* nice green: #3ab415 */
 	cursor: pointer;
 	background: none;
 	font-weight: bold;
@@ -104,14 +104,14 @@ html
 #favouriteButton:hover
 {
 	font-family: 'Calibri';
-	border: 3px solid #3ab415;
+	border: 3px solid #ff0000; /* nice green: #3ab415 */
 	border-radius: 10px;
 	margin: 1% 39.5%;
 	width: 20%;
 	color: #FFFFFF;
 	cursor: pointer;
 	background: none;
-	background: #3ab415;
+	background: #ff0000; /* nice green: #3ab415 */
 	font-weight: bold;
 	font-size: 1.3vw;
 	text-align: right;
@@ -122,14 +122,14 @@ html
 #unfavouriteButton
 {
 	font-family: 'Calibri';
-	border: 3px solid #3ab415;
+	border: 3px solid #ff0000; /* nice green: #3ab415 */
 	border-radius: 10px;
 	margin: 1% 39.5%;
 	width: 20%;
 	color: #FFFFFF;
 	cursor: pointer;
 	background: none;
-	background: #3ab415;
+	background: #ff0000; /* nice green: #3ab415 */
 	font-weight: bold;
 	font-size: 1.3vw;
 	text-align: right;
@@ -147,7 +147,7 @@ html
 #favouriteCountDiv
 {
 	text-align: center;
-	color: #3ab415;
+	color: #ff0000; /* nice green: #3ab415 */
 	font-size: 20px;
 	font-family: 'Calibri','Arial Black', 'Arial';
 	font-weight: 700;
@@ -158,6 +158,11 @@ html
 {
 	font-family: 'Calibri','Arial Black', 'Arial';
 	font-weight: 900;
+}
+
+#titleDiv
+{
+	margin: 1%;
 }
 
 .comic_navigation
