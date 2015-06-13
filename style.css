@@ -37,23 +37,21 @@ html
 #navigation li
 {
     display: inline;
-    margin-left: 4%;
-    margin-right: 4%;
+    margin-left: 3%;
+    margin-right: 3%;
     list-style-type: none;
 }
 
 #navigation
 {
-	
     width: 99%;
-    height: 50px;
     text-align: center;
     font-family: "MV Boli","Gabriola","Segoe Print", "Comic Sans MS";
 }
 
 #navigation a:link, #navigation a:visited
 {
-	font-size: 35px;
+	font-size: 220%;
 	color: #000000;
 	text-decoration: none;
 }
@@ -61,7 +59,7 @@ html
 
 #navigation a:hover, #navigation a:active
 {
-	font-size: 35px;
+	font-size: 220%;
 	color: #FF0000;
 	text-decoration: none;
 }
@@ -153,13 +151,13 @@ html
 	font-family: 'Arial Black', 'Arial';
 	font-weight: 900;
 }
+
 .comic_navigation
 {
 	display: block;
     margin-left: 2%;
     margin-right: 2%;
-    margin-top: 13px;
-    height: 70px;
+    margin-top: 1%;
     width: 96%;
     list-style-type: none;
 }
