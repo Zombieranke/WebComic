@@ -49,7 +49,7 @@
 	$latestId = getLatestId();
 	if(empty($latestId))
 	{
-		echo "<p> Sorry there is nothing here yet</p>";
+		echo "<p> Sorry there is nothing here yet. Log in as an admin and upload strips at the backend</p>";
 	}
 	else
 	{
