@@ -57,6 +57,7 @@
 			}
 			
 		echo "</div>";
+		echo "</div>";
 	}
 	
 ?>
