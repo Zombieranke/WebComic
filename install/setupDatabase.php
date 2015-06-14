@@ -27,7 +27,7 @@
 			timelimit TIMESTAMP,
 			avatar VARCHAR(256),
 			adminflag BOOLEAN NOT NULL,
-			suspended TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+			suspended DATETIME DEFAULT CURRENT_TIMESTAMP
 		)"
 	);
 	
