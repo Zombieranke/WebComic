@@ -37,9 +37,8 @@ body
 	max-width: 20%;
 	top: 40%;
 	position: relative;
-	font-size: 50px;
-	font-family: Comic Sans MS, Arial;
-	color: DodgerBlue;
+	font-size: 5vw;
+	font-family: Gabriola, Arial;
 	text-align: center;
 }
 
@@ -49,9 +48,8 @@ body
 	margin-top: 8%;
 	margin-bottom: 2%;
 	max-width: 50%;
-	font-size: 50px;
-	font-family: Comic Sans MS, Arial;
-	color: DodgerBlue;
+	font-size: 4vw;
+	font-family: Gabriola, Arial;
 	text-align: center;
 }
 
@@ -106,9 +104,10 @@ body
 	margin: 2% 2% 2% 2%;
 	width: 25%;
 	display: inline-block;
-	font-size: 1.6vw;
-	font-family: Comic Sans MS, Arial;
-	color: DodgerBlue;
+	font-size: 1.8vw;
+	font-family: Gabriola, Arial;
+	color: #253eff;
+	line-height: 100%;
 }
 
 #checkMark
