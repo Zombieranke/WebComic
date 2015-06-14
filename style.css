@@ -268,7 +268,7 @@ body
 
 .loginForm
 {
-	color: #4433ee;
+	color: #25a722; /* blue theme: #4433ee*/
 	fontsize: 20px;
 	margin: 3% auto 5%;
 	padding: 1%;
@@ -292,11 +292,11 @@ body
 .loginForm fieldset
 {
 	padding-top: 3%;
-	border: 3px solid #3366dd;
+	border: 3px solid #4faf4d; /*blue theme: #3366dd*/
 	border-radius: 15px;
 	background-color: rgb(210,210,210);
 }
-
+/*#67b965;  saftig, dunkel: 4faf4d */
 .loginIcon
 {
 	display: inline;
@@ -357,9 +357,9 @@ body
 	margin: 7px 90px 20px 90px;
 	width: 220px;
 	height: 35px;
-	border: 3px solid #3366dd;
+	border: 3px solid #4faf4d; /*blue theme: #3366dd; */
 	border-radius: 5px;
-	background: #3366dd;
+	background: #4faf4d; /*blue theme: #3366dd; */
 	font-family: Arial, Helvetica, sansserif;
 	font-weight: bold;
 	color: #e8cf41;
@@ -372,9 +372,9 @@ body
 	margin: 7px 90px 20px 90px;
 	width: 220px;
 	height: 35px;
-	border: 5px solid #5b82dd;
+	border: 3px solid #67b965; /*blue theme: #5b82dd;*/
 	border-radius: 5px;
-	background: #5b82dd;
+	background: #67b965; /*blue theme: #5b82dd;*/
 	font-family: Arial, Helvetica, sansserif;
 	font-weight: bold;
 	color: #e8cf41;
@@ -394,7 +394,7 @@ body
 	float: left;
     margin: 2%;
     width: 30%;
-    border: 3px solid #5880ff;
+    border: 3px solid #4faf4d; /*blue theme: #3366dd;*/
 	border-radius: 8px;
 }
 
@@ -413,7 +413,7 @@ body
 	text-decoration: none;
 	font-family: Arial;
 	font-weight: bold;
-	color: #3366dd
+	color: #4faf4d; /*blue theme: #3366dd;*/
 }
 	
 #optionsListDiv li a:hover,#optionsListDiv a:active
@@ -421,7 +421,7 @@ body
 	text-decoration: none;
 	font-family: Arial;
 	font-weight: bold;
-	color: #4bb2ee;
+	color: #71d76f; /*blue theme: #4bb2ee;*/
 }
 
 #activeApplication
@@ -439,9 +439,10 @@ body
 	padding: 0.5%;
 	margin: 0.5%;
 	margin-top: 0%;
-	border: 3px solid #5880ff;
+	border: 3px solid #4faf4d; /*blue theme: #3366dd;*/
 	border-radius: 8px;
 }
+
 
 #activeApplication fieldset fieldset
 {
@@ -461,21 +462,21 @@ body
 {
 	margin: 1%;
 	margin-left: 2%;
-	line-height: 25px;
+	line-height: 120%;
 	text-align: left;
-	width: 300px;
+	width: 45%;
 	background: RGB(220,220,220);
 	padding-left: 2.5%;
 	border: solid 2px RGB(130,130,130);
 	border-radius: 5px;
-	font-size: 20px;
+	font-size: 1.1vw;
 }
+
 
 #checkMark img
 {
 	display: inline;
-	width: 25px;
-	height: 25px;
+	width: 4%;
 	margin-bottom: -5px;
 }
 
@@ -488,33 +489,35 @@ body
 {
 	margin: 1%;
 	margin-left: 2%;
-	width: 25%;
-	border: 3px solid #3366dd;
+	width: 30%;
+	border: 3px solid #4faf4d; /*blue theme: #3366dd;*/
 	border-radius: 5px;
-	background: #3366dd;
+	background: #4faf4d; /*blue theme: #3366dd;*/
 	font-family: Arial, Helvetica, sansserif;
 	font-weight: bold;
 	color: #e8cf41;
-	font-size: 18px;
-	line-height: 100%;
+	font-size: 1vw;
+	line-height: 120%;
 	text-align: center;
 }
+
 
 #newPassSubmit:hover, #newEmailSubmit:hover, #newAvatarForm #newAvatarSubmit:hover
 {
 	margin: 1%;
 	margin-left: 2%;
-	border: 3px solid #5b82dd;
+	border: 3px solid #6bc069; /*blue theme: #5b82dd;*/
 	border-radius: 5px;
-	background: #5b82dd;
+	background: #6bc069; /*blue theme: #5b82dd;*/
 	font-family: Arial, Helvetica, sansserif;
 	font-weight: bold;
 	color: #e8cf41;
-	font-size: 18px;
+	font-size: 1vw;
 	cursor: pointer;
-	line-height: 100%;
+	line-height: 120%;
 	text-align: center;
 }
+
 
 #newAvatarForm #avatar
 {
@@ -526,7 +529,7 @@ body
 
 #editStripModule h1
 {
-	font-size: 27px;
+	font-size: 1.4vw;
 	margin: 1%;
 }
 
@@ -542,7 +545,7 @@ body
 
 .editStrip h2
 {
-	font-size: 18px;
+	font-size: 1vw;
 	margin: 1%;
 	margin-right: 3%;
 	margin-left: 3%;
@@ -556,9 +559,10 @@ body
 	height: auto;
 }
 
+
 .editStrip p
 {
-	font-size: 13.5px;
+	font-size: 0.75vw;
 	margin: 1%;
 	margin-right: 3%;
 	margin-left: 3%;
@@ -572,78 +576,72 @@ body
 
 #uploadForm div
 {
-	font-size: 16px;
+	font-size: 0.85vw;
 	margin-left: 2%;
 	margin-top: 1%;
 	display: inline-block;
 }
 
-#uploadForm .inputDate
+#uploadForm .inputDate, #uploadForm .inputText
 {
 	margin-left: 1%;
-	width: 30%;
-	line-height: 20px;
-	font-size: 16px;
+	width: 35%;
+	line-height: 120%;
+	font-size: 0.85vw;
 	text-align: left;
 	padding-left: 1.5%;
 }
 
-#uploadForm .inputText
-{
-	margin-left: 1%;
-	width: 30%;
-	line-height: 20px;
-	font-size: 16px;
-	text-align: left;
-	padding-left: 1.5%;
-}
 
 .uploadAnnotation
 {
 	padding: 1%;
 	resize: none;
-	font-size: 15px;
+	font-size: 0.8vw;
 	margin: 2%;
 	margin-top: 1%;
 	width: 94%;
 	font-family: Arial;
 }
 
+
 #uploadForm select
 {
 	font-family: Arial;
-	height: 28px;
-	font-size: 15px;
+	height: 1.3vw;
+	font-size: 0.8vw;
 	margin-left: 3%;
-	width: 180px;
+	width: 25%;
 	padding-left: 1.5%;
 	margin-bottom: 1%;
 }
 
 #uploadForm #resetButton, #uploadForm #submitButton
 {
-	padding: 2px;
 	margin-left: 2%;
+	width: 20%;
 	border: 5px RGB(255,0,221);
 	border-radius: 5px;
-	background: #3366dd;
+	background: #4faf4d; /*blue theme: #3366dd;*/
 	font-family: Arial, Helvetica, sansserif;
 	font-weight: bold;
 	color: #e8cf41;
-	font-size: 18px;
+	font-size: 1vw;
+	line-height: 140%;
 }
 
 #uploadForm #resetButton:hover, #uploadForm #submitButton:hover
 {
-	padding: 2px;
+	width: 20%;
 	margin-left: 2%;
 	border-radius: 5px;
 	font-family: Arial, Helvetica, sansserif;
 	font-weight: bold;
 	color: #e8cf41;
-	font-size: 18px;
-	background: #5b82dd;
+	font-size: 1vw;
+	background: #6bc069; /*blue theme: #5b82dd;*/
 	cursor: pointer;
+	line-height: 140%;
 }
 
 
@@ -656,21 +654,37 @@ body
 #stripAnnotation
 {
 	font-family: Arial;
-	font-size: 20px;
+	font-size: 1.1vw;
 	margin: 1%;
 }
 
+
 #stripDeleteButton
+{
+	width: 25%;
+	cursor: pointer;
+	background: RGB(200,200,200);
+	border-radius: 10px;
+	border: 3px solid RGB(200,200,200);
+	font-size: 1vw;
+	font-weight: bold;
+	text-align: center;
+	line-height: 120%;
+}
+
+
+#stripDeleteButton:hover
 {
 	width: 25%;
 	cursor: pointer;
 	background: RGB(230,230,230);
 	border-radius: 10px;
 	border: 3px solid RGB(230,230,230);
+	color: RGB(120,120,120);
 	font-size: 1vw;
 	font-weight: bold;
 	text-align: center;
-	line-height: 100%;
+	line-height: 120%;
 }
 
 #stripDeleteButton img
@@ -678,6 +692,7 @@ body
 	width: 7.5%;
 	height: auto;
 	margin-right: 7%;
+	margin-bottom: -2px;
 }
 
 #commentForm textarea
@@ -699,9 +714,9 @@ body
 	margin: 1%;
 	margin-left: 2%;
 	width: 20%;
-	border: 2px solid #3366dd;
+	border: 2px solid #4faf4d; /*blue theme: #3366dd;*/
 	border-radius: 10px;
-	background: #3366dd;
+	background: #4faf4d; /*blue theme: #3366dd;*/
 	font-weight: bold;
 	color: #e8cf41;
 	font-size: 1.2vw;
@@ -709,13 +724,14 @@ body
 	line-height: 100%;
 }
 
+
 #commentForm input[type=submit]:hover
 {
 	margin: 1%;
 	margin-left: 2%;
-	border: 2px solid #5b82dd;
+	border: 2px solid #6bc069; /*blue theme: #5b82dd;*/
 	border-radius: 10px;
-	background: #5b82dd;
+	background: #6bc069; /*blue theme: #5b82dd;*/
 	font-weight: bold;
 	color: #e8cf41;
 	font-size: 1.2vw;
@@ -854,7 +870,6 @@ body
 }
 
 
-
 #registrationFieldset
 {
 	margin: 3% 24% 3% 24%;
@@ -862,47 +877,48 @@ body
 	padding: 0.5%;
 	padding-top: 2.5%;
 	padding-bottom: 2%;
-	border: 3px solid #5880ff; /*RGB(111,155,255)*/
+	border: 3px solid #4faf4d; /*blue theme: #3366dd;*/
 	border-radius: 15px;
 }
 
 .registration
 {
 	margin: 1% 11.5% 1% 11.5%;
-	line-height: 25px;
+	line-height: 120%;
 	text-align: left;
 	width: 72%;
 	background: RGB(220,220,220);
 	padding-left: 4%;
 	border: solid 2px RGB(130,130,130);
 	border-radius: 5px;
-	font-size: 20px;
+	font-size: 1.1vw;
 }
 
 #registrationSubmit
 {
 	margin: 3% 24.5% 1% 24.5%;
 	width: 50%;
-	border: 3px solid #3366dd;
+	border: 3px solid #4faf4d; /*blue theme: #3366dd;*/
 	border-radius: 5px;
-	background: #3366dd;
+	background: #4faf4d; /*blue theme: #3366dd;*/
 	font-family: Arial, Helvetica, sansserif;
 	font-weight: bold;
 	color: #e8cf41;
-	font-size: 20px;
+	font-size: 1.1vw;
 }
+
 
 #registrationSubmit:hover
 {
 	margin: 3% 24.5% 1% 24.5%;
 	width: 50%;
-	border: 3px solid #5b82dd;
+	border: 3px solid #6bc069; /*blue theme: #5b82dd;*/
 	border-radius: 5px;
-	background: #5b82dd;
+	background: #6bc069; /*blue theme: #5b82dd;*/
 	font-family: Arial, Helvetica, sansserif;
 	font-weight: bold;
 	color: #e8cf41;
-	font-size: 20px;
+	font-size: 1.1vw;
 	cursor: pointer;
 }
 
@@ -917,7 +933,7 @@ body
 	font-family: Arial, Helvetica, sansserif;
 	font-weight: bold;
 	color: RGB(110,110,110);
-	font-size: 18px;
+	font-size: 1vw;
 	text-decoration: none;
 }
 
@@ -932,7 +948,7 @@ body
 	font-family: Arial, Helvetica, sansserif;
 	font-weight: bold;
 	color: RGB(110,110,110);
-	font-size: 18px;
+	font-size: 1vw;
 	text-decoration: none;
 	cursor: pointer;
 }
