@@ -127,16 +127,18 @@
 	
 	
 	echo 	'<div id="installForm"><form action="'.htmlspecialchars($_SERVER['PHP_SELF']).'" method="POST">
-				<lable>Username</lable>
-				<input type="text" name="adminName" placeholder="Username">
-				<lable>Password</lable>
-				<input id="newPass" type="password" name="adminPassword" placeholder="Password" onInput="confirmPass()">
-				<lable>Confirm password</lable>
+				<fieldset>
+				<div class="installFormDiv">Username</div>
+				<input type="text" name="adminName" placeholder="Username"></br>
+				<div class="installFormDiv">Password</div>
+				<input id="newPass" type="password" name="adminPassword" placeholder="Password" onInput="confirmPass()"></br>
+				<div class="installFormDiv">Confirm password</div>
 				<input id="newPassConfirm" type="password" name="adminPasswordConfirm" placeholder="Confirm Password" onInput="confirmPass()">
-				<div id="checkMark"></div>
-				<lable>Email</lable>
-				<input type="email" name="adminEmail" placeholder="Email">
+				<div id="checkMark"></div></br>
+				<div class="installFormDiv">Email</div>
+				<input type="email" name="adminEmail" placeholder="Email"></br>
 				<button id="installButton" type="submit" name="progress" value="progress">Proceed</button>
+				</fieldset>
 			</form></div>';
 	
 	echo 	'<form action="'.htmlspecialchars($_SERVER['PHP_SELF']).'" method="POST">
