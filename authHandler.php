@@ -6,6 +6,9 @@
 	define("ANON",0);
 	define("USER",1);
 	define("ADMIN",2);
+	define("WRONG_PASS",1);
+	define("LOGIN_SUCCESS",0);
+	define("SUSPENDED",2);
 
 	if( !isset($_SESSION['permLevel']) )
 	{
@@ -27,6 +30,7 @@
 	function loginUser($username,$password)
 	{
 		require ('connDetails.php');
+		require('userFunctions.php');
 		
 		$connection = new mysqli($database['dbServer'],$database['dbUser'],$database['dbPassword'],$database['dbName']);
 	
@@ -35,11 +39,11 @@
 			die("Database connection failed: ".$connection->connect_error);
 		}
 		
-		$stmt = $connection->prepare("SELECT password, adminflag FROM user WHERE username=?");
+		$stmt = $connection->prepare("SELECT password, adminflag, user_id FROM user WHERE username=?");
 		$stmt->bind_param('s', $username);
 	
 		$stmt->execute();
-		$stmt->bind_result($database_password, $admin);
+		$stmt->bind_result($database_password, $admin,$id);
 		$stmt->fetch();
 		$stmt->free_result();
 		$stmt->close();
@@ -53,21 +57,28 @@
 		{
 			if(password_verify($password, $database_password))
 			{
-				if($admin)
+				if(!isSuspended($id))
 				{
-					$_SESSION['permLevel'] = ADMIN;
+					if($admin)
+					{
+						$_SESSION['permLevel'] = ADMIN;
+					}
+					else
+					{
+						$_SESSION['permLevel'] = USER;
+					}
+					
+					$_SESSION['user_name'] = $username;
+					return LOGIN_SUCCESS;
 				}
 				else
 				{
-					$_SESSION['permLevel'] = USER;
+					return SUSPENDED;
 				}
-				
-				$_SESSION['user_name'] = $username;
-				return true;
 			}
 			else
 			{
-				return false;
+				return WRONG_PASS;
 			}
 		}
 		else
@@ -79,7 +90,7 @@
 	
 	function changePassword($username,$from,$to)
 	{
-		if(loginUser($username, $from))
+		if(loginUser($username, $from) == LOGIN_SUCCESS)
 		{
 			changePass($username, $to);
 		}
@@ -223,7 +234,7 @@
 	
 	function changeEmail($username,$from,$newEmail)
 	{
-		if(loginUser($username, $from))
+		if(loginUser($username, $from) == LOGIN_SUCCESS)
 		{		
 			require ('connDetails.php');
 				

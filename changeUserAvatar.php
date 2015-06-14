@@ -12,7 +12,7 @@ if(isAuthorized(USER))
 {
 	if(isset($_POST['changeUserAvatar'],$_FILES['avatar']))
 	{
-		if(loginUser($_SESSION['user_name'], $_POST['passForAvatar']))
+		if(loginUser($_SESSION['user_name'], $_POST['passForAvatar']) == LOGIN_SUCCESS)
 		{
 			$connection = new mysqli($database['dbServer'],$database['dbUser'],$database['dbPassword'],$database['dbName']);
 	

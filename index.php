@@ -4,7 +4,7 @@
 	require_once ('authHandler.php');
 	require_once ('styleFunctions.php');
 	
-	$loginResult = true;
+	$loginResult = LOGIN_SUCCESS;
 	
 	if(isset($_GET['logout']))
 	{
@@ -90,13 +90,24 @@
 				
 				<div id="content">
 					<?php
-						if((isset($_GET['login']) && $_GET['login'] == 'true') || !$loginResult)
+						if((isset($_GET['login']) && $_GET['login'] == 'true') || $loginResult != LOGIN_SUCCESS)
 						{
-							if(!$loginResult)
+							switch($loginResult)
 							{
-								echo' <div id="loginError">
-										Wrong username or password
+								case WRONG_PASS:
+									echo' <div id="loginError">
+											Wrong username or password
+										  </div>';
+									break;
+									
+								case SUSPENDED:
+									echo' <div id="loginError">
+										You were suspended!
 									  </div>';
+									break;
+									
+								default:
+									break;
 							}
 							
 							include('login.php');

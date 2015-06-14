@@ -31,7 +31,17 @@
 				<?php 
 						if(!isset($_SESSION['user_name']) && isset($_POST['username']) && $_POST['password'])
 						{
-							loginUser($_POST['username'],$_POST['password']);
+							$loginSuccess = loginUser($_POST['username'],$_POST['password']);
+							switch($loginSuccess)
+							{
+								case LOGIN_SUCCESS:
+									echo "<p>Login Successful</p>";
+									break;
+									
+								default:
+									echo "<p>Login failed</p>";
+									break;
+							}
 						}
 						if(isset($_SESSION['user_name']) && isset($_SESSION['permLevel']))
 						{
