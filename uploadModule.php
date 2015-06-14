@@ -1,5 +1,6 @@
 <?php
 	require_once ('authHandler.php');
+	require_once ('stripFunctions.php');
 	if(isAuthorized(ADMIN))
 	{
 		if(!defined('includeConnDetails'))
@@ -60,7 +61,7 @@
 							if(empty($releaseDate) )
 							{
 								$releaseDate = date('Y-m-d G:i:s');
-								sleep(1);
+								//sleep(1);
 							}
 							
 							$stmt = $connection->prepare("INSERT INTO strip (stripname,filename,datapath,annotation,releasedate,fk_webcomic_id) VALUES (?,?,?,?,?,?)");
@@ -78,6 +79,8 @@
 					
 				}
 			}
+			
+			while(!sanitizeDatabase());
 			$connection->close();
 			
 		}

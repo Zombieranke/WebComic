@@ -3,6 +3,11 @@
 	{
 		define('includeConnDetails', TRUE);
 	}
+	if(!defined("MODE_FORWARD"))
+	{
+		define("MODE_FORWARD", 1);
+		define("MODE_BACKWARD",-1);
+	}
 	
 	function fetchStrip($id)
 	{
@@ -298,6 +303,93 @@
 		$connection->close();
 	
 		return $id;
+	}
+	
+	function repositionStrip($stripId, $mode)
+	{
+		$changeStrip;
+		if($mode == MODE_FORWARD)
+		{
+			$changeStrip = getNextId($stripId);	
+		}
+		elseif($mode == MODE_BACKWARD)
+		{
+			$changeStrip = getPreviousId($stripId);	
+		}
+		
+		if(empty($changeStrip))
+		{
+			return;
+		}
+		
+		require('connDetails.php');
+		
+		$connection = new mysqli($database['dbServer'],$database['dbUser'],$database['dbPassword'],$database['dbName']);
+		
+		if($connection->errno != 0)
+		{
+			die("Database connection failed: ".$connection->connect_error);
+		}
+		
+		$stmt = $connection->prepare("SELECT releasedate FROM strip WHERE strip_id = ?");
+		$stmt->bind_param("i", $stripId);
+		$stmt->execute();
+		$stmt->bind_result($source);
+		$stmt->fetch();
+		
+		$stmt->bind_param("i", $changeStrip);
+		$stmt->execute();
+		$stmt->bind_result($target);
+		$stmt->fetch();
+		$stmt->free_result();
+		$stmt->close();
+		
+		$stmt2 = $connection->prepare("UPDATE strip SET releasedate = ? WHERE strip_id = ?");
+		$stmt2->bind_param("si",$source, $changeStrip);
+		$stmt2->execute();
+		
+		$stmt2->bind_param("si",$target, $stripId);
+		$stmt2->execute();
+		$stmt2->free_result();
+		$stmt2->close();
+		$connection->close();
+	}
+	
+	function sanitizeDatabase()
+	{
+		require('connDetails.php');
+		
+		$connection = new mysqli($database['dbServer'],$database['dbUser'],$database['dbPassword'],$database['dbName']);
+		
+		if($connection->errno != 0)
+		{
+			die("Database connection failed: ".$connection->connect_error);
+		}
+		
+		$stmt = $connection->prepare("SELECT releasedate, COUNT(*) AS c FROM strip GROUP BY releasedate HAVING c>1");
+		$stmt->execute();
+		$stmt->bind_result($timestamp,$c);
+		$stmt->store_result();
+		if($stmt->num_rows == 0)
+		{
+			return true;
+		}
+		
+		$stmt2 = $connection->prepare("UPDATE strip SET releasedate = DATE_ADD(releasedate, INTERVAL 1 second) WHERE releasedate = ? LIMIT 1");
+		
+		while($stmt->fetch())
+		{
+			$stmt2->bind_param("s", $timestamp);
+			$stmt2->execute();
+		}
+		$stmt->close();
+		$stmt2->close();
+		
+		$connection->close();
+		
+		
+		return false;
+		
 	}
 	
 	function getWebcomics()
@@ -619,8 +711,6 @@
 		return $commentArray;
 		
 	}
-	
-	
 	
 	function createCommentDiv($stripId, $commentId, $username, $avatar, $timestamp, $comment, $adminflag)
 	{

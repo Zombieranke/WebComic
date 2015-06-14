@@ -3,12 +3,15 @@
 	{
 		define('includeConnDetails', TRUE);
 	}
-	define("ANON",0);
-	define("USER",1);
-	define("ADMIN",2);
-	define("WRONG_PASS",1);
-	define("LOGIN_SUCCESS",0);
-	define("SUSPENDED",2);
+	if(!defined("ANON"))
+	{
+		define("ANON",0);
+		define("USER",1);
+		define("ADMIN",2);
+		define("WRONG_PASS",1);
+		define("LOGIN_SUCCESS",0);
+		define("SUSPENDED",2);
+	}
 
 	if( !isset($_SESSION['permLevel']) )
 	{
