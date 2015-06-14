@@ -202,6 +202,11 @@ html
 	height: auto;
 }
 
+.blank
+{
+	color: RGBA(0,0,0,1);
+}
+
 
 
 .navRandom img
