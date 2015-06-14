@@ -13,25 +13,30 @@
 		$comicList .= '<option value='.$comic['id'].'>'.$comic['title'].'</option>';
 	}
 
-	echo '<form id="logoSelect" action="'.htmlspecialchars($_SERVER['PHP_SELF']).'?selection='.$_GET['selection'].'" method="POST" > ';
-		getLogo();
-	echo '<select name="comicSelection" id="comicSelection">';
-	echo $comicList;
-	echo '</select>';
-	echo '<input id="changeLogoButton" type="submit" name="changeLogoButton" value="Select Logo" />';
-	echo '</form>';
+	echo '<fieldset id="changeLogoApplication">';
+	echo 	'<h1>Select an uploaded Logo</h1>';
+	echo 	'<form id="logoSelect" action="'.htmlspecialchars($_SERVER['PHP_SELF']).'?selection='.$_GET['selection'].'" method="POST" > ';
+				getLogo();
+	echo 		'<select name="comicSelection" id="comicSelection">';
+	echo 			$comicList;
+	echo 		'</select>';
+	echo 	'<input id="changeLogoButton" type="submit" name="changeLogoButton" value="Select Logo" />';
+	echo 	'</form>';
 	
-	echo '<form id="logoForm" action="'.htmlspecialchars($_SERVER['PHP_SELF']).'?selection='.$_GET['selection'].'" method="POST" enctype="multipart/form-data" onReset="purgeForm()">
-			<fieldset>
-				<select name="webcomic" id="comicSelection">';
-	echo $comicList;
+	echo 	'<h1>Upload a new Logo</h1>';
+	echo 	'<form id="logoForm" action="'.htmlspecialchars($_SERVER['PHP_SELF']).'?selection='.$_GET['selection'].'" method="POST" enctype="multipart/form-data" onReset="purgeForm()">';
+	
+				
+	echo		'<select name="webcomic" id="comicSelection">';
+	echo 			$comicList;
 	echo 		'</select>
 				<input type="file" name="picture">
 				<br/>
 				<input type="reset" name="resetForm" value="Reset" />
 				<input type="submit" name="uploadLogo" value="Upload Logo"/>
-				</fieldset>
-			</form>';
+				
+			</form>
+		</fieldset>';
 			
 	if(isset($_POST['webcomic']) && isset($_FILES['picture']))
 	{

@@ -7,7 +7,7 @@
 html
 {
 	width: 100%;
-	background-color: #ffffff;
+	background-color: beige;
 }
 
 body
@@ -1113,5 +1113,50 @@ body
 	font-weight: bold;
 }
 
+#changeLogoApplication h1, #cssChanger h1
+{
+	font-size: 1.3vw;
+	color: #4faf4d;
+	margin-top: 1%;
+	margin-left: 2%;
+	margin-bottom: 1%;
+}
 
+#changeLogoApplication form, #cssChanger form
+{
+	margin-left: 2%;
+	margin-bottom: 2%;
+}
 
+#changeLogoApplication select, #cssChanger select
+{
+	width: 22%;
+	margin-right: 2%;
+	font-size: 0.75vw;
+	line-height: 110%;
+}
+
+#changeLogoApplication input
+{
+	width: 15%;
+	margin-right: 1%;
+	font-size: 0.75vw;
+	line-height: 110%;
+	margin-top: 1%;
+}
+
+#changeLogoApplication input[type=file],  #cssChanger input[type=file]
+{
+	width: 60%;
+	margin-right: 1%;
+	margin-top: 0%;
+}
+
+ #cssChanger input
+ {
+	width: 20%;
+	margin-right: 1%;
+	font-size: 0.75vw;
+	line-height: 110%;
+	margin-top: 1%;
+}

@@ -88,8 +88,10 @@
 			}
 		}
 		
+		echo '<fieldset id="cssChanger">';
+		echo '<h1>Select an uploaded CSS File</h1>';
 		echo '<form id="cssSelect" action="'.htmlspecialchars($_SERVER['PHP_SELF']).'?selection='.$_GET['selection'].'" method="POST" > ';
-			getCss();
+				getCss();
 		echo '<select name="comicSelection" id="comicSelection">'; 
 				$webcomics = getWebcomics();
 				foreach ($webcomics as $comic)
@@ -100,11 +102,11 @@
 		echo '<input id="changeCssButton" type="submit" name="changeCssButton" value="Select Css" />';
 		echo '</form>';
 		
+		echo 	'<h1>Upload a new CSS File</h1>';
 		echo ' <form id="uploadCssForm" action="'.htmlspecialchars($_SERVER['PHP_SELF']).'?selection='.$_GET['selection'].'" method="POST" enctype="multipart/form-data">
-					<fieldset>
-						<input id="uploadCss" type="file" name="uplCss"/>
-					</fieldset>
-					<input id="uploadCssButton" type="submit" name="uploadCssButton" value="Upload new css file" />
+					<input id="uploadCss" type="file" name="uplCss"/> </br>
+					<input id="uploadCssButton" type="submit" name="uploadCssButton" value="Upload CSS File" />
 				</form>';
+		echo '</fieldset>';
 	}
 ?>
