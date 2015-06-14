@@ -7,6 +7,11 @@
 html
 {
 	width: 100%;
+	background-color: #ffffff;
+}
+
+body
+{
 	background-color: beige;
 }
 
@@ -16,6 +21,7 @@ html
     width: 60%;
     margin-right: 20%;
     margin-left: 20%;
+    background-color: #ffffff;
 }
 
 
@@ -35,6 +41,11 @@ html
 	height: auto;
 }
 
+.logo
+{
+	margin-bottom: -0.5%;
+}
+
 #navigation li
 {
     display: inline;
@@ -45,15 +56,18 @@ html
 
 #navigation
 {
-	margin-top: 1%;
-    width: 99%;
+	padding-top: 1%;
+	padding-bottom: 1%;
+    width: 100%;
     text-align: center;
-    font-family: "Gabriola","MV Boli", "Segoe Print", "Comic Sans MS";
+    font-family: "Calibri","Gabriola","MV Boli", "Segoe Print", "Comic Sans MS";
+    border-bottom: 3px solid #b9dfad;
+    background: #b9dfad;
 }
 
 #navigation a:link, #navigation a:visited
 {
-	font-size: 300%;
+	font-size: 250%;
 	line-height: 100%;
 	color: #000000;
 	text-decoration: none;
@@ -62,7 +76,7 @@ html
 
 #navigation a:hover, #navigation a:active
 {
-	font-size: 300%;
+	font-size: 250%;
 	color: #FF0000;
 	text-decoration: none;
 }
@@ -200,11 +214,13 @@ html
 {
 	width: 6%;
 	height: auto;
+	background: #bfe2b8;
 }
 
 .blank
 {
 	color: RGBA(0,0,0,1);
+	background: RGBA(0,0,0,1);
 }
 
 
