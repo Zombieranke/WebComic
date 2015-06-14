@@ -62,9 +62,16 @@
 		}
 		else
 		{
+			$maxRand=50;
+			$count = 0;
 			$nextId = getNextId($curId);
 			$previousId = getPreviousId($curId);
-			$randomId = getRandomId();
+			do
+			{
+				$randomId = getRandomId();
+				$count++;
+			}
+			while($randomId==$curId && $count < $maxRand);
 			$firstId = getFirstId();
 			$hasNext=false;
 			$hasPrevious = false;
