@@ -539,7 +539,8 @@ body
 {
 	float: left;
 	margin: 2%;
-	width: 28.5%;
+	width: 9vw;
+	height: 14.5vw;
 	border: solid 2px #4faf4d;
 	border-radius: 5px;
 	overflow: hidden;
@@ -557,8 +558,8 @@ body
 {
 	margin-left: 5%;
 	margin-right: 5%;
-	width: 90%;
-	height: auto;
+	width: 8vw;
+	max-height: 8vw;
 }
 
 
