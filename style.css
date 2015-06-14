@@ -540,7 +540,7 @@ body
 	float: left;
 	margin: 2%;
 	width: 9vw;
-	height: 14.5vw;
+	height: 15vw;
 	border: solid 2px #4faf4d;
 	border-radius: 5px;
 	overflow: hidden;
@@ -571,6 +571,59 @@ body
 	margin-left: 3%;
 }
 
+.editStripDeleteButton
+{
+	
+}
+
+.editStripForwardButton img, .editStripBackwardButton img
+{
+	width: 100%;
+}
+
+.editStripForwardButton, .editStripBackwardButton
+{
+	background: none;
+	border: none;
+	cursor: pointer;
+	width: 100%;
+}
+
+.editStripForwardForm, .editStripBackwardForm
+{
+	display: inline-block;
+	width: 20%;
+}
+
+.editStripOrder
+{
+	display: inline-block;
+	font-size: 0.8vw;
+	font-weight: bold;
+	color: #ff0000;
+	text-align: center;
+	line-height: 100%;
+}
+
+.editStripOrderDiv
+{
+	text-align: center;
+}
+
+.editStripDeleteButton
+{
+	font-size: 0.8vw;
+	font-weight: bold;
+	color: #ff0000;
+}
+
+.editStripDeleteForm
+{
+	margin-top: 3%;
+	text-align: center;
+}
+
+
 #uploadForm .inputFile
 {
 	margin: 1%;
@@ -583,6 +636,7 @@ body
 	margin-left: 2%;
 	margin-top: 1%;
 	display: inline-block;
+	width: 45%;
 }
 
 #uploadForm .inputDate, #uploadForm .inputText
@@ -1054,4 +1108,6 @@ body
 	color: #ff0000;
 	font-weight: bold;
 }
+
+
 
