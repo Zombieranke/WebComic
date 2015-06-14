@@ -532,6 +532,7 @@ body
 {
 	font-size: 1.4vw;
 	margin: 1%;
+	margin-left: 2%;
 }
 
 
@@ -540,7 +541,7 @@ body
 	float: left;
 	margin: 2%;
 	width: 9vw;
-	height: 15vw;
+	height: 17vw;
 	border: solid 2px #4faf4d;
 	border-radius: 5px;
 	overflow: hidden;
@@ -551,7 +552,7 @@ body
 	font-size: 1vw;
 	margin: 1%;
 	margin-right: 3%;
-	margin-left: 3%;
+	margin-left: 5%;
 }
 
 .editThumb
@@ -567,14 +568,10 @@ body
 {
 	font-size: 0.75vw;
 	margin: 1%;
-	margin-right: 3%;
-	margin-left: 3%;
+	margin-right: 5%;
+	margin-left: 5%;
 }
 
-.editStripDeleteButton
-{
-	
-}
 
 .editStripForwardButton img, .editStripBackwardButton img
 {
@@ -607,6 +604,7 @@ body
 
 .editStripOrderDiv
 {
+	margin-top: 2%;
 	text-align: center;
 }
 
@@ -1049,6 +1047,12 @@ body
 	text-align: center;
 	font-weight: bold;
 	margin-top: 2%;
+}
+
+#userOverview h1
+{
+	margin-left: 3%;
+	font-size: 1.5vw;
 }
 
 .manageUserAvatar
