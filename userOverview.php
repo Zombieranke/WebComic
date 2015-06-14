@@ -89,7 +89,7 @@
 				{
 					echo 		"<form action=\"".htmlspecialchars($_SERVER['PHP_SELF']).'?selection='.$_GET['selection']."\" method=\"POST\">";
 					echo 			"<button class=\"manageUserBanButton\" type=\"submit\" name=\"ban\" value=\"".$user['id']."\">Ban this user</button>";
-					echo			"<div class=\"userBanInfo\">You may unban him at any time</div>";
+					echo			"<div class=\"userBanInfo\">You may unban at any time</div>";
 					echo 		"</form>";
 				}
 				else
