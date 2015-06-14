@@ -5,13 +5,6 @@
 	
 	if(isAuthorized(ADMIN))
 	{
-		echo "	<head>
-					<link type=\"text/css\" rel=\"stylesheet\" href=\"style.css\">
-					<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"/>
-					<title>
-						W3BC0M1C
-					</title>
-				</head>";
 		
 		if(isset($_POST['delete']))
 		{

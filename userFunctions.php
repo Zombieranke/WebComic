@@ -35,7 +35,7 @@
 		$stmt->close();
 		$connection->close();
 		
-		return $file;
+		return $result;
 	}
 	
 	function isSuspended($userId)
@@ -58,8 +58,11 @@
 		
 		$stmt->free_result();
 		$stmt->close();
-	
-		if( strtotime($limit) < strtotime('now') )
+		
+		$lim = DateTime::createFromFormat("Y-m-d H:i:s", $limit);
+		$now = new DateTime();
+		
+		if( $lim > $now )
 		{
 			return true;
 		}
@@ -69,6 +72,11 @@
 	function banUser($userId)
 	{
 		suspendUser($userId,36500);
+	}
+	
+	function unbanUser($userId)
+	{
+		suspendUser($userId,0);
 	}
 	
 	function suspendUser($userId, $timeperiod)
@@ -82,8 +90,8 @@
 			die("Database connection failed: ".$connection->connect_error);
 		}
 		
-		$stmt = $connection->prepare("UPDATE user SET suspended = DATE_ADD(now(), INTERVAL ? day) WHERE USER_ID = ?");
-		$stmt->bind_param("ii", $userId, $timeperiod);
+		$stmt = $connection->prepare("UPDATE user SET suspended = DATE_ADD(NOW(), INTERVAL ? day) WHERE user_id = ?");
+		$stmt->bind_param("ii", $timeperiod, $userId);
 		$stmt->execute();
 		
 		$stmt->free_result();
