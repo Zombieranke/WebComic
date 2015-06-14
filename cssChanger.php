@@ -99,12 +99,13 @@
 					echo '<option value='.$comic['id'].'>'.$comic['title'].'</option>';
 				}
 		echo '</select>';
-		echo '<input id="changeCssButton" type="submit" name="changeCssButton" value="Select Css" />';
+		echo '<input id="changeCssButton" type="submit" name="changeCssButton" value="Select CSS File" />';
 		echo '</form>';
 		
 		echo 	'<h1>Upload a new CSS File</h1>';
 		echo ' <form id="uploadCssForm" action="'.htmlspecialchars($_SERVER['PHP_SELF']).'?selection='.$_GET['selection'].'" method="POST" enctype="multipart/form-data">
 					<input id="uploadCss" type="file" name="uplCss"/> </br>
+					<input type="reset" name="resetForm" value="Reset" />
 					<input id="uploadCssButton" type="submit" name="uploadCssButton" value="Upload CSS File" />
 				</form>';
 		echo '</fieldset>';
