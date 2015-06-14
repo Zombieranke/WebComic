@@ -55,7 +55,7 @@
 				echo 	"<div class=\"editStrip\">";
 				echo 		"<h2>".$strip['stripname']."</h2>";
 				echo 		"<img class=\"editThumb\" src=\"".$strip['file']."\"/>";
-				echo 		"<p>Release Date: ".$strip['date']."</p>";
+				echo 		"<p>Release Date:</br>".$strip['date']."</p>";
 				echo 		"<p>".$strip['filename']."</p>";
 				echo		"<div class=\"editStripOrderDiv\">";
 				echo 		"<form class=\"editStripForwardForm\" action=\"".htmlspecialchars($_SERVER['PHP_SELF']).'?selection='.$_GET['selection']."\" method=\"POST\">";
