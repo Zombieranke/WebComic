@@ -44,6 +44,8 @@ body
 .logo
 {
 	margin-bottom: -0.5%;
+	margin-top: -1px;
+	margin-left: -1px;
 }
 
 #navigation li
@@ -58,11 +60,12 @@ body
 {
 	padding-top: 1%;
 	padding-bottom: 1%;
-    width: 100%;
+	margin-left: -1px;
+    width: 100% +1px;
     text-align: center;
     font-family: "Calibri","Gabriola","MV Boli", "Segoe Print", "Comic Sans MS";
-    border-bottom: 3px solid #b9dfad;
-    background: #b9dfad;
+    border: 3px solid #4faf4d;
+    background: #67b965; /* saftig, dunkel: 4faf4d */
 }
 
 #navigation a:link, #navigation a:visited
@@ -195,8 +198,9 @@ body
 {
 	text-align: center;
 	font-family: "Calibri","Arial",sans-serif;
-	font-size: 3vw;
+	font-size: 2.5vw;
 	font-weight: bold;
+	margin-top: 1%;
 }
 
 .comic_navigation
@@ -212,22 +216,22 @@ body
 
 .comic_navigation img
 {
-	width: 6%;
+	width: 5%;
 	height: auto;
-	background: #bfe2b8;
+	/*background: #bfe2b8; */
 }
 
-.blank
+.comic_navigation .blank img
 {
-	color: RGBA(0,0,0,1);
-	background: RGBA(0,0,0,1);
+	color: RGBA(0,0,0,0);
+	background: RGBA(0,0,0,0);
 }
 
 
 
 .navRandom img
 {
-	width: 24%;
+	width: 16%;
 	height: auto;
 }
 
@@ -235,8 +239,8 @@ body
 .comic_navigation li
 {
 	display: inline;
-	margin-left: 4%;
-    margin-right: 4%;
+	margin-left: 2%;
+    margin-right: 2%;
 }
 
 
