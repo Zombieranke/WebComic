@@ -72,13 +72,24 @@
 					$avatar = "avatars/standardAvatar.jpg";
 				}
 				echo 	"<div class=\"manageUser\">";
-				echo 		"<h2>".$user['name']."</h2>";
+				echo		"<fieldset>";
 				echo 		"<img class=\"manageUserAvatar\" src=\"".$avatar."\"/>";
+				echo 	"<div class=\"manageUserData\">";
+				echo 		"<h2>".$user['name']."</h2>";
+				
 				echo 		"<p>Email: ".$user['email']."</p>";
+				
+				echo 		"<form action=\"".htmlspecialchars($_SERVER['PHP_SELF']).'?selection='.$_GET['selection']."\" method=\"POST\">";
+				echo 			"<label>Suspend user (days): </label>";
+				echo 			"<input type=\"number\" class=\"manageUserSuspendTime\" name=\"suspendtime\"/>";
+				echo 			"<button class=\"manageUserSuspendButton\" type=\"submit\" name=\"suspend\" value=\"".$user['id']."\">Suspend this user</button>";
+				echo 		"</form>";
+				
 				if(!isSuspended($user['id']))
 				{
 					echo 		"<form action=\"".htmlspecialchars($_SERVER['PHP_SELF']).'?selection='.$_GET['selection']."\" method=\"POST\">";
 					echo 			"<button class=\"manageUserBanButton\" type=\"submit\" name=\"ban\" value=\"".$user['id']."\">Ban this user</button>";
+					echo			"<div class=\"userBanInfo\">You may unban him at any time</div>";
 					echo 		"</form>";
 				}
 				else
@@ -87,15 +98,13 @@
 					echo 			"<button class=\"manageUserUnbanButton\" type=\"submit\" name=\"unban\" value=\"".$user['id']."\">Unban this user</button>";
 					echo 		"</form>";
 				}
-				echo 		"<form action=\"".htmlspecialchars($_SERVER['PHP_SELF']).'?selection='.$_GET['selection']."\" method=\"POST\">";
-				echo 			"<label>Suspend user (days): </label>";
-				echo 			"<input type=\"number\" class=\"manageUserSuspendTime\" name=\"suspendtime\"/>";
-				echo 			"<button class=\"manageUserSuspendButton\" type=\"submit\" name=\"suspend\" value=\"".$user['id']."\">Suspend this user</button>";
-				echo 		"</form>";
+				
 				echo 		"<form action=\"".htmlspecialchars($_SERVER['PHP_SELF']).'?selection='.$_GET['selection']."\" method=\"POST\">";
 				echo 			"<button class=\"manageUserDeleteButton\" type=\"submit\" name=\"delete\" value=\"".$user['id']."\">Delete this user</button>";
+				echo			"<div class=\"userDeleteInfo\">This is irreversible!</div>";
 				echo 		"</form>";
-				
+				echo		"</div>";
+				echo		"</fieldset>";
 				echo 	"</div>";
 			}
 			echo 	"</fieldset>";

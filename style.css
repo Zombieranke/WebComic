@@ -996,3 +996,62 @@ body
 	font-weight: bold;
 	margin-top: 2%;
 }
+
+.manageUserAvatar
+{
+	margin: 1%;
+	width: 20%;
+}
+
+.manageUserData
+{
+	display: inline-block;
+	font-family: 'Calibri','Arial',sans-serif;
+	margin-left: 2%;
+	vertical-align: top;
+	width: 70%;
+	font-size: 1vw;
+	margin-bottom: 1%;
+	margin-top: 0.5%;
+}
+
+.manageUserData h2
+{
+	font-size: 1.3vw;
+	line-height: 110%;
+	
+}
+
+.manageUserData form
+{
+	margin-bottom: 2%;
+}	
+
+.manageUserData button
+{
+	width: 30%;
+}
+
+.userDeleteInfo
+{
+	margin-left: 2%;
+	display: inline;
+	font-size: 1vw;
+	color: #ff0000;
+	font-weight: bold;
+}
+
+
+.userBanInfo
+{
+	margin-left: 2%;
+	display: inline;
+	font-size: 0.9vw;
+}
+
+.manageUserDeleteButton
+{
+	color: #ff0000;
+	font-weight: bold;
+}
+
