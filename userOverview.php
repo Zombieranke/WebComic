@@ -73,7 +73,7 @@
 				}
 				echo 	"<div class=\"manageUser\">";
 				echo		"<fieldset>";
-				echo 		"<img class=\"manageUserAvatar\" src=\"".$avatar."\"/>";
+				echo 		"<img class=\"manageUserAvatar\" src=\"avatars/".$avatar."\"/>";
 				echo 	"<div class=\"manageUserData\">";
 				echo 		"<h2>".$user['name']."</h2>";
 				

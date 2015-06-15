@@ -543,7 +543,7 @@
 		
 		if(isAuthorized(USER))
 		{
-			$outputString .= "<form action=\"index.php?id=".$stripId."\" method=\"POST\">";
+			$outputString .= "<form action=\"index.php?id=".$stripId."#comic\" method=\"POST\">";
 			
 			if($alreadyFavourited == 1)
 			{

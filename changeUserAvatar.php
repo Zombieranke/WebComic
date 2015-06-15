@@ -80,9 +80,10 @@ if(isAuthorized(USER))
 	}
 
 
+	$profile = isset($_GET['profile']) ? 'profile&' : '';
 
 
-	echo '	<form id="newAvatarForm" action="index.php?profile&selection='.$_GET['selection'].'" method="POST" enctype="multipart/form-data">
+	echo '	<form id="newAvatarForm" action="'.htmlspecialchars($_SERVER['PHP_SELF']).'?'.$profile.'selection='.$_GET['selection'].'" method="POST" enctype="multipart/form-data">
 				<fieldset>
 					<input id="avatar" class="avatar" type="file" name="avatar"/> </br>
 					<input id="newAvatarPass" type="password" name="passForAvatar" placeholder="Enter your password here"/> </br>
