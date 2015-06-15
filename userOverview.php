@@ -69,7 +69,7 @@
 				}
 				else 
 				{
-					$avatar = "avatars/standardAvatar.jpg";
+					$avatar = "standardAvatar.jpg";
 				}
 				echo 	"<div class=\"manageUser\">";
 				echo		"<fieldset>";
