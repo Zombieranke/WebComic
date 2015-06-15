@@ -59,7 +59,7 @@
 			<fieldset>
 				<div class="logo">
 					<a href="index.php">
-						<img src="<?php $logo = getAppliedLogo($_SESSION['webcomicId']); $logo = $logo ? $logo : "pictures/logo.jpg"; echo $logo;?>" alt="Very cool Logo">
+						<img src="<?php $logo = getAppliedLogo($_SESSION['webcomicId']); $logo = $logo ? $logo : "logos/logo.jpg"; echo $logo;?>" alt="Very cool Logo">
 					</a>
 				</div>
 				<ul id="navigation">
